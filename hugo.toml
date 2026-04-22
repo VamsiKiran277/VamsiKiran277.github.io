@@ -51,6 +51,11 @@ theme = 'PaperMod'
         url = "https://github.com/VamsiKiran277"
 
     [[params.socialIcons]]
+    name = "email"
+    url = "mailto:vamsikiran167@gmail.com"
+    title = "Gmail"
+
+    [[params.socialIcons]]
         name = "linkedin"
         url = "https://www.linkedin.com/in/vamsi-kiran-mekala-57135424a/"
 

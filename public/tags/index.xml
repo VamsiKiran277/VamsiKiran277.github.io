@@ -6,48 +6,13 @@
     <description>Recent content in Tags on Vamsi Kiran | Firmware Engineer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>ADC</title>
-      <link>http://localhost:1313/tags/adc/</link>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/adc/</guid>
-      <description></description>
-    </item>
     <item>
       <title>Bare-Metal</title>
       <link>http://localhost:1313/tags/bare-metal/</link>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/bare-metal/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>C</title>
-      <link>http://localhost:1313/tags/c/</link>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/c/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Computer Architecture</title>
-      <link>http://localhost:1313/tags/computer-architecture/</link>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/computer-architecture/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Data Structures</title>
-      <link>http://localhost:1313/tags/data-structures/</link>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/data-structures/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Optimization</title>
-      <link>http://localhost:1313/tags/optimization/</link>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/optimization/</guid>
       <description></description>
     </item>
     <item>
@@ -153,6 +118,41 @@
       <link>http://localhost:1313/tags/raspberry-pi/</link>
       <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/raspberry-pi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ADC</title>
+      <link>http://localhost:1313/tags/adc/</link>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/adc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>C</title>
+      <link>http://localhost:1313/tags/c/</link>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/c/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Computer Architecture</title>
+      <link>http://localhost:1313/tags/computer-architecture/</link>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/computer-architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Structures</title>
+      <link>http://localhost:1313/tags/data-structures/</link>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/data-structures/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Optimization</title>
+      <link>http://localhost:1313/tags/optimization/</link>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/optimization/</guid>
       <description></description>
     </item>
   </channel>
