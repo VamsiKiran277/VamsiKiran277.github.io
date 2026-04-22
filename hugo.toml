@@ -1,4 +1,4 @@
-baseURL = 'http://localhost/'
+baseURL = 'https://vamsikiran277.github.io/'
 languageCode = 'en-us'
 title = 'Vamsi Kiran | Firmware Engineer'
 theme = 'PaperMod'
