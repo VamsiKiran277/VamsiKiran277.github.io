@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>C&#43;&#43; on Vamsi Kiran | Firmware Engineer</title>
+    <link>http://localhost:1313/tags/c&#43;&#43;/</link>
+    <description>Recent content in C&#43;&#43; on Vamsi Kiran | Firmware Engineer</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Smart Asset Tracker &amp; Telemetry Dashboard</title>
+      <link>http://localhost:1313/projects/smart-asset-tracker/</link>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/smart-asset-tracker/</guid>
+      <description>&lt;h3 id=&#34;the-project-overview&#34;&gt;The Project Overview&lt;/h3&gt;
+&lt;p&gt;Engineered a secure telemetry pipeline to synchronize high-G impact data from a Raspberry Pi edge device to the cloud, complete with a custom real-time visualization dashboard.&lt;/p&gt;
+&lt;h3 id=&#34;technical-highlights&#34;&gt;Technical Highlights&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;IoT Cloud Integration:&lt;/strong&gt; Configured &lt;strong&gt;MQTT (Paho C)&lt;/strong&gt; to sync data to &lt;strong&gt;HiveMQ Cloud&lt;/strong&gt;, implementing &lt;strong&gt;SSL/TLS encryption&lt;/strong&gt; via port 8883.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Custom Qt Dashboard:&lt;/strong&gt; Developed a visualization dashboard in &lt;strong&gt;C++ (Qt 6)&lt;/strong&gt;, parsing asynchronous &lt;strong&gt;JSON&lt;/strong&gt; payloads to visualize 3-axis vibration data on a live-scrolling UI.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Asynchronous Event Handling:&lt;/strong&gt; Architected an interrupt-driven system using &lt;strong&gt;libgpiod&lt;/strong&gt; to monitor GPIO triggers from an &lt;strong&gt;ADXL345&lt;/strong&gt; accelerometer, eliminating CPU polling overhead.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hardware Interface:&lt;/strong&gt; Developed custom I2C drivers implementing &lt;strong&gt;Two’s Complement&lt;/strong&gt; sign-extension for raw data processing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;(Screenshot coming soon&amp;hellip;)&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
