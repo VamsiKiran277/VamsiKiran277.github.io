@@ -6,25 +6,64 @@
     <description>Recent content in C on Vamsi Kiran | Firmware Engineer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/c/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Smart Asset Tracker &amp; Telemetry Dashboard</title>
-      <link>http://localhost:1313/projects/smart-asset-tracker/</link>
-      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/projects/smart-asset-tracker/</guid>
-      <description>&lt;h3 id=&#34;the-project-overview&#34;&gt;The Project Overview&lt;/h3&gt;
-&lt;p&gt;Engineered a secure telemetry pipeline to synchronize high-G impact data from a Raspberry Pi edge device to the cloud, complete with a custom real-time visualization dashboard.&lt;/p&gt;
-&lt;h3 id=&#34;technical-highlights&#34;&gt;Technical Highlights&lt;/h3&gt;
+      <title>ZX-8080 MCU: Bare-Metal Peripheral Control</title>
+      <link>http://localhost:1313/projects/zx-8080-mcu/</link>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/zx-8080-mcu/</guid>
+      <description>&lt;h3 id=&#34;-technology-stack&#34;&gt;🛠 Technology Stack&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;IoT Cloud Integration:&lt;/strong&gt; Configured &lt;strong&gt;MQTT (Paho C)&lt;/strong&gt; to sync data to &lt;strong&gt;HiveMQ Cloud&lt;/strong&gt;, implementing &lt;strong&gt;SSL/TLS encryption&lt;/strong&gt; via port 8883.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Custom Qt Dashboard:&lt;/strong&gt; Developed a visualization dashboard in &lt;strong&gt;C++ (Qt 6)&lt;/strong&gt;, parsing asynchronous &lt;strong&gt;JSON&lt;/strong&gt; payloads to visualize 3-axis vibration data on a live-scrolling UI.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Asynchronous Event Handling:&lt;/strong&gt; Architected an interrupt-driven system using &lt;strong&gt;libgpiod&lt;/strong&gt; to monitor GPIO triggers from an &lt;strong&gt;ADXL345&lt;/strong&gt; accelerometer, eliminating CPU polling overhead.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Hardware Interface:&lt;/strong&gt; Developed custom I2C drivers implementing &lt;strong&gt;Two’s Complement&lt;/strong&gt; sign-extension for raw data processing.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Language:&lt;/strong&gt; Bare-Metal C (Register-level)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hardware:&lt;/strong&gt; Simulated ZX-8080 MCU (based on technical datasheet)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Key Concepts:&lt;/strong&gt; Memory-Mapped I/O (MMIO), Polling-based State Machines&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h3 id=&#34;system-architecture&#34;&gt;System Architecture&lt;/h3&gt;
-&lt;p&gt;The tracker utilizes a Raspberry Pi as the edge node, interfacing with the ADXL345 over I2C. Data is packed into JSON format and published via MQTT, ensuring low-latency updates to the monitoring station.&lt;/p&gt;</description>
+&lt;h3 id=&#34;the-project-overview&#34;&gt;The Project Overview&lt;/h3&gt;
+&lt;p&gt;This project serves as a deep-dive sandbox for mastering fundamental Firmware Engineering. I simulated the firmware for a custom microcontroller (ZX-8080) to manage ADC conversions and hardware timers based strictly on datasheet specifications.&lt;/p&gt;
+&lt;h3 id=&#34;technical-highlights&#34;&gt;Technical Highlights&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Memory-Mapped I/O (MMIO):&lt;/strong&gt; Manually defined peripheral base addresses and offsets to interface with system control, GPIO, ADC, and Timer registers.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Timer Configuration:&lt;/strong&gt; Calculated and configured &lt;strong&gt;Prescaler (PSC)&lt;/strong&gt; and &lt;strong&gt;Auto-Reload Register (ARR)&lt;/strong&gt; values to derive precise 0.5s hardware delays from an &lt;strong&gt;80MHz&lt;/strong&gt; system clock.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ADC Data Acquisition:&lt;/strong&gt; Developed a polling-based state machine to trigger ADC conversions, processing thermal sensor data for threshold-based thermal management logic.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bit-Level Optimization:&lt;/strong&gt; Utilized &lt;strong&gt;XOR bitwise operations&lt;/strong&gt; for efficient GPIO toggling and manual flag clearing in the Timer Status registers.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;key-learning-outcomes&#34;&gt;Key Learning Outcomes&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Datasheet Implementation:&lt;/strong&gt; Learned to translate raw hexadecimal address maps into functional C drivers.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Clock Trees:&lt;/strong&gt; Gained experience in frequency scaling and deriving timing intervals from system oscillators.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Polling Logic:&lt;/strong&gt; Mastered peripheral status flag management without the overhead of an OS.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/VamsiKiran277/EMBEDDED-small-projects&#34;&gt;View Source on GitHub&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LED Toggle via C Bit-Fields</title>
+      <link>http://localhost:1313/projects/bitfield-optimization/</link>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/bitfield-optimization/</guid>
+      <description>&lt;h3 id=&#34;-technology-stack&#34;&gt;🛠 Technology Stack&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Language:&lt;/strong&gt; C (C11/C17)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hardware:&lt;/strong&gt; ARM-based Register Architecture&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Key Concepts:&lt;/strong&gt; C Bit-Fields, Unions, Memory Alignment&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;the-project-overview&#34;&gt;The Project Overview&lt;/h3&gt;
+&lt;p&gt;A technical exploration into optimizing hardware register maps using C structures. This project focuses on replacing traditional bit-masking with type-safe, readable bit-field mapping.&lt;/p&gt;
+&lt;h3 id=&#34;technical-highlights&#34;&gt;Technical Highlights&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Structured Register Mapping:&lt;/strong&gt; Implemented hardware register maps using &lt;strong&gt;C Bit-Fields&lt;/strong&gt;, providing direct access to individual bits within 32-bit registers.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mask Elimination:&lt;/strong&gt; Removed the need for manual bitwise masks (&lt;code&gt;&amp;amp;&lt;/code&gt;, &lt;code&gt;|&lt;/code&gt;, &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;) by mapping custom structures directly to hardware memory addresses.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data Integrity:&lt;/strong&gt; Managed Two&amp;rsquo;s Complement data formatting and implemented safe status flag clearing logic.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;key-learning-outcomes&#34;&gt;Key Learning Outcomes&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Code Maintainability:&lt;/strong&gt; Learned how Bit-Fields improve code readability for large engineering teams compared to &amp;ldquo;magic number&amp;rdquo; masking.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Compiler Optimization:&lt;/strong&gt; Understood how the compiler handles memory-aligned structures in an embedded context.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/VamsiKiran277/EMBEDDED-small-projects&#34;&gt;View Source on GitHub&lt;/a&gt;{target=&amp;quot;_blank&amp;quot;}&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

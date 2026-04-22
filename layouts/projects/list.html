@@ -1,0 +1,49 @@
+{{ define "main" }}
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+</header>
+
+{{ if .Content }}
+<div class="post-content">
+  {{ .Content }}
+</div>
+{{ end }}
+
+<h2 class="category-divider">Major Projects</h2>
+<div class="projects-grid-container">
+  {{ range (where .Pages "Params.categories" "intersect" (slice "Major Projects")) }}
+  <article class="post-entry project-card">
+    <header class="entry-header">
+      <h2>{{ .Title }}</h2>
+    </header>
+    <section class="entry-content">
+      <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+    </section>
+    <footer class="entry-footer">
+      {{ partial "post_meta.html" . }}
+    </footer>
+    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+  </article>
+  {{ end }}
+</div>
+
+<br><hr><br>
+
+<h2 class="category-divider">Lab & Micro-Projects</h2>
+<div class="projects-grid-container lab-grid">
+  {{ range (where .Pages "Params.categories" "intersect" (slice "Lab & Micro-Projects")) }}
+  <article class="post-entry project-card">
+    <header class="entry-header">
+      <h2>{{ .Title }}</h2>
+    </header>
+    <section class="entry-content">
+      <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+    </section>
+    <footer class="entry-footer">
+      {{ partial "post_meta.html" . }}
+    </footer>
+    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+  </article>
+  {{ end }}
+</div>
+{{ end }}

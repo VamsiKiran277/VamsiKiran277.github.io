@@ -10,7 +10,7 @@
 <meta name="description" content="Firmware Engineer Portfolio">
 <meta name="author" content="Vamsi Kiran">
 <link rel="canonical" href="http://localhost:1313/tags/iot/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.1ed3beacf20f0f83d555574176a07dee12963f5e2f80d0bfb35f7642d7c7a8ec.css" integrity="sha256-HtO&#43;rPIPD4PVVVdBdqB97hKWP14vgNC/s192QtfHqOw=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.4682dc6c30329931ca88195916e929c0b1c1468a8a8fa8dbc7aa352a0d0fae72.css" integrity="sha256-RoLcbDAymTHKiBlZFukpwLHBRoqKj6jbx6o1Kg0PrnI=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -92,11 +92,11 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>The Project Overview Engineered a secure telemetry pipeline to synchronize high-G impact data from a Raspberry Pi edge device to the cloud, complete with a custom real-time visualization dashboard.
-Technical Highlights IoT Cloud Integration: Configured MQTT (Paho C) to sync data to HiveMQ Cloud, implementing SSL/TLS encryption via port 8883. Custom Qt Dashboard: Developed a visualization dashboard in C&#43;&#43; (Qt 6), parsing asynchronous JSON payloads to visualize 3-axis vibration data on a live-scrolling UI. Asynchronous Event Handling: Architected an interrupt-driven system using libgpiod to monitor GPIO triggers from an ADXL345 accelerometer, eliminating CPU polling overhead. Hardware Interface: Developed custom I2C drivers implementing Two’s Complement sign-extension for raw data processing. System Architecture The tracker utilizes a Raspberry Pi as the edge node, interfacing with the ADXL345 over I2C. Data is packed into JSON format and published via MQTT, ensuring low-latency updates to the monitoring station.
+    <p>🛠 Technology Stack Languages: C&#43;&#43; (Qt 6), Embedded C (Paho MQTT), Python (Scripting/Testing) Protocols: MQTT over SSL/TLS, I2C (Register-level), JSON Hardware: Raspberry Pi 4, ADXL345 (3-Axis Accelerometer) Cloud: HiveMQ Cloud Broker The Project Overview Engineered a secure, end-to-end telemetry pipeline designed to monitor and synchronize high-G impact data from edge devices to a centralized monitoring station. This project bridges the gap between low-level sensor interfacing and high-level data visualization.
+Technical Highlights IoT Cloud Integration: Configured a secure MQTT pipeline to sync data to HiveMQ Cloud, enforcing industry-standard SSL/TLS encryption via port 8883 to prevent data sniffing. Custom Qt Dashboard: Developed a high-performance visualization suite in C&#43;&#43; (Qt 6). It features an asynchronous JSON parser and a live-scrolling UI that renders 3-axis vibration data in real-time. Asynchronous Event Handling: Architected an interrupt-driven sensing system using libgpiod. By monitoring hardware interrupts from the ADXL345, the system eliminates CPU polling, drastically reducing power consumption and latency. Hardware Driver Development: Wrote custom I2C drivers from scratch, handling raw bit-manipulation and implementing Two’s Complement sign-extension for accurate acceleration processing. Key Learning Outcomes End-to-End IoT Security: Gained practical experience in implementing secure cloud handshakes and managing certificates for embedded devices. Real-Time Data Streams: Mastered the management of asynchronous data buffers and UI thread synchronization in Qt to prevent interface “freezing” during high-speed data bursts. Embedded Linux API: Deepened knowledge of Linux character device drivers and the libgpiod library for modern hardware interfacing. Hardware Target The system is built on the Raspberry Pi 4 platform, utilizing an ADXL345 digital accelerometer for impact sensing. It is designed to be easily portable to other Linux-based Single Board Computers (SBCs).
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-04-13 00:00:00 +0000 UTC'>April 13, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span></footer>
+  <footer class="entry-footer"><span title='2026-04-13 00:00:00 +0000 UTC'>April 13, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span></footer>
   <a class="entry-link" aria-label="post link to Smart Asset Tracker & Telemetry Dashboard" href="http://localhost:1313/projects/smart-asset-tracker/"></a>
 </article>
     </main>

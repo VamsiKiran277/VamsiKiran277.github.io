@@ -1,6 +1,8 @@
 ---
 title: "Smart Asset Tracker & Telemetry Dashboard"
+categories: ["Major Projects"]
 date: 2026-04-13
+weight: 10
 draft: false
 tags: ["IoT", "C++", "Qt 6", "MQTT", "Raspberry Pi", "Cybersecurity"]
 cover:

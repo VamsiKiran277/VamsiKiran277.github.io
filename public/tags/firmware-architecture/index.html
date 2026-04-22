@@ -10,7 +10,7 @@
 <meta name="description" content="Firmware Engineer Portfolio">
 <meta name="author" content="Vamsi Kiran">
 <link rel="canonical" href="http://localhost:1313/tags/firmware-architecture/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.1ed3beacf20f0f83d555574176a07dee12963f5e2f80d0bfb35f7642d7c7a8ec.css" integrity="sha256-HtO&#43;rPIPD4PVVVdBdqB97hKWP14vgNC/s192QtfHqOw=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.4682dc6c30329931ca88195916e929c0b1c1468a8a8fa8dbc7aa352a0d0fae72.css" integrity="sha256-RoLcbDAymTHKiBlZFukpwLHBRoqKj6jbx6o1Kg0PrnI=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -91,7 +91,7 @@
   <div class="entry-content">
     <p>🛠 Technology Stack Languages: Bare-Metal C (C11) Protocols: UART/USART, SysTick Timer logic Hardware: STM32F407 (Discovery Board) - ARM Cortex-M4 Tools: STM32CubeIDE, GDB, Real-term/Putty (Serial Debugging) The Project Overview A modular, power-conscious firmware application that demonstrates a clean separation between hardware-specific drivers (BSP) and high-level application logic. The project focuses on non-blocking execution and architectural maintainability.
 Technical Highlights Layered Architecture (BSP): All register-level operations (RCC, GPIO, UART) are encapsulated within a dedicated Board Support Package. The application layer contains zero raw register addresses. Non-Blocking Logic: Replaced “busy-wait” delay() loops with a SysTick-based timer flag system, allowing the CPU to process multiple tasks (LED Heartbeat &amp; Status Reporting) concurrently. Clock Configuration: Calculated and implemented the 42 MHz APB1 clock math to ensure a precise 115200 baud rate for serial communication. Hardware Abstraction: Developed a suite of APIs (e.g., BSP_LED_Toggle, BSP_UART_Write) to ensure high-level logic remains portable across different MCU architectures. Key Learning Outcomes Register Mapping: Mastered the translation of technical datasheets into functional C code using structures and bit-fields. Software Design Patterns: Implemented the “Separation of Concerns” principle to reduce coupling between hardware and application code. Asynchronous Timing: Learned to manage time-based events in a super-loop environment without blocking the main execution thread. Hardware Target This project was designed and tested on the STM32F407 Discovery Board. It utilizes the onboard PD12 (Green LED) for heartbeats and USART2 (PD5/PD6) for system status reporting.
-</p>
+...</p>
   </div>
   <footer class="entry-footer"><span title='2026-04-15 00:00:00 +0000 UTC'>April 15, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span></footer>
   <a class="entry-link" aria-label="post link to BSP-Backed Embedded Application" href="http://localhost:1313/projects/bsp-application/"></a>
