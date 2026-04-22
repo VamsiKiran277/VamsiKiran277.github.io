@@ -39,4 +39,4 @@ A modular, power-conscious firmware application that demonstrates a clean separa
 ### Hardware Target
 This project was designed and tested on the **STM32F407 Discovery Board**. It utilizes the onboard **PD12 (Green LED)** for heartbeats and **USART2 (PD5/PD6)** for system status reporting.
 
-[View Source on GitHub](https://github.com/VamsiKiran277/BSP-Backed-Embedded-Application-GPIO-Timer-UART.git)
+<a href="https://github.com/VamsiKiran277/BSP-Backed-Embedded-Application-GPIO-Timer-UART.git" target="_blank" rel="noopener noreferrer">View Source on GitHub</a>

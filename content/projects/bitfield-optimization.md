@@ -26,4 +26,4 @@ A technical exploration into optimizing hardware register maps using C structure
 * **Code Maintainability:** Learned how Bit-Fields improve code readability for large engineering teams compared to "magic number" masking.
 * **Compiler Optimization:** Understood how the compiler handles memory-aligned structures in an embedded context.
 
-[View Source on GitHub](https://github.com/VamsiKiran277/EMBEDDED-small-projects)
+<a href="https://github.com/VamsiKiran277/EMBEDDED-small-projects" target="_blank" rel="noopener noreferrer">View Source on GitHub</a>

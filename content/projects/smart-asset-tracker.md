@@ -43,4 +43,4 @@ Engineered a secure, end-to-end telemetry pipeline designed to monitor and synch
 ### Hardware Target
 The system is built on the **Raspberry Pi 4** platform, utilizing an **ADXL345** digital accelerometer for impact sensing. It is designed to be easily portable to other Linux-based Single Board Computers (SBCs).
 
-[View Source on GitHub](https://github.com/VamsiKiran277/Smart-Asset-Tracker.git)
+<a href="https://github.com/VamsiKiran277/Smart-Asset-Tracker.git" target="_blank" rel="noopener noreferrer">View Source on GitHub</a>

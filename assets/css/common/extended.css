@@ -253,9 +253,12 @@ header.page-header h1, .post-header h1, .post-title {
     transform: scale(1.05);
 }
 
-.post-content a[href*="github.com"] {
+/* Targeted GitHub Button Style */
+.post-content a[href*="github.com"],
+.post-content a.github-btn {
     display: inline-block !important;
-    margin-top: 20px !important;
+    margin-top: 30px !important;
+    margin-bottom: 20px !important;
     padding: 10px 25px !important;
     background: rgba(0, 210, 255, 0.1) !important;
     border: 1px solid #00d2ff !important;
@@ -266,12 +269,12 @@ header.page-header h1, .post-header h1, .post-title {
     transition: all 0.3s ease !important;
 }
 
-.post-content a[href*="github.com"]:hover {
+.post-content a[href*="github.com"]:hover,
+.post-content a.github-btn:hover {
     background: #00d2ff !important;
     color: #000000 !important;
     box-shadow: 0 0 20px rgba(0, 210, 255, 0.6) !important;
     transform: translateY(-3px);
-    border-color: #00d2ff !important;
 }
 
 /* ============================================================

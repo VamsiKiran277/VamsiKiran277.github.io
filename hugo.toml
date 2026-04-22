@@ -6,6 +6,9 @@ theme = 'PaperMod'
 [outputs]
     home = ["HTML", "RSS", "JSON"]
 
+[markup.goldmark.renderer]
+    unsafe = true
+
 [params]
     env = "production"
     title = "Vamsi Kiran"
@@ -24,7 +27,6 @@ theme = 'PaperMod'
     ShowCodeCopyButtons = true
     
     assets = { disableFingerprinting = false }
-
     # Branding
     label = { text = "Home" }
 
@@ -36,11 +38,9 @@ theme = 'PaperMod'
         imageUrl = "" 
         imageWidth = 0
         imageHeight = 0
-
         [[params.profileMode.buttons]]
             name = "View Projects"
             url = "/projects/"
-
         [[params.profileMode.buttons]]
             name = "View GitHub"
             url = "https://github.com/VamsiKiran277"
@@ -48,12 +48,10 @@ theme = 'PaperMod'
     [[params.socialIcons]]
         name = "github"
         url = "https://github.com/VamsiKiran277"
-
     [[params.socialIcons]]
         name = "email"
         url = "mailto:vamsikiran167@gmail.com"
         title = "Gmail"
-
     [[params.socialIcons]]
         name = "linkedin"
         url = "https://www.linkedin.com/in/vamsi-kiran-mekala-57135424a/"
@@ -62,17 +60,14 @@ theme = 'PaperMod'
     name = "Resume"
     url = "resume"
     weight = 5
-
 [[menu.main]]
     name = "Projects"
     url = "projects"
     weight = 10
-
 [[menu.main]]
     name = "Search"
     url = "search"
     weight = 20
-
 [[menu.main]]
     name = "Tags"
     url = "tags"

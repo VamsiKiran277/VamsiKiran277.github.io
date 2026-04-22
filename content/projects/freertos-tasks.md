@@ -40,4 +40,4 @@ The objective was to design a robust, thread-safe sensor acquisition system on a
 ### Hardware Target
 This project is designed for **Linux-based Embedded Systems** (specifically tested on Raspberry Pi). It interfaces with an **ADXL345** for motion data and a **DS3231** Real-Time Clock for timestamping via the I2C protocol.
 
-[View Source on GitHub](https://github.com/VamsiKiran277/FreeRTOS_project.git)
+<a href="https://github.com/VamsiKiran277/FreeRTOS_project.git" target="_blank" rel="noopener noreferrer">View Source on GitHub</a>

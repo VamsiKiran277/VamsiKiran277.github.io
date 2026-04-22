@@ -45,4 +45,4 @@ Developed a comprehensive, register-level peripheral driver suite for the Raspbe
 ### Hardware Target
 Designed specifically for the **Raspberry Pi 4 Model B**. The drivers interface directly with the **Broadcom BCM2711 SoC**, providing a bare-metal feel while running within a Linux user-space environment via `/dev/mem` access.
 
-[View Source on GitHub](https://github.com/VamsiKiran277/GPIO_DRIVER.git)
+<a href="https://github.com/VamsiKiran277/GPIO_DRIVER.git" target="_blank" rel="noopener noreferrer">View Source on GitHub</a>
