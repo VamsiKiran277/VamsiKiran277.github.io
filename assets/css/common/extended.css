@@ -505,3 +505,27 @@ hr {
     color: #00d2ff !important;
     text-shadow: 0 0 10px rgba(0, 210, 255, 0.6) !important;
 }
+
+/* ============================================================
+   15. RESUME PAGE CLEANUP (STRICT OVERRIDE)
+   ============================================================ */
+
+/* Targets the resume page by body class and internal Hugo page type */
+body.resume .breadcrumbs,
+body.resume footer.footer,
+body.type-resume .breadcrumbs,
+body.type-resume footer.footer,
+body[page-type="resume"] .breadcrumbs,
+body[page-type="resume"] footer.footer {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Fallback: Targets the breadcrumbs specifically on any single page that isn't a project */
+article.post-single:not(.type-projects) .breadcrumbs {
+    display: none !important;
+}

@@ -2,6 +2,7 @@
 title: "Technical Resume"
 layout: "single"
 ShowReadingTime: false
+showBreadcrumbs: false
 ---
 
 # Vamsi Kiran Mekala
