@@ -117,8 +117,46 @@ body, .main, .wrapper, .profile, .profile_inner, #top {
 }
 
 /* ============================================================
-   4. NAVIGATION & SOCIALS
+   4. NAVIGATION & SOCIALS (SNUG C++ BRACKETS)
    ============================================================ */
+.menu {
+    overflow: visible !important; /* Stops the edge clipping */
+}
+
+.menu a {
+    position: relative !important;
+    padding: 5px 0px !important; /* ZERO side padding so brackets hug the text */
+    margin: 5 8px !important;   /* Healthy space between the different links */
+    transition: all 0.3s ease !important;
+}
+
+/* The Brackets that appear on hover */
+.menu a::before, .menu a::after {
+    position: absolute;
+    opacity: 0;
+    color: #00d2ff;
+    font-weight: 800;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.8);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.menu a::before {
+    content: '[';
+    left: -12px; /* Sits tightly next to the word */
+    transform: translateX(10px);
+}
+
+.menu a::after {
+    content: ']';
+    right: -12px; /* Sits tightly next to the word */
+    transform: translateX(-10px);
+}
+
+.menu a:hover::before, .menu a:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
 .menu a:hover, #menu a:hover, .nav a:hover, .logo a:hover {
     color: #00d2ff !important;
     text-shadow: 0 0 12px rgba(0, 210, 255, 0.8) !important;
@@ -135,13 +173,21 @@ body, .main, .wrapper, .profile, .profile_inner, #top {
 /* ============================================================
    5. PROJECTS GRID & HEADERS (For normal project pages)
    ============================================================ */
-header.page-header h1 {
+header.page-header h1, .post-header h1, .post-title {
     font-size: 3.5rem !important;
-    background: linear-gradient(to right, #ffffff, #00d2ff) !important;
+    background: linear-gradient(to right, #46d1ff, #00d2ff, #0099ff) !important;
     -webkit-background-clip: text !important;
     background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
+    text-shadow: 0 0 20px rgba(0, 210, 255, 0.6), 0 0 40px rgba(0, 210, 255, 0.2) !important;
     margin-bottom: 30px !important;
+    font-weight: 700 !important;
+}
+
+/* Subheadings tint */
+.post-content h2, .post-content h3 {
+    color: #c7e5ec !important; 
+    text-shadow: 0 0 5px rgba(0, 210, 255, 0.2);
 }
 
 .category-divider {
