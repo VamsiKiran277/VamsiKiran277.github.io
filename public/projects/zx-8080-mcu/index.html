@@ -33,7 +33,7 @@ Polling Logic: Mastered peripheral status flag management without the overhead o
 View Source on GitHub">
 <meta name="author" content="Vamsi Kiran">
 <link rel="canonical" href="http://localhost:1313/projects/zx-8080-mcu/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.59192cd7817a3de3f728dbeeacb414619f7122a01d1989a8ef26ff55e7640a5f.css" integrity="sha256-WRks14F6PeP3KNvurLQUYZ9xIqAdGYmo7yb/VedkCl8=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.53a681e31f94ad02a0d34377f8c96db6c703f5082e5e7d90b90a8919adef5bdf.css" integrity="sha256-U6aB4x&#43;UrQKg00N3&#43;MlttscD9QguXn2QuQqJGa3vW98=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -58,8 +58,8 @@ Technical Highlights Memory-Mapped I/O (MMIO): Manually defined peripheral base 
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
-    <meta property="article:published_time" content="2026-04-12T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-04-12T00:00:00+00:00">
+    <meta property="article:published_time" content="2026-04-12T10:00:00+00:00">
+    <meta property="article:modified_time" content="2026-04-12T10:00:00+00:00">
     <meta property="article:tag" content="C">
     <meta property="article:tag" content="Bare-Metal">
     <meta property="article:tag" content="Computer Architecture">
@@ -104,8 +104,8 @@ Technical Highlights Memory-Mapped I/O (MMIO): Manually defined peripheral base 
   "articleBody": "🛠 Technology Stack Language: Bare-Metal C (Register-level) Hardware: Simulated ZX-8080 MCU (based on technical datasheet) Key Concepts: Memory-Mapped I/O (MMIO), Polling-based State Machines The Project Overview This project serves as a deep-dive sandbox for mastering fundamental Firmware Engineering. I simulated the firmware for a custom microcontroller (ZX-8080) to manage ADC conversions and hardware timers based strictly on datasheet specifications.\nTechnical Highlights Memory-Mapped I/O (MMIO): Manually defined peripheral base addresses and offsets to interface with system control, GPIO, ADC, and Timer registers. Timer Configuration: Calculated and configured Prescaler (PSC) and Auto-Reload Register (ARR) values to derive precise 0.5s hardware delays from an 80MHz system clock. ADC Data Acquisition: Developed a polling-based state machine to trigger ADC conversions, processing thermal sensor data for threshold-based thermal management logic. Bit-Level Optimization: Utilized XOR bitwise operations for efficient GPIO toggling and manual flag clearing in the Timer Status registers. Key Learning Outcomes Datasheet Implementation: Learned to translate raw hexadecimal address maps into functional C drivers. Clock Trees: Gained experience in frequency scaling and deriving timing intervals from system oscillators. Polling Logic: Mastered peripheral status flag management without the overhead of an OS. View Source on GitHub\n",
   "wordCount" : "191",
   "inLanguage": "en",
-  "datePublished": "2026-04-12T00:00:00Z",
-  "dateModified": "2026-04-12T00:00:00Z",
+  "datePublished": "2026-04-12T10:00:00Z",
+  "dateModified": "2026-04-12T10:00:00Z",
   "author":{
     "@type": "Person",
     "name": "Vamsi Kiran"
@@ -169,7 +169,7 @@ Technical Highlights Memory-Mapped I/O (MMIO): Manually defined peripheral base 
     <h1 class="post-title entry-hint-parent">
       ZX-8080 MCU: Bare-Metal Peripheral Control
     </h1>
-    <div class="post-meta"><span title='2026-04-12 00:00:00 +0000 UTC'>April 12, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span>
+    <div class="post-meta"><span title='2026-04-12 10:00:00 +0000 UTC'>April 12, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span>
 
 </div>
   </header> 

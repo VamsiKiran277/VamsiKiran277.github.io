@@ -1,8 +1,8 @@
 ---
 title: "Peripheral Driver Suite: GPIO, I2C, SPI & UART"
 categories: ["Major Projects"]
-date: 2026-04-20
-weight: 40
+date: 2026-04-20T10:00:00Z
+weight: 4
 draft: false
 tags: ["C++", "Raspberry Pi 4", "Bare-Metal", "Driver Development"]
 # These flags kill the social sharing bar at the bottom

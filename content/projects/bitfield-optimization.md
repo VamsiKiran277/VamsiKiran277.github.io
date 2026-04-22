@@ -1,6 +1,6 @@
 ---
 title: "LED Toggle via C Bit-Fields"
-date: 2026-04-12
+date: 2026-04-12T10:00:00Z
 categories: ["Lab & Micro-Projects"]
 weight: 110
 tags: ["C", "Optimization", "Data Structures"]

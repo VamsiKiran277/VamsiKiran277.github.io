@@ -19,7 +19,7 @@ The Project Overview
 Developed a comprehensive, register-level peripheral driver suite for the Raspberry Pi 4 using an Object-Oriented approach in C&#43;&#43;. This project demonstrates how to translate complex technical datasheets into a modular, reusable Hardware Abstraction Layer (HAL).">
 <meta name="author" content="Vamsi Kiran">
 <link rel="canonical" href="http://localhost:1313/projects/peripheral-drivers/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.59192cd7817a3de3f728dbeeacb414619f7122a01d1989a8ef26ff55e7640a5f.css" integrity="sha256-WRks14F6PeP3KNvurLQUYZ9xIqAdGYmo7yb/VedkCl8=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.53a681e31f94ad02a0d34377f8c96db6c703f5082e5e7d90b90a8919adef5bdf.css" integrity="sha256-U6aB4x&#43;UrQKg00N3&#43;MlttscD9QguXn2QuQqJGa3vW98=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -43,8 +43,8 @@ Developed a comprehensive, register-level peripheral driver suite for the Raspbe
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
-    <meta property="article:published_time" content="2026-04-20T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-04-20T00:00:00+00:00">
+    <meta property="article:published_time" content="2026-04-20T10:00:00+00:00">
+    <meta property="article:modified_time" content="2026-04-20T10:00:00+00:00">
     <meta property="article:tag" content="C&#43;&#43;">
     <meta property="article:tag" content="Raspberry Pi 4">
     <meta property="article:tag" content="Bare-Metal">
@@ -88,8 +88,8 @@ Developed a comprehensive, register-level peripheral driver suite for the Raspbe
   "articleBody": "🛠 Technology Stack Languages: C++ (OOP Approach), Makefile Protocols: I2C, SPI, UART (Mini-UART), GPIO (Alternate Functions) Hardware: Raspberry Pi 4 (BCM2711 / ARM Cortex-A72) Tools: BCM2711 ARM Peripherals Datasheet, GCC Toolchain, GDB The Project Overview Developed a comprehensive, register-level peripheral driver suite for the Raspberry Pi 4 using an Object-Oriented approach in C++. This project demonstrates how to translate complex technical datasheets into a modular, reusable Hardware Abstraction Layer (HAL).\nTechnical Highlights Register-Level Control: Directly manipulated SoC registers using memory-mapped I/O (MMIO) to configure GPIO pins, Alternate Functions, and peripheral clock rates. OOP Driver Design: Implemented drivers as C++ classes, encapsulating peripheral state and methods. This ensures type safety and allows for easy instantiation of multiple communication buses. Protocol Implementation: I2C: Developed a robust master-mode driver with support for 7-bit addressing and data stream management. SPI: Engineered a high-speed Serial Peripheral Interface driver, managing Clock Polarity (CPOL) and Phase (CPHA). UART: Configured the Mini-UART peripheral for asynchronous serial communication, including precise baud rate generation math. Custom Build Pipeline: Created a modular Makefile system to manage dependencies, object files, and cross-compilation for the ARM architecture. Key Learning Outcomes Datasheet Interpretation: Mastered the BCM2711 Reference Manual, learning to map physical addresses to virtual memory and understanding peripheral-specific control registers. Communication Protocols: SPI: Learned the timing diagrams and shift-register logic required for high-speed full-duplex communication. UART: Understood start/stop bit framing, parity, and the impact of system clock frequencies on baud accuracy. I2C: Gained experience with the “Start-Address-Data-Stop” sequence and handling Acknowledgement (ACK/NACK) bits. C++ for Embedded: Leveraged C++ features like classes and private member variables to enforce data hiding and prevent illegal register access from the application layer. Hardware Target Designed specifically for the Raspberry Pi 4 Model B. The drivers interface directly with the Broadcom BCM2711 SoC, providing a bare-metal feel while running within a Linux user-space environment via /dev/mem access.\nView Source on GitHub\n",
   "wordCount" : "313",
   "inLanguage": "en",
-  "datePublished": "2026-04-20T00:00:00Z",
-  "dateModified": "2026-04-20T00:00:00Z",
+  "datePublished": "2026-04-20T10:00:00Z",
+  "dateModified": "2026-04-20T10:00:00Z",
   "author":{
     "@type": "Person",
     "name": "Vamsi Kiran"
@@ -153,7 +153,7 @@ Developed a comprehensive, register-level peripheral driver suite for the Raspbe
     <h1 class="post-title entry-hint-parent">
       Peripheral Driver Suite: GPIO, I2C, SPI &amp; UART
     </h1>
-    <div class="post-meta"><span title='2026-04-20 00:00:00 +0000 UTC'>April 20, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span>
+    <div class="post-meta"><span title='2026-04-20 10:00:00 +0000 UTC'>April 20, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span>
 
 </div>
   </header> 

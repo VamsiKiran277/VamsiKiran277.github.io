@@ -1,6 +1,6 @@
 ---
 title: "ZX-8080 MCU: Bare-Metal Peripheral Control"
-date: 2026-04-12
+date: 2026-04-12T10:00:00Z
 categories: ["Lab & Micro-Projects"]
 weight: 100
 tags: ["C", "Bare-Metal", "Computer Architecture", "ADC"]

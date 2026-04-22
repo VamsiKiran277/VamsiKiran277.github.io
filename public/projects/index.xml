@@ -6,12 +6,12 @@
     <description>Recent content in Projects on Vamsi Kiran | Firmware Engineer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Apr 2026 10:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Smart Asset Tracker &amp; Telemetry Dashboard</title>
       <link>http://localhost:1313/projects/smart-asset-tracker/</link>
-      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 13 Apr 2026 10:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/smart-asset-tracker/</guid>
       <description>&lt;h3 id=&#34;-technology-stack&#34;&gt;🛠 Technology Stack&lt;/h3&gt;
 &lt;ul&gt;
@@ -44,7 +44,7 @@
     <item>
       <title>FreeRTOS Task Management &amp; Sensor Suite</title>
       <link>http://localhost:1313/projects/freertos-tasks/</link>
-      <pubDate>Sat, 18 Apr 2026 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 18 Apr 2026 10:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/freertos-tasks/</guid>
       <description>&lt;h3 id=&#34;-technology-stack&#34;&gt;🛠 Technology Stack&lt;/h3&gt;
 &lt;ul&gt;
@@ -78,7 +78,7 @@
     <item>
       <title>BSP-Backed Embedded Application</title>
       <link>http://localhost:1313/projects/bsp-application/</link>
-      <pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 15 Apr 2026 10:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/bsp-application/</guid>
       <description>&lt;h3 id=&#34;-technology-stack&#34;&gt;🛠 Technology Stack&lt;/h3&gt;
 &lt;ul&gt;
@@ -111,7 +111,7 @@
     <item>
       <title>Peripheral Driver Suite: GPIO, I2C, SPI &amp; UART</title>
       <link>http://localhost:1313/projects/peripheral-drivers/</link>
-      <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 20 Apr 2026 10:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/peripheral-drivers/</guid>
       <description>&lt;h3 id=&#34;-technology-stack&#34;&gt;🛠 Technology Stack&lt;/h3&gt;
 &lt;ul&gt;
@@ -127,7 +127,7 @@
     <item>
       <title>ZX-8080 MCU: Bare-Metal Peripheral Control</title>
       <link>http://localhost:1313/projects/zx-8080-mcu/</link>
-      <pubDate>Sun, 12 Apr 2026 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 12 Apr 2026 10:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/zx-8080-mcu/</guid>
       <description>&lt;h3 id=&#34;-technology-stack&#34;&gt;🛠 Technology Stack&lt;/h3&gt;
 &lt;ul&gt;
@@ -157,7 +157,7 @@
     <item>
       <title>LED Toggle via C Bit-Fields</title>
       <link>http://localhost:1313/projects/bitfield-optimization/</link>
-      <pubDate>Sun, 12 Apr 2026 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 12 Apr 2026 10:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/bitfield-optimization/</guid>
       <description>&lt;h3 id=&#34;-technology-stack&#34;&gt;🛠 Technology Stack&lt;/h3&gt;
 &lt;ul&gt;

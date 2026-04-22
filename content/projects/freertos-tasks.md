@@ -1,8 +1,8 @@
 ---
 title: "FreeRTOS Task Management & Sensor Suite"
 categories: ["Major Projects"]
-date: 2026-04-18
-weight: 20
+date: 2026-04-18T10:00:00Z
+weight: 2
 draft: false
 tags: ["FreeRTOS", "Embedded C", "Real-Time Systems", "IPC", "I2C"]
 # These flags kill the social sharing bar at the bottom

@@ -6,12 +6,12 @@
     <description>Recent content in Embedded C on Vamsi Kiran | Firmware Engineer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 Apr 2026 10:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/embedded-c/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>FreeRTOS Task Management &amp; Sensor Suite</title>
       <link>http://localhost:1313/projects/freertos-tasks/</link>
-      <pubDate>Sat, 18 Apr 2026 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 18 Apr 2026 10:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/freertos-tasks/</guid>
       <description>&lt;h3 id=&#34;-technology-stack&#34;&gt;🛠 Technology Stack&lt;/h3&gt;
 &lt;ul&gt;
@@ -45,7 +45,7 @@
     <item>
       <title>BSP-Backed Embedded Application</title>
       <link>http://localhost:1313/projects/bsp-application/</link>
-      <pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 15 Apr 2026 10:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/bsp-application/</guid>
       <description>&lt;h3 id=&#34;-technology-stack&#34;&gt;🛠 Technology Stack&lt;/h3&gt;
 &lt;ul&gt;

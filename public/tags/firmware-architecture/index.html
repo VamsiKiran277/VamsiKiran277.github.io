@@ -7,10 +7,10 @@
 <meta name="robots" content="index, follow">
 <title>Firmware Architecture | Vamsi Kiran | Firmware Engineer</title>
 <meta name="keywords" content="">
-<meta name="description" content="Firmware Engineer Portfolio">
+<meta name="description" content="Firmware Engineer &amp; Embedded Systems Architect specializing in CAN Protocol stacks, FreeRTOS, and low-level Linux drivers.">
 <meta name="author" content="Vamsi Kiran">
 <link rel="canonical" href="http://localhost:1313/tags/firmware-architecture/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.59192cd7817a3de3f728dbeeacb414619f7122a01d1989a8ef26ff55e7640a5f.css" integrity="sha256-WRks14F6PeP3KNvurLQUYZ9xIqAdGYmo7yb/VedkCl8=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.53a681e31f94ad02a0d34377f8c96db6c703f5082e5e7d90b90a8919adef5bdf.css" integrity="sha256-U6aB4x&#43;UrQKg00N3&#43;MlttscD9QguXn2QuQqJGa3vW98=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -31,13 +31,13 @@
 </noscript><meta property="og:url" content="http://localhost:1313/tags/firmware-architecture/">
   <meta property="og:site_name" content="Vamsi Kiran | Firmware Engineer">
   <meta property="og:title" content="Firmware Architecture">
-  <meta property="og:description" content="Firmware Engineer Portfolio">
+  <meta property="og:description" content="Firmware Engineer &amp; Embedded Systems Architect specializing in CAN Protocol stacks, FreeRTOS, and low-level Linux drivers.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Firmware Architecture">
-  <meta name="twitter:description" content="Firmware Engineer Portfolio">
+  <meta name="twitter:description" content="Firmware Engineer &amp; Embedded Systems Architect specializing in CAN Protocol stacks, FreeRTOS, and low-level Linux drivers.">
 
 </head>
 <body class="list" id="top">
@@ -93,7 +93,7 @@
 Technical Highlights Layered Architecture (BSP): All register-level operations (RCC, GPIO, UART) are encapsulated within a dedicated Board Support Package. The application layer contains zero raw register addresses. Non-Blocking Logic: Replaced “busy-wait” delay() loops with a SysTick-based timer flag system, allowing the CPU to process multiple tasks (LED Heartbeat &amp; Status Reporting) concurrently. Clock Configuration: Calculated and implemented the 42 MHz APB1 clock math to ensure a precise 115200 baud rate for serial communication. Hardware Abstraction: Developed a suite of APIs (e.g., BSP_LED_Toggle, BSP_UART_Write) to ensure high-level logic remains portable across different MCU architectures. Key Learning Outcomes Register Mapping: Mastered the translation of technical datasheets into functional C code using structures and bit-fields. Software Design Patterns: Implemented the “Separation of Concerns” principle to reduce coupling between hardware and application code. Asynchronous Timing: Learned to manage time-based events in a super-loop environment without blocking the main execution thread. Hardware Target This project was designed and tested on the STM32F407 Discovery Board. It utilizes the onboard PD12 (Green LED) for heartbeats and USART2 (PD5/PD6) for system status reporting.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-04-15 00:00:00 +0000 UTC'>April 15, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span></footer>
+  <footer class="entry-footer"><span title='2026-04-15 10:00:00 +0000 UTC'>April 15, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span></footer>
   <a class="entry-link" aria-label="post link to BSP-Backed Embedded Application" href="http://localhost:1313/projects/bsp-application/"></a>
 </article>
     </main>

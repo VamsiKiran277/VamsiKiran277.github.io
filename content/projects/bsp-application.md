@@ -1,8 +1,8 @@
 ---
 title: "BSP-Backed Embedded Application"
 categories: ["Major Projects"]
-date: 2026-04-15
-weight: 30
+date: 2026-04-15T10:00:00Z
+weight: 3
 draft: false
 tags: ["Embedded C", "STM32", "Bare-Metal", "Firmware Architecture"]
 # These flags kill the social sharing bar at the bottom

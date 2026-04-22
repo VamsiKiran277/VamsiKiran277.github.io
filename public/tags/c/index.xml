@@ -6,12 +6,12 @@
     <description>Recent content in C on Vamsi Kiran | Firmware Engineer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 12 Apr 2026 10:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/c/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ZX-8080 MCU: Bare-Metal Peripheral Control</title>
       <link>http://localhost:1313/projects/zx-8080-mcu/</link>
-      <pubDate>Sun, 12 Apr 2026 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 12 Apr 2026 10:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/zx-8080-mcu/</guid>
       <description>&lt;h3 id=&#34;-technology-stack&#34;&gt;🛠 Technology Stack&lt;/h3&gt;
 &lt;ul&gt;
@@ -41,7 +41,7 @@
     <item>
       <title>LED Toggle via C Bit-Fields</title>
       <link>http://localhost:1313/projects/bitfield-optimization/</link>
-      <pubDate>Sun, 12 Apr 2026 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 12 Apr 2026 10:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/bitfield-optimization/</guid>
       <description>&lt;h3 id=&#34;-technology-stack&#34;&gt;🛠 Technology Stack&lt;/h3&gt;
 &lt;ul&gt;

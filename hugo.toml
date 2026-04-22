@@ -6,11 +6,10 @@ theme = 'PaperMod'
 [outputs]
     home = ["HTML", "RSS", "JSON"]
 
-# --- START OF PARAMS (Only one [params] allowed!) ---
 [params]
     env = "production"
     title = "Vamsi Kiran"
-    description = "Firmware Engineer Portfolio"
+    description = "Firmware Engineer & Embedded Systems Architect specializing in CAN Protocol stacks, FreeRTOS, and low-level Linux drivers."
     author = "Vamsi Kiran"
     
     # Theme Logic
@@ -24,7 +23,6 @@ theme = 'PaperMod'
     ShowBreadCrumbs = true
     ShowCodeCopyButtons = true
     
-    # Asset Management (Fixed from your second [params] block)
     assets = { disableFingerprinting = false }
 
     # Branding
@@ -32,11 +30,12 @@ theme = 'PaperMod'
 
     [params.profileMode]
         enabled = true
-        title = "Vamsi Kiran"
-        subtitle = "Firmware Engineer & Embedded Systems Architect. Building low-latency IoT infrastructure and bare-metal systems."
-    #    imageUrl = "/images/profile.png"
-    #    imageWidth = 120
-    #    imageHeight = 120
+        title = "Vamsi Kiran Mekala"
+        subtitle = "Embedded Systems Engineer with expertise in C/C++, Linux kernel/user space programming, and low-level driver development. Proven track record in designing communication protocol stacks (CAN) and optimizing hardware-software interfaces."
+        
+        imageUrl = "" 
+        imageWidth = 0
+        imageHeight = 0
 
         [[params.profileMode.buttons]]
             name = "View Projects"
@@ -51,15 +50,13 @@ theme = 'PaperMod'
         url = "https://github.com/VamsiKiran277"
 
     [[params.socialIcons]]
-    name = "email"
-    url = "mailto:vamsikiran167@gmail.com"
-    title = "Gmail"
+        name = "email"
+        url = "mailto:vamsikiran167@gmail.com"
+        title = "Gmail"
 
     [[params.socialIcons]]
         name = "linkedin"
         url = "https://www.linkedin.com/in/vamsi-kiran-mekala-57135424a/"
-
-# --- END OF PARAMS ---
 
 [[menu.main]]
     name = "Resume"

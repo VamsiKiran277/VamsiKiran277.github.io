@@ -37,7 +37,7 @@ Hardware Target
 This project is designed for Linux-based Embedded Systems (specifically tested on Raspberry Pi). It interfaces with an ADXL345 for motion data and a DS3231 Real-Time Clock for timestamping via the I2C protocol.">
 <meta name="author" content="Vamsi Kiran">
 <link rel="canonical" href="http://localhost:1313/projects/freertos-tasks/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.59192cd7817a3de3f728dbeeacb414619f7122a01d1989a8ef26ff55e7640a5f.css" integrity="sha256-WRks14F6PeP3KNvurLQUYZ9xIqAdGYmo7yb/VedkCl8=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.53a681e31f94ad02a0d34377f8c96db6c703f5082e5e7d90b90a8919adef5bdf.css" integrity="sha256-U6aB4x&#43;UrQKg00N3&#43;MlttscD9QguXn2QuQqJGa3vW98=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -62,8 +62,8 @@ Technical Highlights Kernel-Level Multitasking: Leveraged the FreeRTOS POSIX Por
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
-    <meta property="article:published_time" content="2026-04-18T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-04-18T00:00:00+00:00">
+    <meta property="article:published_time" content="2026-04-18T10:00:00+00:00">
+    <meta property="article:modified_time" content="2026-04-18T10:00:00+00:00">
     <meta property="article:tag" content="FreeRTOS">
     <meta property="article:tag" content="Embedded C">
     <meta property="article:tag" content="Real-Time Systems">
@@ -109,8 +109,8 @@ Technical Highlights Kernel-Level Multitasking: Leveraged the FreeRTOS POSIX Por
   "articleBody": "🛠 Technology Stack Languages: Embedded C (C11) Operating System: FreeRTOS (POSIX Port) Protocols: I2C, Hardware Interrupts (GPIO) Tools: libgpiod, GDB, GCC, Linux terminal The Project Overview The objective was to design a robust, thread-safe sensor acquisition system on a Linux-based RTOS environment. This project demonstrates high-reliability multitasking where multiple sensors share a single communication bus without data corruption or timing jitter.\nTechnical Highlights Kernel-Level Multitasking: Leveraged the FreeRTOS POSIX Port to manage three concurrent tasks using fixed-priority preemption, ensuring mission-critical tasks always receive CPU time. Thread-Safe I2C Management: Implemented a Mutex Semaphore to arbitrate access to the I2C bus. This prevents data collisions between the ADXL345 Accelerometer and DS3231 RTC tasks when accessing shared hardware. Asynchronous Event Handling: Developed a high-priority hardware listener using libgpiod to capture falling-edge interrupts on GPIO 17, triggering a system-wide graceful shutdown. Deterministic Scheduling: Replaced standard sleep calls with vTaskDelayUntil() to ensure a consistent 10Hz sampling frequency, eliminating timing drift critical for real-time telemetry analysis. Resource Cleanup: Engineered a custom shutdown() sequence ensuring all RTOS tasks are deleted and Linux file descriptors (I2C/GPIO) are properly closed before process termination. Key Learning Outcomes Concurrency Control: Mastered the use of Mutexes and Semaphores to handle shared resource contention in a real-time environment. RTOS Scheduling: Understood the difference between “soft” delays and deterministic “fixed-frequency” scheduling for sensor data integrity. System Robustness: Learned to implement graceful degradation and cleanup procedures to prevent memory leaks and “hung” hardware peripherals. Hardware Target This project is designed for Linux-based Embedded Systems (specifically tested on Raspberry Pi). It interfaces with an ADXL345 for motion data and a DS3231 Real-Time Clock for timestamping via the I2C protocol.\nView Source on GitHub\n",
   "wordCount" : "277",
   "inLanguage": "en",
-  "datePublished": "2026-04-18T00:00:00Z",
-  "dateModified": "2026-04-18T00:00:00Z",
+  "datePublished": "2026-04-18T10:00:00Z",
+  "dateModified": "2026-04-18T10:00:00Z",
   "author":{
     "@type": "Person",
     "name": "Vamsi Kiran"
@@ -174,7 +174,7 @@ Technical Highlights Kernel-Level Multitasking: Leveraged the FreeRTOS POSIX Por
     <h1 class="post-title entry-hint-parent">
       FreeRTOS Task Management &amp; Sensor Suite
     </h1>
-    <div class="post-meta"><span title='2026-04-18 00:00:00 +0000 UTC'>April 18, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span>
+    <div class="post-meta"><span title='2026-04-18 10:00:00 +0000 UTC'>April 18, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span>
 
 </div>
   </header> 
