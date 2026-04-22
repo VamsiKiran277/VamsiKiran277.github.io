@@ -3,29 +3,66 @@ languageCode = 'en-us'
 title = 'Vamsi Kiran | Firmware Engineer'
 theme = 'PaperMod'
 
+[outputs]
+    home = ["HTML", "RSS", "JSON"]
+
 [params]
-defaultTheme = "dark"
+    env = "production"
+    title = "Vamsi Kiran"
+    description = "Firmware Engineer Portfolio"
+    author = "Vamsi Kiran"
+    
+    # Theme Logic
+    defaultTheme = "dark"
+    disableThemeToggle = true 
+    
+    # UI Features
+    ShowReadingTime = true
+    ShowShareButtons = true
+    ShowPostNavLinks = true
+    ShowBreadCrumbs = true
+    ShowCodeCopyButtons = true
 
 [params.profileMode]
-enabled = true
-title = "Hi, I'm Vamsi "
-subtitle = "Aspiring Firmware & Embedded Systems Engineer  | IoT, RTOS, & Bare-Metal C"
-imageUrl = "/images/profile.png" # We will add this image next!
-imageWidth = 120
-imageHeight = 150
+    enabled = true
+    title = "Hi, I'm Vamsi 👋"
+    subtitle = "Aspiring Firmware & Embedded Systems Engineer | IoT, RTOS, & Bare-Metal C"
+    imageUrl = "/images/profile.png"
+    imageWidth = 120
+    imageHeight = 150
 
 [[params.profileMode.buttons]]
-name = "View Projects"
-url = "/projects/"
+    name = "View Projects"
+    url = "/projects/"
 
 [[params.profileMode.buttons]]
-name = "View GitHub"
-url = "https://github.com/VamsiKiran277"
+    name = "View GitHub"
+    url = "https://github.com/VamsiKiran277"
 
 [[params.socialIcons]]
-name = "github"
-url = "https://github.com/VamsiKiran277"
+    name = "github"
+    url = "https://github.com/VamsiKiran277"
 
 [[params.socialIcons]]
-name = "linkedin"
-url = "https://www.linkedin.com/in/vamsi-kiran-mekala-57135424a/"
+    name = "linkedin"
+    url = "https://www.linkedin.com/in/vamsi-kiran-mekala-57135424a/"
+
+[[menu.main]]
+    name = "Resume"
+    url = "resume"
+    weight = 5
+
+[[menu.main]]
+    name = "Projects"
+    url = "projects"
+    weight = 10
+
+[[menu.main]]
+    name = "Search"
+    url = "search"
+    weight = 20
+
+[[menu.main]]
+    name = "Tags"
+    url = "tags"
+    weight = 30
