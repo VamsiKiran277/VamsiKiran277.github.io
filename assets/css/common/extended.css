@@ -493,3 +493,15 @@ hr {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
+
+/* ============================================================
+   14. BREADCRUMBS HOVER EFFECT
+   ============================================================ */
+.breadcrumbs a {
+    transition: all 0.3s ease !important;
+}
+
+.breadcrumbs a:hover {
+    color: #00d2ff !important;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.6) !important;
+}
