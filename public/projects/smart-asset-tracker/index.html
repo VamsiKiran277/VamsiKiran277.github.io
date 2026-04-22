@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Smart Asset Tracker &amp; Telemetry Dashboard | Vamsi Kiran | Firmware Engineer</title>
+<meta name="keywords" content="IoT, C, C&#43;&#43;, Qt 6, MQTT, Raspberry Pi">
+<meta name="description" content="The Project Overview
+Engineered a secure telemetry pipeline to synchronize high-G impact data from a Raspberry Pi edge device to the cloud, complete with a custom real-time visualization dashboard.
+Technical Highlights
+
+IoT Cloud Integration: Configured MQTT (Paho C) to sync data to HiveMQ Cloud, implementing SSL/TLS encryption via port 8883.
+Custom Qt Dashboard: Developed a visualization dashboard in C&#43;&#43; (Qt 6), parsing asynchronous JSON payloads to visualize 3-axis vibration data on a live-scrolling UI.
+Asynchronous Event Handling: Architected an interrupt-driven system using libgpiod to monitor GPIO triggers from an ADXL345 accelerometer, eliminating CPU polling overhead.
+Hardware Interface: Developed custom I2C drivers implementing Two’s Complement sign-extension for raw data processing.
+
+
+System Architecture
+The tracker utilizes a Raspberry Pi as the edge node, interfacing with the ADXL345 over I2C. Data is packed into JSON format and published via MQTT, ensuring low-latency updates to the monitoring station.">
+<meta name="author" content="Vamsi Kiran">
+<link rel="canonical" href="http://localhost:1313/projects/smart-asset-tracker/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.1ed3beacf20f0f83d555574176a07dee12963f5e2f80d0bfb35f7642d7c7a8ec.css" integrity="sha256-HtO&#43;rPIPD4PVVVdBdqB97hKWP14vgNC/s192QtfHqOw=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/smart-asset-tracker/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:url" content="http://localhost:1313/projects/smart-asset-tracker/">
+  <meta property="og:site_name" content="Vamsi Kiran | Firmware Engineer">
+  <meta property="og:title" content="Smart Asset Tracker & Telemetry Dashboard">
+  <meta property="og:description" content="The Project Overview Engineered a secure telemetry pipeline to synchronize high-G impact data from a Raspberry Pi edge device to the cloud, complete with a custom real-time visualization dashboard.
+Technical Highlights IoT Cloud Integration: Configured MQTT (Paho C) to sync data to HiveMQ Cloud, implementing SSL/TLS encryption via port 8883. Custom Qt Dashboard: Developed a visualization dashboard in C&#43;&#43; (Qt 6), parsing asynchronous JSON payloads to visualize 3-axis vibration data on a live-scrolling UI. Asynchronous Event Handling: Architected an interrupt-driven system using libgpiod to monitor GPIO triggers from an ADXL345 accelerometer, eliminating CPU polling overhead. Hardware Interface: Developed custom I2C drivers implementing Two’s Complement sign-extension for raw data processing. System Architecture The tracker utilizes a Raspberry Pi as the edge node, interfacing with the ADXL345 over I2C. Data is packed into JSON format and published via MQTT, ensuring low-latency updates to the monitoring station.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2026-04-22T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-04-22T00:00:00+00:00">
+    <meta property="article:tag" content="IoT">
+    <meta property="article:tag" content="C">
+    <meta property="article:tag" content="C&#43;&#43;">
+    <meta property="article:tag" content="Qt 6">
+    <meta property="article:tag" content="MQTT">
+    <meta property="article:tag" content="Raspberry Pi">
+    <meta property="og:image" content="http://localhost:1313/images/dashboard.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/images/dashboard.png">
+  <meta name="twitter:title" content="Smart Asset Tracker & Telemetry Dashboard">
+  <meta name="twitter:description" content="The Project Overview Engineered a secure telemetry pipeline to synchronize high-G impact data from a Raspberry Pi edge device to the cloud, complete with a custom real-time visualization dashboard.
+Technical Highlights IoT Cloud Integration: Configured MQTT (Paho C) to sync data to HiveMQ Cloud, implementing SSL/TLS encryption via port 8883. Custom Qt Dashboard: Developed a visualization dashboard in C&#43;&#43; (Qt 6), parsing asynchronous JSON payloads to visualize 3-axis vibration data on a live-scrolling UI. Asynchronous Event Handling: Architected an interrupt-driven system using libgpiod to monitor GPIO triggers from an ADXL345 accelerometer, eliminating CPU polling overhead. Hardware Interface: Developed custom I2C drivers implementing Two’s Complement sign-extension for raw data processing. System Architecture The tracker utilizes a Raspberry Pi as the edge node, interfacing with the ADXL345 over I2C. Data is packed into JSON format and published via MQTT, ensuring low-latency updates to the monitoring station.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Smart Asset Tracker \u0026 Telemetry Dashboard",
+      "item": "http://localhost:1313/projects/smart-asset-tracker/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Smart Asset Tracker \u0026 Telemetry Dashboard",
+  "name": "Smart Asset Tracker \u0026 Telemetry Dashboard",
+  "description": "The Project Overview Engineered a secure telemetry pipeline to synchronize high-G impact data from a Raspberry Pi edge device to the cloud, complete with a custom real-time visualization dashboard.\nTechnical Highlights IoT Cloud Integration: Configured MQTT (Paho C) to sync data to HiveMQ Cloud, implementing SSL/TLS encryption via port 8883. Custom Qt Dashboard: Developed a visualization dashboard in C++ (Qt 6), parsing asynchronous JSON payloads to visualize 3-axis vibration data on a live-scrolling UI. Asynchronous Event Handling: Architected an interrupt-driven system using libgpiod to monitor GPIO triggers from an ADXL345 accelerometer, eliminating CPU polling overhead. Hardware Interface: Developed custom I2C drivers implementing Two’s Complement sign-extension for raw data processing. System Architecture The tracker utilizes a Raspberry Pi as the edge node, interfacing with the ADXL345 over I2C. Data is packed into JSON format and published via MQTT, ensuring low-latency updates to the monitoring station.\n",
+  "keywords": [
+    "IoT", "C", "C++", "Qt 6", "MQTT", "Raspberry Pi"
+  ],
+  "articleBody": "The Project Overview Engineered a secure telemetry pipeline to synchronize high-G impact data from a Raspberry Pi edge device to the cloud, complete with a custom real-time visualization dashboard.\nTechnical Highlights IoT Cloud Integration: Configured MQTT (Paho C) to sync data to HiveMQ Cloud, implementing SSL/TLS encryption via port 8883. Custom Qt Dashboard: Developed a visualization dashboard in C++ (Qt 6), parsing asynchronous JSON payloads to visualize 3-axis vibration data on a live-scrolling UI. Asynchronous Event Handling: Architected an interrupt-driven system using libgpiod to monitor GPIO triggers from an ADXL345 accelerometer, eliminating CPU polling overhead. Hardware Interface: Developed custom I2C drivers implementing Two’s Complement sign-extension for raw data processing. System Architecture The tracker utilizes a Raspberry Pi as the edge node, interfacing with the ADXL345 over I2C. Data is packed into JSON format and published via MQTT, ensuring low-latency updates to the monitoring station.\n(Screenshot coming soon…)\n",
+  "wordCount" : "147",
+  "inLanguage": "en",
+  "image":"http://localhost:1313/images/dashboard.png","datePublished": "2026-04-22T00:00:00Z",
+  "dateModified": "2026-04-22T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Vamsi Kiran"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/smart-asset-tracker/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vamsi Kiran | Firmware Engineer",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Home (Alt + H)">Home</a>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/resume" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    <a href='http://localhost:1313/'>Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="http://localhost:1313/projects/">Projects</a></nav>
+    <h1 class="post-title entry-hint-parent">
+      Smart Asset Tracker &amp; Telemetry Dashboard
+    </h1>
+    <div class="post-meta"><span title='2026-04-22 00:00:00 +0000 UTC'>April 22, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span>
+
+</div>
+  </header> 
+<figure class="entry-cover">
+        <img loading="eager" src="http://localhost:1313/images/dashboard.png" alt="Qt Dashboard">
+        <figcaption>Real-time Telemetry Dashboard</figcaption>
+</figure>
+  <div class="post-content md-content"><h3 id="the-project-overview">The Project Overview<a hidden class="anchor" aria-hidden="true" href="#the-project-overview">#</a></h3>
+<p>Engineered a secure telemetry pipeline to synchronize high-G impact data from a Raspberry Pi edge device to the cloud, complete with a custom real-time visualization dashboard.</p>
+<h3 id="technical-highlights">Technical Highlights<a hidden class="anchor" aria-hidden="true" href="#technical-highlights">#</a></h3>
+<ul>
+<li><strong>IoT Cloud Integration:</strong> Configured <strong>MQTT (Paho C)</strong> to sync data to <strong>HiveMQ Cloud</strong>, implementing <strong>SSL/TLS encryption</strong> via port 8883.</li>
+<li><strong>Custom Qt Dashboard:</strong> Developed a visualization dashboard in <strong>C++ (Qt 6)</strong>, parsing asynchronous <strong>JSON</strong> payloads to visualize 3-axis vibration data on a live-scrolling UI.</li>
+<li><strong>Asynchronous Event Handling:</strong> Architected an interrupt-driven system using <strong>libgpiod</strong> to monitor GPIO triggers from an <strong>ADXL345</strong> accelerometer, eliminating CPU polling overhead.</li>
+<li><strong>Hardware Interface:</strong> Developed custom I2C drivers implementing <strong>Two’s Complement</strong> sign-extension for raw data processing.</li>
+</ul>
+<hr>
+<h3 id="system-architecture">System Architecture<a hidden class="anchor" aria-hidden="true" href="#system-architecture">#</a></h3>
+<p>The tracker utilizes a Raspberry Pi as the edge node, interfacing with the ADXL345 over I2C. Data is packed into JSON format and published via MQTT, ensuring low-latency updates to the monitoring station.</p>
+<p><em>(Screenshot coming soon&hellip;)</em></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/iot/">IoT</a></li>
+      <li><a href="http://localhost:1313/tags/c/">C</a></li>
+      <li><a href="http://localhost:1313/tags/c&#43;&#43;/">C&#43;&#43;</a></li>
+      <li><a href="http://localhost:1313/tags/qt-6/">Qt 6</a></li>
+      <li><a href="http://localhost:1313/tags/mqtt/">MQTT</a></li>
+      <li><a href="http://localhost:1313/tags/raspberry-pi/">Raspberry Pi</a></li>
+    </ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Vamsi Kiran | Firmware Engineer</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

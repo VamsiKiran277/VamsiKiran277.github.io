@@ -28,7 +28,7 @@ theme = 'PaperMod'
     assets = { disableFingerprinting = false }
 
     # Branding
-    label = { text = "VAMSI.IO" }
+    label = { text = "Home" }
 
     [params.profileMode]
         enabled = true
