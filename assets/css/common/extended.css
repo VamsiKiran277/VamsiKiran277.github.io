@@ -1,0 +1,95 @@
+/* 1. Font Import - MUST be at the very top */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap');
+
+:root {
+    --theme: #00d2ff;
+    --primary: #ffffff;
+    --secondary: #00d2ff;
+    --tertiary: #adadad;
+    --content: #e1e1e1;
+    --hljs-bg: #0f0f0f;
+    --code-bg: #1a1a1a;
+    --border: #222;
+    /* Updated to use Cormorant */
+    --font-family: 'Cormorant', serif;
+}
+
+body {
+    font-family: var(--font-family);
+    font-weight: 500; /* Cormorant looks best slightly heavier */
+    letter-spacing: 0.02em; /* Serif fonts benefit from a bit of breathing room */
+}
+
+/* 2. Deep Black Grid Background */
+body.dark {
+    background-color: #050505 !important;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px) !important;
+    background-size: 50px 50px !important;
+}
+
+/* 3. Modern Hero Section (Gradient Name) */
+.profile_inner h1 {
+    font-family: var(--font-family) !important;
+    font-size: 4.5rem !important; /* Cormorant runs a bit small, so we'll bump the size */
+    font-weight: 700 !important;
+    background: linear-gradient(to right, #ffffff, #00d2ff) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    margin-bottom: 15px !important;
+}
+
+/* 4. Profile Image Glow Effect */
+.profile_inner img {
+    border: 2px solid var(--theme) !important;
+    box-shadow: 0 0 25px rgba(0, 210, 255, 0.2) !important;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.profile_inner img:hover {
+    transform: scale(1.08) rotate(2deg) !important;
+}
+
+/* 5. Bento-style Project Cards */
+.post-entry {
+    background: #0f0f0f !important;
+    border: 1px solid #222 !important;
+    border-radius: 16px !important;
+    padding: 25px !important;
+    transition: all 0.3s cubic-bezier(0, 0, 0.5, 1) !important;
+    margin-bottom: 20px !important;
+}
+
+.post-entry:hover {
+    border-color: var(--theme) !important;
+    transform: scale(1.01) translateY(-3px) !important;
+    background: #141414 !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* 6. Professional Buttons */
+.button {
+    background: transparent !important;
+    border: 1px solid var(--theme) !important;
+    color: var(--theme) !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.button:hover {
+    background: var(--theme) !important;
+    color: #000 !important;
+    box-shadow: 0 0 15px var(--theme) !important;
+}
+
+/* 7. Hide Sharing Bar & Clutter */
+.share-buttons {
+    display: none !important;
+}
+
+.logo a {
+    border: none !important; /* Removes the test border */
+}

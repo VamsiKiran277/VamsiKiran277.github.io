@@ -6,6 +6,7 @@ theme = 'PaperMod'
 [outputs]
     home = ["HTML", "RSS", "JSON"]
 
+# --- START OF PARAMS (Only one [params] allowed!) ---
 [params]
     env = "production"
     title = "Vamsi Kiran"
@@ -23,16 +24,19 @@ theme = 'PaperMod'
     ShowBreadCrumbs = true
     ShowCodeCopyButtons = true
     
-    # Branding - This replaces the bland title with a techy label
+    # Asset Management (Fixed from your second [params] block)
+    assets = { disableFingerprinting = false }
+
+    # Branding
     label = { text = "VAMSI.IO" }
 
     [params.profileMode]
         enabled = true
-        title = "Hi, I'm Vamsi 👋"
-        subtitle = "Aspiring Firmware & Embedded Systems Engineer | IoT, RTOS, & Bare-Metal C"
-        imageUrl = "/images/profile.png"
-        imageWidth = 120
-        imageHeight = 150
+        title = "Vamsi Kiran"
+        subtitle = "Firmware Engineer & Embedded Systems Architect. Building low-latency IoT infrastructure and bare-metal systems."
+    #    imageUrl = "/images/profile.png"
+    #    imageWidth = 120
+    #    imageHeight = 120
 
         [[params.profileMode.buttons]]
             name = "View Projects"
@@ -49,6 +53,8 @@ theme = 'PaperMod'
     [[params.socialIcons]]
         name = "linkedin"
         url = "https://www.linkedin.com/in/vamsi-kiran-mekala-57135424a/"
+
+# --- END OF PARAMS ---
 
 [[menu.main]]
     name = "Resume"
