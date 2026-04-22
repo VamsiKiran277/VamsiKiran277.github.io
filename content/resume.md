@@ -53,4 +53,4 @@ Engineered a secure telemetry pipeline using MQTT to sync data to HiveMQ Cloud w
 
 ---
 
-> 📥 **Download Full Version:** [Click here to download the PDF version of my resume](/VamsiKiran_Resume.pdf)
+📥 **Download Full Version:** [Click here to download the PDF version of my resume](/resume.pdf)
