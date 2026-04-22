@@ -39,7 +39,7 @@ body.dark {
     background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     margin-bottom: 15px !important;
-}
+} 
 
 /* 4. Profile Image Glow Effect */
 .profile_inner img {
