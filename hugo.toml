@@ -20,11 +20,11 @@ url = "/projects/"
 
 [[params.profileMode.buttons]]
 name = "View GitHub"
-url = "https://github.com/ASTASTARIA27"
+url = "https://github.com/VamsiKiran277"
 
 [[params.socialIcons]]
 name = "github"
-url = "https://github.com/ASTASTARIA27"
+url = "https://github.com/VamsiKiran277"
 
 [[params.socialIcons]]
 name = "linkedin"
