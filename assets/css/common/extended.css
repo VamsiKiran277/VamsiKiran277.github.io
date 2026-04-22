@@ -126,7 +126,7 @@ body, .main, .wrapper, .profile, .profile_inner, #top {
 .menu a {
     position: relative !important;
     padding: 5px 0px !important; /* ZERO side padding so brackets hug the text */
-    margin: 5 8px !important;   /* Healthy space between the different links */
+    margin: 5px 8px !important;   /* Healthy space between the different links */
     transition: all 0.3s ease !important;
 }
 
@@ -412,3 +412,84 @@ hr {
     margin: 60px 0;
 }
 .share-buttons { display: none !important; }
+
+/* ============================================================
+   13. TERMINAL BOOT SEQUENCE
+   ============================================================ */
+.terminal-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 100px auto; /* Centers it and adds space at the bottom */
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 210, 255, 0.1);
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.terminal-header {
+    background: rgba(20, 20, 20, 0.95);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+}
+
+/* Mac/Linux style window buttons */
+.terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+.terminal-button.red { background: #ff5f56; }
+.terminal-button.yellow { background: #ffbd2e; }
+.terminal-button.green { background: #27c93f; }
+
+.terminal-title {
+    color: #8b949e;
+    font-size: 0.9rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.terminal-body {
+    padding: 25px 30px;
+    color: #c9d1d9;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    text-align: left;
+}
+
+.terminal-body p {
+    margin: 8px 0;
+}
+
+.terminal-body .prompt {
+    color: #27c93f; /* Classic terminal green */
+    font-weight: bold;
+}
+
+.terminal-body .ok {
+    color: #00d2ff; /* Your glowing cyan */
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(0, 210, 255, 0.6);
+}
+
+.terminal-body .cursor {
+    display: inline-block;
+    width: 10px;
+    height: 18px;
+    background: #00d2ff;
+    box-shadow: 0 0 10px #00d2ff;
+    animation: blink 1s step-end infinite;
+    vertical-align: middle;
+    margin-left: 6px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
