@@ -1,7 +1,8 @@
-/* 1. Font Import */
+/* ============================================================
+   1. FONT & THEME CORE
+   ============================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap');
 
-/* 2. THE THEME KILL SWITCH */
 :root[data-theme="dark"] {
     --theme: #00d2ff;
     --entry: rgba(15, 15, 15, 0.7) !important; 
@@ -9,20 +10,24 @@
     background-color: #050505 !important;
 }
 
-/* 3. Global Background Strategy */
+/* ============================================================
+   2. GLOBAL BACKGROUND & TYPOGRAPHY
+   ============================================================ */
 html {
     background-color: #050505 !important;
     background-image: 
+        /* Layer 1: Engineering Grid Overlay */
         linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        /* Layer 2: Deepened Dark Tint for Readability */
         linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+        /* Layer 3: Main Abstract Image */
         url("/background.png") !important;
     background-attachment: fixed;
     background-size: 50px 50px, 50px 50px, cover, cover !important;
     background-position: center;
 }
 
-/* 4. Global Transparency & Typography */
 body, .main, .wrapper, .profile, .profile_inner, #top {
     background: transparent !important;
     background-color: transparent !important;
@@ -30,39 +35,9 @@ body, .main, .wrapper, .profile, .profile_inner, #top {
     color: #ffffff;
 }
 
-/* 5. Project Cards Glass-morphism */
-.post-entry {
-    background: rgba(10, 10, 10, 0.6) !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
-    border: 1px solid rgba(0, 210, 255, 0.2) !important;
-    border-radius: 12px !important;
-    padding: 25px !important;
-    margin-bottom: 25px !important;
-    transition: all 0.3s ease !important;
-}
-
-.post-entry:hover {
-    border-color: #00d2ff !important;
-    box-shadow: 0 0 25px rgba(0, 210, 255, 0.15) !important;
-}
-
-.post-title {
-    color: #00d2ff !important;
-    text-shadow: 0 0 10px rgba(0, 210, 255, 0.3) !important;
-}
-
-/* 6. Page Headers */
-header.page-header h1 {
-    font-size: 3.5rem !important;
-    background: linear-gradient(to right, #ffffff, #00d2ff) !important;
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    margin-bottom: 30px !important;
-}
-
-/* 7. Home Page Hero Content */
+/* ============================================================
+   3. HOME PAGE (HERO SECTION)
+   ============================================================ */
 .profile_inner {
     display: flex;
     flex-direction: column;
@@ -91,21 +66,21 @@ header.page-header h1 {
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9) !important;
 }
 
-/* 8. Modern Hero Buttons - STRICT Side-by-Side */
+/* Hero Buttons - Forced Side-by-Side */
 .profile_inner .buttons {
     display: flex !important;
-    flex-direction: row !important; /* Forces horizontal alignment */
-    flex-wrap: nowrap !important;   /* Prevents wrapping to a new line */
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
     justify-content: center !important;
     align-items: center !important;
     gap: 20px !important;
     margin: 35px auto 0 auto !important;
     width: auto !important;
-    min-width: 400px !important;    /* Ensures container doesn't collapse */
+    min-width: 400px !important;
 }
 
 .profile_inner .buttons .button {
-    flex: 0 0 auto !important;      /* Prevents buttons from growing/shrinking unevenly */
+    flex: 0 0 auto !important;
     background: rgba(0, 210, 255, 0.1) !important;
     border: 1px solid #00d2ff !important;
     color: #ffffff !important;
@@ -114,7 +89,7 @@ header.page-header h1 {
     font-weight: 600 !important;
     transition: all 0.3s ease !important;
     text-decoration: none !important;
-    white-space: nowrap !important; /* Keeps text on one line inside button */
+    white-space: nowrap !important;
 }
 
 .profile_inner .buttons .button:hover {
@@ -124,9 +99,11 @@ header.page-header h1 {
     transform: translateY(-2px);
 }
 
-/* 9. Navigation & Social Hovers */
+/* ============================================================
+   4. NAVIGATION & SOCIALS
+   ============================================================ */
 .menu a, #menu a, .nav a, .logo a {
-    transition: 0.3s ease !important;
+    transition: all 0.3s ease !important;
 }
 
 .menu a:hover, #menu a:hover, .nav a:hover, .logo a:hover {
@@ -140,6 +117,99 @@ header.page-header h1 {
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)) !important;
 }
 
-/* Cleanup */
-.share-buttons { display: none !important; }
 .logo a { border: none !important; font-weight: 800 !important; }
+
+/* ============================================================
+   5. PROJECTS LIST & CARDS
+   ============================================================ */
+header.page-header h1 {
+    font-size: 3.5rem !important;
+    background: linear-gradient(to right, #ffffff, #00d2ff) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    margin-bottom: 30px !important;
+}
+
+.post-entry {
+    background: rgba(10, 10, 10, 0.6) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(0, 210, 255, 0.2) !important;
+    border-radius: 12px !important;
+    padding: 25px !important;
+    margin-bottom: 25px !important;
+    transition: all 0.3s ease !important;
+}
+
+.post-entry:hover {
+    border-color: #00d2ff !important;
+    box-shadow: 0 0 25px rgba(0, 210, 255, 0.15) !important;
+}
+
+.post-title {
+    color: #00d2ff !important;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.3) !important;
+}
+
+/* ============================================================
+   6. PROJECT CONTENT (INSIDE ARTICLES)
+   ============================================================ */
+/* Tags at bottom of projects */
+.post-tags a {
+    background: rgba(0, 210, 255, 0.1) !important;
+    border: 1px solid rgba(0, 210, 255, 0.3) !important;
+    color: #00d2ff !important;
+    border-radius: 4px !important;
+    padding: 2px 10px !important;
+    transition: all 0.3s ease !important;
+}
+
+.post-tags a:hover {
+    background: #00d2ff !important;
+    color: #000 !important;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.4) !important;
+}
+
+/* "View Source on GitHub" Button */
+.post-content a[href*="github.com"] {
+    display: inline-block !important;
+    margin-top: 20px !important;
+    padding: 10px 25px !important;
+    background: rgba(0, 210, 255, 0.1) !important;
+    border: 1px solid #00d2ff !important;
+    color: #00d2ff !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.post-content a[href*="github.com"]:hover {
+    background: #00d2ff !important;
+    color: #000000 !important;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.6) !important;
+    transform: translateY(-3px);
+}
+
+/* Pagination (Prev/Next) */
+.paginav {
+    background: rgba(15, 15, 15, 0.8) !important;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 210, 255, 0.2) !important;
+    border-radius: 12px !important;
+    margin-top: 50px !important;
+}
+
+.paginav a:hover {
+    background: rgba(0, 210, 255, 0.1) !important;
+    color: #00d2ff !important;
+}
+
+.paginav .title { color: #00d2ff !important; font-weight: bold; }
+
+/* ============================================================
+   7. CLEANUP
+   ============================================================ */
+.share-buttons { display: none !important; }
+.logo a { border: none !important; }

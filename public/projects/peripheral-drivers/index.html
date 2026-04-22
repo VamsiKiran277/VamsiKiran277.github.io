@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Peripheral Driver Suite: GPIO, I2C, SPI &amp; UART | Vamsi Kiran | Firmware Engineer</title>
+<meta name="keywords" content="C&#43;&#43;, Raspberry Pi 4, Bare-Metal, Driver Development">
+<meta name="description" content="🛠 Technology Stack
+
+Languages: C&#43;&#43; (OOP Approach), Makefile
+Protocols: I2C, SPI, UART (Mini-UART), GPIO (Alternate Functions)
+Hardware: Raspberry Pi 4 (BCM2711 / ARM Cortex-A72)
+Tools: BCM2711 ARM Peripherals Datasheet, GCC Toolchain, GDB
+
+
+The Project Overview
+Developed a comprehensive, register-level peripheral driver suite for the Raspberry Pi 4 using an Object-Oriented approach in C&#43;&#43;. This project demonstrates how to translate complex technical datasheets into a modular, reusable Hardware Abstraction Layer (HAL).">
+<meta name="author" content="Vamsi Kiran">
+<link rel="canonical" href="http://localhost:1313/projects/peripheral-drivers/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e29dbb34c51141a2e91ab4f891e8cabe077fa176a45611703a2b656761974f48.css" integrity="sha256-4p27NMURQaLpGrT4kejKvgd/oXakVhFwOitlZ2GXT0g=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/peripheral-drivers/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:url" content="http://localhost:1313/projects/peripheral-drivers/">
+  <meta property="og:site_name" content="Vamsi Kiran | Firmware Engineer">
+  <meta property="og:title" content="Peripheral Driver Suite: GPIO, I2C, SPI & UART">
+  <meta property="og:description" content="🛠 Technology Stack Languages: C&#43;&#43; (OOP Approach), Makefile Protocols: I2C, SPI, UART (Mini-UART), GPIO (Alternate Functions) Hardware: Raspberry Pi 4 (BCM2711 / ARM Cortex-A72) Tools: BCM2711 ARM Peripherals Datasheet, GCC Toolchain, GDB The Project Overview Developed a comprehensive, register-level peripheral driver suite for the Raspberry Pi 4 using an Object-Oriented approach in C&#43;&#43;. This project demonstrates how to translate complex technical datasheets into a modular, reusable Hardware Abstraction Layer (HAL).">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2026-04-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-04-20T00:00:00+00:00">
+    <meta property="article:tag" content="C&#43;&#43;">
+    <meta property="article:tag" content="Raspberry Pi 4">
+    <meta property="article:tag" content="Bare-Metal">
+    <meta property="article:tag" content="Driver Development">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Peripheral Driver Suite: GPIO, I2C, SPI & UART">
+  <meta name="twitter:description" content="🛠 Technology Stack Languages: C&#43;&#43; (OOP Approach), Makefile Protocols: I2C, SPI, UART (Mini-UART), GPIO (Alternate Functions) Hardware: Raspberry Pi 4 (BCM2711 / ARM Cortex-A72) Tools: BCM2711 ARM Peripherals Datasheet, GCC Toolchain, GDB The Project Overview Developed a comprehensive, register-level peripheral driver suite for the Raspberry Pi 4 using an Object-Oriented approach in C&#43;&#43;. This project demonstrates how to translate complex technical datasheets into a modular, reusable Hardware Abstraction Layer (HAL).">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Peripheral Driver Suite: GPIO, I2C, SPI \u0026 UART",
+      "item": "http://localhost:1313/projects/peripheral-drivers/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Peripheral Driver Suite: GPIO, I2C, SPI \u0026 UART",
+  "name": "Peripheral Driver Suite: GPIO, I2C, SPI \u0026 UART",
+  "description": "🛠 Technology Stack Languages: C++ (OOP Approach), Makefile Protocols: I2C, SPI, UART (Mini-UART), GPIO (Alternate Functions) Hardware: Raspberry Pi 4 (BCM2711 / ARM Cortex-A72) Tools: BCM2711 ARM Peripherals Datasheet, GCC Toolchain, GDB The Project Overview Developed a comprehensive, register-level peripheral driver suite for the Raspberry Pi 4 using an Object-Oriented approach in C++. This project demonstrates how to translate complex technical datasheets into a modular, reusable Hardware Abstraction Layer (HAL).\n",
+  "keywords": [
+    "C++", "Raspberry Pi 4", "Bare-Metal", "Driver Development"
+  ],
+  "articleBody": "🛠 Technology Stack Languages: C++ (OOP Approach), Makefile Protocols: I2C, SPI, UART (Mini-UART), GPIO (Alternate Functions) Hardware: Raspberry Pi 4 (BCM2711 / ARM Cortex-A72) Tools: BCM2711 ARM Peripherals Datasheet, GCC Toolchain, GDB The Project Overview Developed a comprehensive, register-level peripheral driver suite for the Raspberry Pi 4 using an Object-Oriented approach in C++. This project demonstrates how to translate complex technical datasheets into a modular, reusable Hardware Abstraction Layer (HAL).\nTechnical Highlights Register-Level Control: Directly manipulated SoC registers using memory-mapped I/O (MMIO) to configure GPIO pins, Alternate Functions, and peripheral clock rates. OOP Driver Design: Implemented drivers as C++ classes, encapsulating peripheral state and methods. This ensures type safety and allows for easy instantiation of multiple communication buses. Protocol Implementation: I2C: Developed a robust master-mode driver with support for 7-bit addressing and data stream management. SPI: Engineered a high-speed Serial Peripheral Interface driver, managing Clock Polarity (CPOL) and Phase (CPHA). UART: Configured the Mini-UART peripheral for asynchronous serial communication, including precise baud rate generation math. Custom Build Pipeline: Created a modular Makefile system to manage dependencies, object files, and cross-compilation for the ARM architecture. Key Learning Outcomes Datasheet Interpretation: Mastered the BCM2711 Reference Manual, learning to map physical addresses to virtual memory and understanding peripheral-specific control registers. Communication Protocols: SPI: Learned the timing diagrams and shift-register logic required for high-speed full-duplex communication. UART: Understood start/stop bit framing, parity, and the impact of system clock frequencies on baud accuracy. I2C: Gained experience with the “Start-Address-Data-Stop” sequence and handling Acknowledgement (ACK/NACK) bits. C++ for Embedded: Leveraged C++ features like classes and private member variables to enforce data hiding and prevent illegal register access from the application layer. Hardware Target Designed specifically for the Raspberry Pi 4 Model B. The drivers interface directly with the Broadcom BCM2711 SoC, providing a bare-metal feel while running within a Linux user-space environment via /dev/mem access.\nView Source on GitHub\n",
+  "wordCount" : "313",
+  "inLanguage": "en",
+  "datePublished": "2026-04-20T00:00:00Z",
+  "dateModified": "2026-04-20T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Vamsi Kiran"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/peripheral-drivers/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vamsi Kiran | Firmware Engineer",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Home (Alt + H)">Home</a>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/resume" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    <a href='http://localhost:1313/'>Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="http://localhost:1313/projects/">Projects</a></nav>
+    <h1 class="post-title entry-hint-parent">
+      Peripheral Driver Suite: GPIO, I2C, SPI &amp; UART
+    </h1>
+    <div class="post-meta"><span title='2026-04-20 00:00:00 +0000 UTC'>April 20, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><h3 id="-technology-stack">🛠 Technology Stack<a hidden class="anchor" aria-hidden="true" href="#-technology-stack">#</a></h3>
+<ul>
+<li><strong>Languages:</strong> C++ (OOP Approach), Makefile</li>
+<li><strong>Protocols:</strong> I2C, SPI, UART (Mini-UART), GPIO (Alternate Functions)</li>
+<li><strong>Hardware:</strong> Raspberry Pi 4 (BCM2711 / ARM Cortex-A72)</li>
+<li><strong>Tools:</strong> BCM2711 ARM Peripherals Datasheet, GCC Toolchain, GDB</li>
+</ul>
+<hr>
+<h3 id="the-project-overview">The Project Overview<a hidden class="anchor" aria-hidden="true" href="#the-project-overview">#</a></h3>
+<p>Developed a comprehensive, register-level peripheral driver suite for the Raspberry Pi 4 using an Object-Oriented approach in C++. This project demonstrates how to translate complex technical datasheets into a modular, reusable Hardware Abstraction Layer (HAL).</p>
+<h3 id="technical-highlights">Technical Highlights<a hidden class="anchor" aria-hidden="true" href="#technical-highlights">#</a></h3>
+<ul>
+<li><strong>Register-Level Control:</strong> Directly manipulated SoC registers using memory-mapped I/O (MMIO) to configure GPIO pins, Alternate Functions, and peripheral clock rates.</li>
+<li><strong>OOP Driver Design:</strong> Implemented drivers as C++ classes, encapsulating peripheral state and methods. This ensures type safety and allows for easy instantiation of multiple communication buses.</li>
+<li><strong>Protocol Implementation:</strong>
+<ul>
+<li><strong>I2C:</strong> Developed a robust master-mode driver with support for 7-bit addressing and data stream management.</li>
+<li><strong>SPI:</strong> Engineered a high-speed Serial Peripheral Interface driver, managing Clock Polarity (CPOL) and Phase (CPHA).</li>
+<li><strong>UART:</strong> Configured the Mini-UART peripheral for asynchronous serial communication, including precise baud rate generation math.</li>
+</ul>
+</li>
+<li><strong>Custom Build Pipeline:</strong> Created a modular <strong>Makefile</strong> system to manage dependencies, object files, and cross-compilation for the ARM architecture.</li>
+</ul>
+<hr>
+<h3 id="key-learning-outcomes">Key Learning Outcomes<a hidden class="anchor" aria-hidden="true" href="#key-learning-outcomes">#</a></h3>
+<ul>
+<li><strong>Datasheet Interpretation:</strong> Mastered the <strong>BCM2711 Reference Manual</strong>, learning to map physical addresses to virtual memory and understanding peripheral-specific control registers.</li>
+<li><strong>Communication Protocols:</strong>
+<ul>
+<li><strong>SPI:</strong> Learned the timing diagrams and shift-register logic required for high-speed full-duplex communication.</li>
+<li><strong>UART:</strong> Understood start/stop bit framing, parity, and the impact of system clock frequencies on baud accuracy.</li>
+<li><strong>I2C:</strong> Gained experience with the &ldquo;Start-Address-Data-Stop&rdquo; sequence and handling Acknowledgement (ACK/NACK) bits.</li>
+</ul>
+</li>
+<li><strong>C++ for Embedded:</strong> Leveraged C++ features like classes and private member variables to enforce data hiding and prevent illegal register access from the application layer.</li>
+</ul>
+<hr>
+<h3 id="hardware-target">Hardware Target<a hidden class="anchor" aria-hidden="true" href="#hardware-target">#</a></h3>
+<p>Designed specifically for the <strong>Raspberry Pi 4 Model B</strong>. The drivers interface directly with the <strong>Broadcom BCM2711 SoC</strong>, providing a bare-metal feel while running within a Linux user-space environment via <code>/dev/mem</code> access.</p>
+<p><a href="https://github.com/VamsiKiran277/GPIO_DRIVER.git">View Source on GitHub</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/c&#43;&#43;/">C&#43;&#43;</a></li>
+      <li><a href="http://localhost:1313/tags/raspberry-pi-4/">Raspberry Pi 4</a></li>
+      <li><a href="http://localhost:1313/tags/bare-metal/">Bare-Metal</a></li>
+      <li><a href="http://localhost:1313/tags/driver-development/">Driver Development</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/projects/freertos-tasks/">
+    <span class="title">Next »</span>
+    <span>FreeRTOS Task Management &amp; Sensor Suite</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Vamsi Kiran | Firmware Engineer</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

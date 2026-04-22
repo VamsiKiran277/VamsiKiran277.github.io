@@ -1,30 +1,44 @@
 ---
 title: "Smart Asset Tracker & Telemetry Dashboard"
-date: 2026-04-22
+date: 2026-04-13
 draft: false
-tags: ["IoT", "C", "C++", "Qt 6", "MQTT", "Raspberry Pi"]
+tags: ["IoT", "C++", "Qt 6", "MQTT", "Raspberry Pi", "Cybersecurity"]
 cover:
     image: "/images/dashboard.png"
     alt: "Qt Dashboard"
     caption: "Real-time Telemetry Dashboard"
     relative: false
-# These flags kill the social sharing bar at the bottom
 ShowShareButtons: false
 showShareButtons: false
 ---
 
-### The Project Overview
-Engineered a secure telemetry pipeline to synchronize high-G impact data from a Raspberry Pi edge device to the cloud, complete with a custom real-time visualization dashboard.
-
-### Technical Highlights
-* **IoT Cloud Integration:** Configured **MQTT (Paho C)** to sync data to **HiveMQ Cloud**, implementing **SSL/TLS encryption** via port 8883.
-* **Custom Qt Dashboard:** Developed a visualization dashboard in **C++ (Qt 6)**, parsing asynchronous **JSON** payloads to visualize 3-axis vibration data on a live-scrolling UI.
-* **Asynchronous Event Handling:** Architected an interrupt-driven system using **libgpiod** to monitor GPIO triggers from an **ADXL345** accelerometer, eliminating CPU polling overhead.
-* **Hardware Interface:** Developed custom I2C drivers implementing **Two’s Complement** sign-extension for raw data processing.
+### 🛠 Technology Stack
+* **Languages:** C++ (Qt 6), Embedded C (Paho MQTT), Python (Scripting/Testing)
+* **Protocols:** MQTT over SSL/TLS, I2C (Register-level), JSON
+* **Hardware:** Raspberry Pi 4, ADXL345 (3-Axis Accelerometer)
+* **Cloud:** HiveMQ Cloud Broker
 
 ---
 
-### System Architecture
-The tracker utilizes a Raspberry Pi as the edge node, interfacing with the ADXL345 over I2C. Data is packed into JSON format and published via MQTT, ensuring low-latency updates to the monitoring station.
+### The Project Overview
+Engineered a secure, end-to-end telemetry pipeline designed to monitor and synchronize high-G impact data from edge devices to a centralized monitoring station. This project bridges the gap between low-level sensor interfacing and high-level data visualization.
 
-*(Screenshot coming soon...)*
+### Technical Highlights
+* **IoT Cloud Integration:** Configured a secure **MQTT** pipeline to sync data to **HiveMQ Cloud**, enforcing industry-standard **SSL/TLS encryption** via port 8883 to prevent data sniffing.
+* **Custom Qt Dashboard:** Developed a high-performance visualization suite in **C++ (Qt 6)**. It features an asynchronous JSON parser and a live-scrolling UI that renders 3-axis vibration data in real-time.
+* **Asynchronous Event Handling:** Architected an interrupt-driven sensing system using **libgpiod**. By monitoring hardware interrupts from the **ADXL345**, the system eliminates CPU polling, drastically reducing power consumption and latency.
+* **Hardware Driver Development:** Wrote custom I2C drivers from scratch, handling raw bit-manipulation and implementing **Two’s Complement** sign-extension for accurate acceleration processing.
+
+---
+
+### Key Learning Outcomes
+* **End-to-End IoT Security:** Gained practical experience in implementing secure cloud handshakes and managing certificates for embedded devices.
+* **Real-Time Data Streams:** Mastered the management of asynchronous data buffers and UI thread synchronization in Qt to prevent interface "freezing" during high-speed data bursts.
+* **Embedded Linux API:** Deepened knowledge of Linux character device drivers and the `libgpiod` library for modern hardware interfacing.
+
+---
+
+### Hardware Target
+The system is built on the **Raspberry Pi 4** platform, utilizing an **ADXL345** digital accelerometer for impact sensing. It is designed to be easily portable to other Linux-based Single Board Computers (SBCs).
+
+[View Source on GitHub](https://github.com/VamsiKiran277/Smart-Asset-Tracker.git)

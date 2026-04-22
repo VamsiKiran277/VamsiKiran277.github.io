@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>I2C | Vamsi Kiran | Firmware Engineer</title>
+<meta name="keywords" content="">
+<meta name="description" content="Firmware Engineer Portfolio">
+<meta name="author" content="Vamsi Kiran">
+<link rel="canonical" href="http://localhost:1313/tags/i2c/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e29dbb34c51141a2e91ab4f891e8cabe077fa176a45611703a2b656761974f48.css" integrity="sha256-4p27NMURQaLpGrT4kejKvgd/oXakVhFwOitlZ2GXT0g=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tags/i2c/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/tags/i2c/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:url" content="http://localhost:1313/tags/i2c/">
+  <meta property="og:site_name" content="Vamsi Kiran | Firmware Engineer">
+  <meta property="og:title" content="I2C">
+  <meta property="og:description" content="Firmware Engineer Portfolio">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="I2C">
+  <meta name="twitter:description" content="Firmware Engineer Portfolio">
+
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Home (Alt + H)">Home</a>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/resume" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    <a href='http://localhost:1313/'>Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="http://localhost:1313/tags/">Tags</a></nav>
+  <h1>
+    I2C
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">FreeRTOS Task Management &amp; Sensor Suite
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>🛠 Technology Stack Languages: Embedded C (C11) Operating System: FreeRTOS (POSIX Port) Protocols: I2C, Hardware Interrupts (GPIO) Tools: libgpiod, GDB, GCC, Linux terminal The Project Overview The objective was to design a robust, thread-safe sensor acquisition system on a Linux-based RTOS environment. This project demonstrates high-reliability multitasking where multiple sensors share a single communication bus without data corruption or timing jitter.
+Technical Highlights Kernel-Level Multitasking: Leveraged the FreeRTOS POSIX Port to manage three concurrent tasks using fixed-priority preemption, ensuring mission-critical tasks always receive CPU time. Thread-Safe I2C Management: Implemented a Mutex Semaphore to arbitrate access to the I2C bus. This prevents data collisions between the ADXL345 Accelerometer and DS3231 RTC tasks when accessing shared hardware. Asynchronous Event Handling: Developed a high-priority hardware listener using libgpiod to capture falling-edge interrupts on GPIO 17, triggering a system-wide graceful shutdown. Deterministic Scheduling: Replaced standard sleep calls with vTaskDelayUntil() to ensure a consistent 10Hz sampling frequency, eliminating timing drift critical for real-time telemetry analysis. Resource Cleanup: Engineered a custom shutdown() sequence ensuring all RTOS tasks are deleted and Linux file descriptors (I2C/GPIO) are properly closed before process termination. Key Learning Outcomes Concurrency Control: Mastered the use of Mutexes and Semaphores to handle shared resource contention in a real-time environment. RTOS Scheduling: Understood the difference between “soft” delays and deterministic “fixed-frequency” scheduling for sensor data integrity. System Robustness: Learned to implement graceful degradation and cleanup procedures to prevent memory leaks and “hung” hardware peripherals. Hardware Target This project is designed for Linux-based Embedded Systems (specifically tested on Raspberry Pi). It interfaces with an ADXL345 for motion data and a DS3231 Real-Time Clock for timestamping via the I2C protocol.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-04-18 00:00:00 +0000 UTC'>April 18, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span></footer>
+  <a class="entry-link" aria-label="post link to FreeRTOS Task Management & Sensor Suite" href="http://localhost:1313/projects/freertos-tasks/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Vamsi Kiran | Firmware Engineer</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+</body>
+
+</html>

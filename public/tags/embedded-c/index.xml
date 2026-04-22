@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Embedded C on Vamsi Kiran | Firmware Engineer</title>
+    <link>http://localhost:1313/tags/embedded-c/</link>
+    <description>Recent content in Embedded C on Vamsi Kiran | Firmware Engineer</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/embedded-c/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BSP-Backed Embedded Application</title>
+      <link>http://localhost:1313/projects/bsp-application/</link>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/bsp-application/</guid>
+      <description>&lt;h3 id=&#34;-technology-stack&#34;&gt;🛠 Technology Stack&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Languages:&lt;/strong&gt; Bare-Metal C (C11)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Protocols:&lt;/strong&gt; UART/USART, SysTick Timer logic&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hardware:&lt;/strong&gt; STM32F407 (Discovery Board) - ARM Cortex-M4&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tools:&lt;/strong&gt; STM32CubeIDE, GDB, Real-term/Putty (Serial Debugging)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;the-project-overview&#34;&gt;The Project Overview&lt;/h3&gt;
+&lt;p&gt;A modular, power-conscious firmware application that demonstrates a clean separation between hardware-specific drivers (BSP) and high-level application logic. The project focuses on non-blocking execution and architectural maintainability.&lt;/p&gt;
+&lt;h3 id=&#34;technical-highlights&#34;&gt;Technical Highlights&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Layered Architecture (BSP):&lt;/strong&gt; All register-level operations (RCC, GPIO, UART) are encapsulated within a dedicated Board Support Package. The application layer contains zero raw register addresses.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Non-Blocking Logic:&lt;/strong&gt; Replaced &amp;ldquo;busy-wait&amp;rdquo; &lt;code&gt;delay()&lt;/code&gt; loops with a &lt;strong&gt;SysTick-based timer flag system&lt;/strong&gt;, allowing the CPU to process multiple tasks (LED Heartbeat &amp;amp; Status Reporting) concurrently.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Clock Configuration:&lt;/strong&gt; Calculated and implemented the &lt;strong&gt;42 MHz APB1&lt;/strong&gt; clock math to ensure a precise &lt;strong&gt;115200 baud rate&lt;/strong&gt; for serial communication.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hardware Abstraction:&lt;/strong&gt; Developed a suite of APIs (e.g., &lt;code&gt;BSP_LED_Toggle&lt;/code&gt;, &lt;code&gt;BSP_UART_Write&lt;/code&gt;) to ensure high-level logic remains portable across different MCU architectures.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;key-learning-outcomes&#34;&gt;Key Learning Outcomes&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Register Mapping:&lt;/strong&gt; Mastered the translation of technical datasheets into functional C code using structures and bit-fields.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Software Design Patterns:&lt;/strong&gt; Implemented the &amp;ldquo;Separation of Concerns&amp;rdquo; principle to reduce coupling between hardware and application code.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Asynchronous Timing:&lt;/strong&gt; Learned to manage time-based events in a super-loop environment without blocking the main execution thread.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;hardware-target&#34;&gt;Hardware Target&lt;/h3&gt;
+&lt;p&gt;This project was designed and tested on the &lt;strong&gt;STM32F407 Discovery Board&lt;/strong&gt;. It utilizes the onboard &lt;strong&gt;PD12 (Green LED)&lt;/strong&gt; for heartbeats and &lt;strong&gt;USART2 (PD5/PD6)&lt;/strong&gt; for system status reporting.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
