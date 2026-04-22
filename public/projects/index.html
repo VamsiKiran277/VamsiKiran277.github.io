@@ -59,7 +59,7 @@
     <header class="header">
     <nav class="header-nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Vamsi Kiran | Firmware Engineer (Alt + H)">Vamsi Kiran | Firmware Engineer</a>
+            <a href="http://localhost:1313/" accesskey="h" title="VAMSI.IO (Alt + H)">VAMSI.IO</a>
         </div>
         <ul id="menu" class="menu">
             <li>
@@ -94,14 +94,17 @@
 </header>
 
 <article class="post-entry"> 
+<figure class="entry-cover">
+        <img loading="lazy" src="http://localhost:1313/images/dashboard.png" alt="Qt Dashboard">
+</figure>
   <header class="entry-header">
     <h2 class="entry-hint-parent">Smart Asset Tracker &amp; Telemetry Dashboard
     </h2>
   </header>
   <div class="entry-content">
     <p>The Project Overview Engineered a secure telemetry pipeline to synchronize high-G impact data from a Raspberry Pi edge device to the cloud, complete with a custom real-time visualization dashboard.
-Technical Highlights IoT Cloud Integration: Configured MQTT (Paho C) to sync data to HiveMQ Cloud, implementing SSL/TLS encryption via port 8883. Custom Qt Dashboard: Developed a visualization dashboard in C&#43;&#43; (Qt 6), parsing asynchronous JSON payloads to visualize 3-axis vibration data on a live-scrolling UI. Asynchronous Event Handling: Architected an interrupt-driven system using libgpiod to monitor GPIO triggers from an ADXL345 accelerometer, eliminating CPU polling overhead. Hardware Interface: Developed custom I2C drivers implementing Two’s Complement sign-extension for raw data processing. (Screenshot coming soon…)
-</p>
+Technical Highlights IoT Cloud Integration: Configured MQTT (Paho C) to sync data to HiveMQ Cloud, implementing SSL/TLS encryption via port 8883. Custom Qt Dashboard: Developed a visualization dashboard in C&#43;&#43; (Qt 6), parsing asynchronous JSON payloads to visualize 3-axis vibration data on a live-scrolling UI. Asynchronous Event Handling: Architected an interrupt-driven system using libgpiod to monitor GPIO triggers from an ADXL345 accelerometer, eliminating CPU polling overhead. Hardware Interface: Developed custom I2C drivers implementing Two’s Complement sign-extension for raw data processing. System Architecture The tracker utilizes a Raspberry Pi as the edge node, interfacing with the ADXL345 over I2C. Data is packed into JSON format and published via MQTT, ensuring low-latency updates to the monitoring station.
+...</p>
   </div>
   <footer class="entry-footer"><span title='2026-04-22 00:00:00 +0000 UTC'>April 22, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span></footer>
   <a class="entry-link" aria-label="post link to Smart Asset Tracker & Telemetry Dashboard" href="http://localhost:1313/projects/smart-asset-tracker/"></a>

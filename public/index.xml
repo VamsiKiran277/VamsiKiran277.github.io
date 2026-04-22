@@ -22,7 +22,9 @@
 &lt;li&gt;&lt;strong&gt;Asynchronous Event Handling:&lt;/strong&gt; Architected an interrupt-driven system using &lt;strong&gt;libgpiod&lt;/strong&gt; to monitor GPIO triggers from an &lt;strong&gt;ADXL345&lt;/strong&gt; accelerometer, eliminating CPU polling overhead.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Hardware Interface:&lt;/strong&gt; Developed custom I2C drivers implementing &lt;strong&gt;Two’s Complement&lt;/strong&gt; sign-extension for raw data processing.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;(Screenshot coming soon&amp;hellip;)&lt;/em&gt;&lt;/p&gt;</description>
+&lt;hr&gt;
+&lt;h3 id=&#34;system-architecture&#34;&gt;System Architecture&lt;/h3&gt;
+&lt;p&gt;The tracker utilizes a Raspberry Pi as the edge node, interfacing with the ADXL345 over I2C. Data is packed into JSON format and published via MQTT, ensuring low-latency updates to the monitoring station.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Resume</title>
