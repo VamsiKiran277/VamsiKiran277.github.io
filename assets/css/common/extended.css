@@ -120,17 +120,16 @@ body, .main, .wrapper, .profile, .profile_inner, #top {
    4. NAVIGATION & SOCIALS (SNUG C++ BRACKETS)
    ============================================================ */
 .menu {
-    overflow: visible !important; /* Stops the edge clipping */
+    overflow: visible !important;
 }
 
 .menu a {
     position: relative !important;
-    padding: 5px 0px !important; /* ZERO side padding so brackets hug the text */
-    margin: 5px 8px !important;   /* Healthy space between the different links */
+    padding: 5px 0px !important;
+    margin: 5px 8px !important;   
     transition: all 0.3s ease !important;
 }
 
-/* The Brackets that appear on hover */
 .menu a::before, .menu a::after {
     position: absolute;
     opacity: 0;
@@ -142,13 +141,13 @@ body, .main, .wrapper, .profile, .profile_inner, #top {
 
 .menu a::before {
     content: '[';
-    left: -12px; /* Sits tightly next to the word */
+    left: -12px;
     transform: translateX(10px);
 }
 
 .menu a::after {
     content: ']';
-    right: -12px; /* Sits tightly next to the word */
+    right: -12px;
     transform: translateX(-10px);
 }
 
@@ -171,23 +170,29 @@ body, .main, .wrapper, .profile, .profile_inner, #top {
 .logo a { border: none !important; font-weight: 800 !important; }
 
 /* ============================================================
-   5. PROJECTS GRID & HEADERS (For normal project pages)
+   5. PROJECTS GRID & HEADERS (GLOWING TITLES & WHITE HEADINGS)
    ============================================================ */
+
+/* Main Project Title: Matches Technology Stack Glow */
 header.page-header h1, .post-header h1, .post-title {
     font-size: 3.5rem !important;
-    background: linear-gradient(to right, #46d1ff, #00d2ff, #0099ff) !important;
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    text-shadow: 0 0 20px rgba(0, 210, 255, 0.6), 0 0 40px rgba(0, 210, 255, 0.2) !important;
+    color: #00d2ff !important; /* Glowing Cyan */
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+    text-shadow: 0 0 15px rgba(0, 210, 255, 0.6), 0 0 30px rgba(0, 210, 255, 0.2) !important;
     margin-bottom: 30px !important;
     font-weight: 700 !important;
 }
 
-/* Subheadings tint */
+/* Secondary Headings: Changed to Pure White */
 .post-content h2, .post-content h3 {
-    color: #c7e5ec !important; 
-    text-shadow: 0 0 5px rgba(0, 210, 255, 0.2);
+    color: #ffffff !important; 
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+    border-left: 3px solid #00d2ff; /* Keeps the cyan accent line */
+    padding-left: 15px;
+    margin-top: 40px !important;
 }
 
 .category-divider {
@@ -301,7 +306,7 @@ header.page-header h1, .post-header h1, .post-title {
    ============================================================ */
 .dashboard-container {
     width: 100%;
-    max-width: 1200px; /* Widened for two columns */
+    max-width: 1200px; 
     margin: 0 auto;
     padding: 0 20px 100px 20px;
     display: block !important;
@@ -316,13 +321,13 @@ header.page-header h1, .post-header h1, .post-title {
 
 .dashboard-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Split down the middle */
+    grid-template-columns: 1fr 1fr; 
     gap: 60px;
 }
 
 @media (max-width: 900px) {
     .dashboard-grid {
-        grid-template-columns: 1fr; /* Stacks on mobile */
+        grid-template-columns: 1fr; 
     }
 }
 
@@ -360,7 +365,7 @@ header.page-header h1, .post-header h1, .post-title {
 
 .timeline-dot {
     position: absolute;
-    left: -37px; /* Aligns dot perfectly with border line */
+    left: -37px; 
     top: 30px;
     width: 12px;
     height: 12px;
@@ -419,7 +424,7 @@ hr {
 .terminal-container {
     width: 100%;
     max-width: 900px;
-    margin: 0 auto 100px auto; /* Centers it and adds space at the bottom */
+    margin: 0 auto 100px auto; 
     background: rgba(10, 10, 10, 0.85);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(0, 210, 255, 0.3);
@@ -437,7 +442,6 @@ hr {
     border-bottom: 1px solid rgba(0, 210, 255, 0.2);
 }
 
-/* Mac/Linux style window buttons */
 .terminal-button {
     width: 12px;
     height: 12px;
@@ -468,12 +472,12 @@ hr {
 }
 
 .terminal-body .prompt {
-    color: #27c93f; /* Classic terminal green */
+    color: #27c93f; 
     font-weight: bold;
 }
 
 .terminal-body .ok {
-    color: #00d2ff; /* Your glowing cyan */
+    color: #00d2ff; 
     font-weight: bold;
     text-shadow: 0 0 8px rgba(0, 210, 255, 0.6);
 }
@@ -510,7 +514,6 @@ hr {
    15. RESUME PAGE CLEANUP (STRICT OVERRIDE)
    ============================================================ */
 
-/* Targets the resume page by body class and internal Hugo page type */
 body.resume .breadcrumbs,
 body.resume footer.footer,
 body.type-resume .breadcrumbs,
@@ -525,7 +528,6 @@ body[page-type="resume"] footer.footer {
     margin: 0 !important;
 }
 
-/* Fallback: Targets the breadcrumbs specifically on any single page that isn't a project */
 article.post-single:not(.type-projects) .breadcrumbs {
     display: none !important;
 }
