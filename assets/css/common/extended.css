@@ -173,10 +173,9 @@ body, .main, .wrapper, .profile, .profile_inner, #top {
    5. PROJECTS GRID & HEADERS (GLOWING TITLES & WHITE HEADINGS)
    ============================================================ */
 
-/* Main Project Title: Matches Technology Stack Glow */
 header.page-header h1, .post-header h1, .post-title {
     font-size: 3.5rem !important;
-    color: #00d2ff !important; /* Glowing Cyan */
+    color: #00d2ff !important; 
     background: none !important;
     -webkit-background-clip: initial !important;
     background-clip: initial !important;
@@ -186,11 +185,10 @@ header.page-header h1, .post-header h1, .post-title {
     font-weight: 700 !important;
 }
 
-/* Secondary Headings: Changed to Pure White */
 .post-content h2, .post-content h3 {
     color: #ffffff !important; 
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
-    border-left: 3px solid #00d2ff; /* Keeps the cyan accent line */
+    border-left: 3px solid #00d2ff; 
     padding-left: 15px;
     margin-top: 40px !important;
 }
@@ -234,21 +232,25 @@ header.page-header h1, .post-header h1, .post-title {
 }
 
 /* ============================================================
-   6. PROJECT CONTENT HOVERS
+   6. TAGS & BUTTONS HOVERS
    ============================================================ */
-.post-tags a {
+/* Target tags in lists and the main tags page */
+.post-tags a, .terms-tags a {
     background: rgba(0, 210, 255, 0.1) !important;
     border: 1px solid rgba(0, 210, 255, 0.3) !important;
     color: #00d2ff !important;
     border-radius: 4px !important;
     padding: 4px 12px !important;
     transition: all 0.3s ease !important;
+    display: inline-block;
+    margin: 5px;
 }
 
-.post-tags a:hover {
+/* Hover state for all tags - matches your project hover color */
+.post-tags a:hover, .terms-tags a:hover {
     background: #00d2ff !important;
     color: #000000 !important;
-    box-shadow: 0 0 15px rgba(0, 210, 255, 0.4) !important;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.6) !important;
     border-color: #00d2ff !important;
     transform: scale(1.05);
 }
