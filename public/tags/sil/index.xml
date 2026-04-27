@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>SIL on Vamsi Kiran | Firmware Engineer</title>
+    <link>http://localhost:1313/tags/sil/</link>
+    <description>Recent content in SIL on Vamsi Kiran | Firmware Engineer</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Apr 2026 11:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/sil/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>STM32F4 Bare-Metal LED Toggle: Bit-Fields &amp; SIL Validation</title>
+      <link>http://localhost:1313/projects/bitfield-optimization/</link>
+      <pubDate>Sun, 12 Apr 2026 11:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/bitfield-optimization/</guid>
+      <description>&lt;h3 id=&#34;-technology-stack&#34;&gt;🛠 Technology Stack&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hardware:&lt;/strong&gt; STM32F407VG (ARM Cortex-M4)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Language:&lt;/strong&gt; C (C11/C17)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Verification:&lt;/strong&gt; Renode (Software-in-the-Loop)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Key Concepts:&lt;/strong&gt; C Bit-Fields, MMIO, Register Mapping, SIL Testing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h3&gt;
+&lt;p&gt;This project is a low-level firmware implementation for the &lt;strong&gt;STM32F407&lt;/strong&gt; demonstrating peripheral control via direct register manipulation. The primary focus was replacing standard &amp;ldquo;magic number&amp;rdquo; bit-masking with type-safe &lt;strong&gt;C Bit-Field structures&lt;/strong&gt; to interface directly with the AHB1 bus matrix.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;technical-highlights&#34;&gt;Technical Highlights&lt;/h3&gt;
+&lt;h4 id=&#34;1-structured-register-mapping-bit-fields&#34;&gt;1. Structured Register Mapping (Bit-Fields)&lt;/h4&gt;
+&lt;p&gt;Instead of using manual bit-shifting (e.g., &lt;code&gt;*(GPIO + OFFSET) |= (1 &amp;lt;&amp;lt; 12)&lt;/code&gt;), I utilized structured bit-fields within C &lt;code&gt;unions&lt;/code&gt; and &lt;code&gt;structs&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -5,29 +5,27 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>LED Toggle via C Bit-Fields | Vamsi Kiran | Firmware Engineer</title>
-<meta name="keywords" content="C, Optimization, Data Structures">
+<title>STM32F4 Bare-Metal LED Toggle (Bit-Field &amp; SIL) | Vamsi Kiran | Firmware Engineer</title>
+<meta name="keywords" content="C, ARM Cortex-M4, Bare-Metal, Renode, SIL">
 <meta name="description" content="🛠 Technology Stack
 
 Language: C (C11/C17)
-Hardware: ARM-based Register Architecture
-Key Concepts: C Bit-Fields, Unions, Memory Alignment
+Hardware: STM32F407 (ARM Cortex-M4)
+Tools: Renode (SIL Simulation), STM32CubeIDE
+Key Concepts: C Bit-Fields, MMIO, Software-in-the-Loop (SIL)
 
 
 The Project Overview
-A technical exploration into optimizing hardware register maps using C structures. This project focuses on replacing traditional bit-masking with type-safe, readable bit-field mapping.
+A low-level firmware implementation for the STM32F407 that demonstrates peripheral control via direct register manipulation. This project bypasses standard HAL/LL libraries to interface directly with the AHB1 bus matrix using custom C bit-field structures for type-safe hardware access.
 Technical Highlights
 
-Structured Register Mapping: Implemented hardware register maps using C Bit-Fields, providing direct access to individual bits within 32-bit registers.
-Mask Elimination: Removed the need for manual bitwise masks (&amp;, |, &lt;&lt;) by mapping custom structures directly to hardware memory addresses.
-Data Integrity: Managed Two&rsquo;s Complement data formatting and implemented safe status flag clearing logic.
+C Bit-Field Structures: Utilized custom struct definitions to map hardware registers, ensuring type-safe access to individual bits and eliminating manual bitwise masks (&amp;, |, &lt;&lt;).
+Memory-Mapped I/O (MMIO): Manually mapped the RCC and GPIOD base addresses (Base: 0x40020C00) to control hardware clocking and pin states.
+SIL Validation (Renode): Automated hardware verification using Renode to validate register-level behavior via memory-access tracing. This allows for cycle-accurate auditing of the firmware&rsquo;s execution without physical hardware.
 
-Key Learning Outcomes
-
-Code Maintainability: Learned how Bit-Fields improve code readability for large engineering teams compared to &ldquo;magic number&rdquo; masking.
-Compiler Optimization: Understood how the compiler handles memory-aligned structures in an embedded context.
-
-View Source on GitHub">
+Simulation &amp; Verification
+The project includes a pre-configured Renode environment. The firmware logic is verified by running:
+renode --plain --hide-monitor --execute &quot;include @Simulation/stm32_blink.resc&quot; 2&gt;&amp;1 | tee verification.log">
 <meta name="author" content="Vamsi Kiran">
 <link rel="canonical" href="http://localhost:1313/projects/bitfield-optimization/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b741c717f3e1ffd216564f64cc45db41b75f7985628d95ce76ced157bead89e7.css" integrity="sha256-t0HHF/Ph/9IWVk9kzEXbQbdfeYVijZXOds7RV76tiec=" rel="preload stylesheet" as="style">
@@ -49,22 +47,24 @@ View Source on GitHub">
     </style>
 </noscript><meta property="og:url" content="http://localhost:1313/projects/bitfield-optimization/">
   <meta property="og:site_name" content="Vamsi Kiran | Firmware Engineer">
-  <meta property="og:title" content="LED Toggle via C Bit-Fields">
-  <meta property="og:description" content="🛠 Technology Stack Language: C (C11/C17) Hardware: ARM-based Register Architecture Key Concepts: C Bit-Fields, Unions, Memory Alignment The Project Overview A technical exploration into optimizing hardware register maps using C structures. This project focuses on replacing traditional bit-masking with type-safe, readable bit-field mapping.
-Technical Highlights Structured Register Mapping: Implemented hardware register maps using C Bit-Fields, providing direct access to individual bits within 32-bit registers. Mask Elimination: Removed the need for manual bitwise masks (&amp;, |, &lt;&lt;) by mapping custom structures directly to hardware memory addresses. Data Integrity: Managed Two’s Complement data formatting and implemented safe status flag clearing logic. Key Learning Outcomes Code Maintainability: Learned how Bit-Fields improve code readability for large engineering teams compared to “magic number” masking. Compiler Optimization: Understood how the compiler handles memory-aligned structures in an embedded context. View Source on GitHub">
+  <meta property="og:title" content="STM32F4 Bare-Metal LED Toggle (Bit-Field & SIL)">
+  <meta property="og:description" content="🛠 Technology Stack Language: C (C11/C17) Hardware: STM32F407 (ARM Cortex-M4) Tools: Renode (SIL Simulation), STM32CubeIDE Key Concepts: C Bit-Fields, MMIO, Software-in-the-Loop (SIL) The Project Overview A low-level firmware implementation for the STM32F407 that demonstrates peripheral control via direct register manipulation. This project bypasses standard HAL/LL libraries to interface directly with the AHB1 bus matrix using custom C bit-field structures for type-safe hardware access.
+Technical Highlights C Bit-Field Structures: Utilized custom struct definitions to map hardware registers, ensuring type-safe access to individual bits and eliminating manual bitwise masks (&amp;, |, &lt;&lt;). Memory-Mapped I/O (MMIO): Manually mapped the RCC and GPIOD base addresses (Base: 0x40020C00) to control hardware clocking and pin states. SIL Validation (Renode): Automated hardware verification using Renode to validate register-level behavior via memory-access tracing. This allows for cycle-accurate auditing of the firmware’s execution without physical hardware. Simulation &amp; Verification The project includes a pre-configured Renode environment. The firmware logic is verified by running: renode --plain --hide-monitor --execute &#34;include @Simulation/stm32_blink.resc&#34; 2&gt;&amp;1 | tee verification.log">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
     <meta property="article:published_time" content="2026-04-12T10:00:00+00:00">
     <meta property="article:modified_time" content="2026-04-12T10:00:00+00:00">
     <meta property="article:tag" content="C">
-    <meta property="article:tag" content="Optimization">
-    <meta property="article:tag" content="Data Structures">
+    <meta property="article:tag" content="ARM Cortex-M4">
+    <meta property="article:tag" content="Bare-Metal">
+    <meta property="article:tag" content="Renode">
+    <meta property="article:tag" content="SIL">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="LED Toggle via C Bit-Fields">
-  <meta name="twitter:description" content="🛠 Technology Stack Language: C (C11/C17) Hardware: ARM-based Register Architecture Key Concepts: C Bit-Fields, Unions, Memory Alignment The Project Overview A technical exploration into optimizing hardware register maps using C structures. This project focuses on replacing traditional bit-masking with type-safe, readable bit-field mapping.
-Technical Highlights Structured Register Mapping: Implemented hardware register maps using C Bit-Fields, providing direct access to individual bits within 32-bit registers. Mask Elimination: Removed the need for manual bitwise masks (&amp;, |, &lt;&lt;) by mapping custom structures directly to hardware memory addresses. Data Integrity: Managed Two’s Complement data formatting and implemented safe status flag clearing logic. Key Learning Outcomes Code Maintainability: Learned how Bit-Fields improve code readability for large engineering teams compared to “magic number” masking. Compiler Optimization: Understood how the compiler handles memory-aligned structures in an embedded context. View Source on GitHub">
+  <meta name="twitter:title" content="STM32F4 Bare-Metal LED Toggle (Bit-Field & SIL)">
+  <meta name="twitter:description" content="🛠 Technology Stack Language: C (C11/C17) Hardware: STM32F407 (ARM Cortex-M4) Tools: Renode (SIL Simulation), STM32CubeIDE Key Concepts: C Bit-Fields, MMIO, Software-in-the-Loop (SIL) The Project Overview A low-level firmware implementation for the STM32F407 that demonstrates peripheral control via direct register manipulation. This project bypasses standard HAL/LL libraries to interface directly with the AHB1 bus matrix using custom C bit-field structures for type-safe hardware access.
+Technical Highlights C Bit-Field Structures: Utilized custom struct definitions to map hardware registers, ensuring type-safe access to individual bits and eliminating manual bitwise masks (&amp;, |, &lt;&lt;). Memory-Mapped I/O (MMIO): Manually mapped the RCC and GPIOD base addresses (Base: 0x40020C00) to control hardware clocking and pin states. SIL Validation (Renode): Automated hardware verification using Renode to validate register-level behavior via memory-access tracing. This allows for cycle-accurate auditing of the firmware’s execution without physical hardware. Simulation &amp; Verification The project includes a pre-configured Renode environment. The firmware logic is verified by running: renode --plain --hide-monitor --execute &#34;include @Simulation/stm32_blink.resc&#34; 2&gt;&amp;1 | tee verification.log">
 
 
 <script type="application/ld+json">
@@ -81,7 +81,7 @@ Technical Highlights Structured Register Mapping: Implemented hardware register 
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "LED Toggle via C Bit-Fields",
+      "name": "STM32F4 Bare-Metal LED Toggle (Bit-Field \u0026 SIL)",
       "item": "http://localhost:1313/projects/bitfield-optimization/"
     }
   ]
@@ -91,14 +91,14 @@ Technical Highlights Structured Register Mapping: Implemented hardware register 
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "LED Toggle via C Bit-Fields",
-  "name": "LED Toggle via C Bit-Fields",
-  "description": "🛠 Technology Stack Language: C (C11/C17) Hardware: ARM-based Register Architecture Key Concepts: C Bit-Fields, Unions, Memory Alignment The Project Overview A technical exploration into optimizing hardware register maps using C structures. This project focuses on replacing traditional bit-masking with type-safe, readable bit-field mapping.\nTechnical Highlights Structured Register Mapping: Implemented hardware register maps using C Bit-Fields, providing direct access to individual bits within 32-bit registers. Mask Elimination: Removed the need for manual bitwise masks (\u0026amp;, |, \u0026lt;\u0026lt;) by mapping custom structures directly to hardware memory addresses. Data Integrity: Managed Two\u0026rsquo;s Complement data formatting and implemented safe status flag clearing logic. Key Learning Outcomes Code Maintainability: Learned how Bit-Fields improve code readability for large engineering teams compared to \u0026ldquo;magic number\u0026rdquo; masking. Compiler Optimization: Understood how the compiler handles memory-aligned structures in an embedded context. View Source on GitHub\n",
+  "headline": "STM32F4 Bare-Metal LED Toggle (Bit-Field \u0026 SIL)",
+  "name": "STM32F4 Bare-Metal LED Toggle (Bit-Field \u0026 SIL)",
+  "description": "🛠 Technology Stack Language: C (C11/C17) Hardware: STM32F407 (ARM Cortex-M4) Tools: Renode (SIL Simulation), STM32CubeIDE Key Concepts: C Bit-Fields, MMIO, Software-in-the-Loop (SIL) The Project Overview A low-level firmware implementation for the STM32F407 that demonstrates peripheral control via direct register manipulation. This project bypasses standard HAL/LL libraries to interface directly with the AHB1 bus matrix using custom C bit-field structures for type-safe hardware access.\nTechnical Highlights C Bit-Field Structures: Utilized custom struct definitions to map hardware registers, ensuring type-safe access to individual bits and eliminating manual bitwise masks (\u0026amp;, |, \u0026lt;\u0026lt;). Memory-Mapped I/O (MMIO): Manually mapped the RCC and GPIOD base addresses (Base: 0x40020C00) to control hardware clocking and pin states. SIL Validation (Renode): Automated hardware verification using Renode to validate register-level behavior via memory-access tracing. This allows for cycle-accurate auditing of the firmware\u0026rsquo;s execution without physical hardware. Simulation \u0026amp; Verification The project includes a pre-configured Renode environment. The firmware logic is verified by running: renode --plain --hide-monitor --execute \u0026quot;include @Simulation/stm32_blink.resc\u0026quot; 2\u0026gt;\u0026amp;1 | tee verification.log\n",
   "keywords": [
-    "C", "Optimization", "Data Structures"
+    "C", "ARM Cortex-M4", "Bare-Metal", "Renode", "SIL"
   ],
-  "articleBody": "🛠 Technology Stack Language: C (C11/C17) Hardware: ARM-based Register Architecture Key Concepts: C Bit-Fields, Unions, Memory Alignment The Project Overview A technical exploration into optimizing hardware register maps using C structures. This project focuses on replacing traditional bit-masking with type-safe, readable bit-field mapping.\nTechnical Highlights Structured Register Mapping: Implemented hardware register maps using C Bit-Fields, providing direct access to individual bits within 32-bit registers. Mask Elimination: Removed the need for manual bitwise masks (\u0026, |, \u003c\u003c) by mapping custom structures directly to hardware memory addresses. Data Integrity: Managed Two’s Complement data formatting and implemented safe status flag clearing logic. Key Learning Outcomes Code Maintainability: Learned how Bit-Fields improve code readability for large engineering teams compared to “magic number” masking. Compiler Optimization: Understood how the compiler handles memory-aligned structures in an embedded context. View Source on GitHub\n",
-  "wordCount" : "136",
+  "articleBody": "🛠 Technology Stack Language: C (C11/C17) Hardware: STM32F407 (ARM Cortex-M4) Tools: Renode (SIL Simulation), STM32CubeIDE Key Concepts: C Bit-Fields, MMIO, Software-in-the-Loop (SIL) The Project Overview A low-level firmware implementation for the STM32F407 that demonstrates peripheral control via direct register manipulation. This project bypasses standard HAL/LL libraries to interface directly with the AHB1 bus matrix using custom C bit-field structures for type-safe hardware access.\nTechnical Highlights C Bit-Field Structures: Utilized custom struct definitions to map hardware registers, ensuring type-safe access to individual bits and eliminating manual bitwise masks (\u0026, |, \u003c\u003c). Memory-Mapped I/O (MMIO): Manually mapped the RCC and GPIOD base addresses (Base: 0x40020C00) to control hardware clocking and pin states. SIL Validation (Renode): Automated hardware verification using Renode to validate register-level behavior via memory-access tracing. This allows for cycle-accurate auditing of the firmware’s execution without physical hardware. Simulation \u0026 Verification The project includes a pre-configured Renode environment. The firmware logic is verified by running: renode --plain --hide-monitor --execute \"include @Simulation/stm32_blink.resc\" 2\u003e\u00261 | tee verification.log\nWhat the verification.log proves:\nMode Configuration: WriteUInt32 to 0x0 (MODER) with value 0x1000000 (Sets Pin 12 to Output). LED Toggle Logic: WriteUInt32 to 0x14 (ODR) showing value 0x1000 (Pin 12 HIGH) and 0x0 (Pin 12 LOW). Key Learning Outcomes Code Maintainability: Improved readability for engineering teams by replacing “magic number” masking with structured mapping. Hardware-Software Verification: Mastered the use of Watchpoint Hooks on memory address 0x40020C14 to capture the Program Counter (PC) and value writes during execution. View Source on GitHub\n",
+  "wordCount" : "245",
   "inLanguage": "en",
   "datePublished": "2026-04-12T10:00:00Z",
   "dateModified": "2026-04-12T10:00:00Z",
@@ -163,31 +163,40 @@ Technical Highlights Structured Register Mapping: Implemented hardware register 
             </svg>
             <a href="http://localhost:1313/projects/">Projects</a></nav>
     <h1 class="post-title entry-hint-parent">
-      LED Toggle via C Bit-Fields
+      STM32F4 Bare-Metal LED Toggle (Bit-Field &amp; SIL)
     </h1>
-    <div class="post-meta"><span title='2026-04-12 10:00:00 +0000 UTC'>April 12, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span>
+    <div class="post-meta"><span title='2026-04-12 10:00:00 +0000 UTC'>April 12, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span>
 
 </div>
   </header> 
   <div class="post-content md-content"><h3 id="-technology-stack">🛠 Technology Stack<a hidden class="anchor" aria-hidden="true" href="#-technology-stack">#</a></h3>
 <ul>
 <li><strong>Language:</strong> C (C11/C17)</li>
-<li><strong>Hardware:</strong> ARM-based Register Architecture</li>
-<li><strong>Key Concepts:</strong> C Bit-Fields, Unions, Memory Alignment</li>
+<li><strong>Hardware:</strong> STM32F407 (ARM Cortex-M4)</li>
+<li><strong>Tools:</strong> Renode (SIL Simulation), STM32CubeIDE</li>
+<li><strong>Key Concepts:</strong> C Bit-Fields, MMIO, Software-in-the-Loop (SIL)</li>
 </ul>
 <hr>
 <h3 id="the-project-overview">The Project Overview<a hidden class="anchor" aria-hidden="true" href="#the-project-overview">#</a></h3>
-<p>A technical exploration into optimizing hardware register maps using C structures. This project focuses on replacing traditional bit-masking with type-safe, readable bit-field mapping.</p>
+<p>A low-level firmware implementation for the STM32F407 that demonstrates peripheral control via direct register manipulation. This project bypasses standard HAL/LL libraries to interface directly with the <strong>AHB1 bus matrix</strong> using custom C bit-field structures for type-safe hardware access.</p>
 <h3 id="technical-highlights">Technical Highlights<a hidden class="anchor" aria-hidden="true" href="#technical-highlights">#</a></h3>
 <ul>
-<li><strong>Structured Register Mapping:</strong> Implemented hardware register maps using <strong>C Bit-Fields</strong>, providing direct access to individual bits within 32-bit registers.</li>
-<li><strong>Mask Elimination:</strong> Removed the need for manual bitwise masks (<code>&amp;</code>, <code>|</code>, <code>&lt;&lt;</code>) by mapping custom structures directly to hardware memory addresses.</li>
-<li><strong>Data Integrity:</strong> Managed Two&rsquo;s Complement data formatting and implemented safe status flag clearing logic.</li>
+<li><strong>C Bit-Field Structures:</strong> Utilized custom <code>struct</code> definitions to map hardware registers, ensuring type-safe access to individual bits and eliminating manual bitwise masks (<code>&amp;</code>, <code>|</code>, <code>&lt;&lt;</code>).</li>
+<li><strong>Memory-Mapped I/O (MMIO):</strong> Manually mapped the RCC and GPIOD base addresses (Base: <code>0x40020C00</code>) to control hardware clocking and pin states.</li>
+<li><strong>SIL Validation (Renode):</strong> Automated hardware verification using Renode to validate register-level behavior via memory-access tracing. This allows for cycle-accurate auditing of the firmware&rsquo;s execution without physical hardware.</li>
+</ul>
+<h3 id="simulation--verification">Simulation &amp; Verification<a hidden class="anchor" aria-hidden="true" href="#simulation--verification">#</a></h3>
+<p>The project includes a pre-configured Renode environment. The firmware logic is verified by running:
+<code>renode --plain --hide-monitor --execute &quot;include @Simulation/stm32_blink.resc&quot; 2&gt;&amp;1 | tee verification.log</code></p>
+<p><strong>What the <code>verification.log</code> proves:</strong></p>
+<ul>
+<li><strong>Mode Configuration:</strong> <code>WriteUInt32</code> to <code>0x0</code> (MODER) with value <code>0x1000000</code> (Sets Pin 12 to Output).</li>
+<li><strong>LED Toggle Logic:</strong> <code>WriteUInt32</code> to <code>0x14</code> (ODR) showing value <code>0x1000</code> (Pin 12 HIGH) and <code>0x0</code> (Pin 12 LOW).</li>
 </ul>
 <h3 id="key-learning-outcomes">Key Learning Outcomes<a hidden class="anchor" aria-hidden="true" href="#key-learning-outcomes">#</a></h3>
 <ul>
-<li><strong>Code Maintainability:</strong> Learned how Bit-Fields improve code readability for large engineering teams compared to &ldquo;magic number&rdquo; masking.</li>
-<li><strong>Compiler Optimization:</strong> Understood how the compiler handles memory-aligned structures in an embedded context.</li>
+<li><strong>Code Maintainability:</strong> Improved readability for engineering teams by replacing &ldquo;magic number&rdquo; masking with structured mapping.</li>
+<li><strong>Hardware-Software Verification:</strong> Mastered the use of <strong>Watchpoint Hooks</strong> on memory address <code>0x40020C14</code> to capture the Program Counter (PC) and value writes during execution.</li>
 </ul>
 <p><a href="https://github.com/VamsiKiran277/-EMBEDDED-small-projects/tree/main/LED_TOGGLE_BITFIELD" target="_blank" rel="noopener noreferrer">View Source on GitHub</a></p>
 
@@ -197,8 +206,10 @@ Technical Highlights Structured Register Mapping: Implemented hardware register 
   <footer class="post-footer">
     <ul class="post-tags">
       <li><a href="http://localhost:1313/tags/c/">C</a></li>
-      <li><a href="http://localhost:1313/tags/optimization/">Optimization</a></li>
-      <li><a href="http://localhost:1313/tags/data-structures/">Data Structures</a></li>
+      <li><a href="http://localhost:1313/tags/arm-cortex-m4/">ARM Cortex-M4</a></li>
+      <li><a href="http://localhost:1313/tags/bare-metal/">Bare-Metal</a></li>
+      <li><a href="http://localhost:1313/tags/renode/">Renode</a></li>
+      <li><a href="http://localhost:1313/tags/sil/">SIL</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="http://localhost:1313/projects/zx-8080-mcu/">

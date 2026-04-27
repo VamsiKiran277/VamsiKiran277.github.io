@@ -6,31 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>ZX-8080 MCU: Bare-Metal Peripheral Control | Vamsi Kiran | Firmware Engineer</title>
-<meta name="keywords" content="C, Bare-Metal, Computer Architecture, ADC">
+<meta name="keywords" content="C, Bare-Metal, RISC-V, ADC, Timers">
 <meta name="description" content="🛠 Technology Stack
 
-Language: Bare-Metal C (Register-level)
-Hardware: Simulated ZX-8080 MCU (based on technical datasheet)
-Key Concepts: Memory-Mapped I/O (MMIO), Polling-based State Machines
+Target Hardware: ZX-8080 (32-bit RISC-V Architecture)
+Clock Speed: 80 MHz System Frequency
+Language: Bare-Metal C
+Toolchain: RISC-V GCC / Memory-Mapped I/O (MMIO)
+Key Peripherals: 12-bit SAR ADC, General Purpose Timer (TIM1), GPIO
 
 
-The Project Overview
-This project serves as a deep-dive sandbox for mastering fundamental Firmware Engineering. I simulated the firmware for a custom microcontroller (ZX-8080) to manage ADC conversions and hardware timers based strictly on datasheet specifications.
-Technical Highlights
-
-Memory-Mapped I/O (MMIO): Manually defined peripheral base addresses and offsets to interface with system control, GPIO, ADC, and Timer registers.
-Timer Configuration: Calculated and configured Prescaler (PSC) and Auto-Reload Register (ARR) values to derive precise 0.5s hardware delays from an 80MHz system clock.
-ADC Data Acquisition: Developed a polling-based state machine to trigger ADC conversions, processing thermal sensor data for threshold-based thermal management logic.
-Bit-Level Optimization: Utilized XOR bitwise operations for efficient GPIO toggling and manual flag clearing in the Timer Status registers.
-
-
-Key Learning Outcomes
-
-Datasheet Implementation: Learned to translate raw hexadecimal address maps into functional C drivers.
-Clock Trees: Gained experience in frequency scaling and deriving timing intervals from system oscillators.
-Polling Logic: Mastered peripheral status flag management without the overhead of an OS.
-
-View Source on GitHub">
+Project Overview
+This repository contains a bare-metal C implementation for the ZX-8080. The project demonstrates low-level hardware abstraction by interfacing with an onboard 12-bit SAR ADC for thermal monitoring and utilizing a General Purpose Timer for precise LED toggling. By interfacing directly with hardware registers, I bypassed abstraction layers to optimize performance and memory footprint.">
 <meta name="author" content="Vamsi Kiran">
 <link rel="canonical" href="http://localhost:1313/projects/zx-8080-mcu/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b741c717f3e1ffd216564f64cc45db41b75f7985628d95ce76ced157bead89e7.css" integrity="sha256-t0HHF/Ph/9IWVk9kzEXbQbdfeYVijZXOds7RV76tiec=" rel="preload stylesheet" as="style">
@@ -53,8 +40,7 @@ View Source on GitHub">
 </noscript><meta property="og:url" content="http://localhost:1313/projects/zx-8080-mcu/">
   <meta property="og:site_name" content="Vamsi Kiran | Firmware Engineer">
   <meta property="og:title" content="ZX-8080 MCU: Bare-Metal Peripheral Control">
-  <meta property="og:description" content="🛠 Technology Stack Language: Bare-Metal C (Register-level) Hardware: Simulated ZX-8080 MCU (based on technical datasheet) Key Concepts: Memory-Mapped I/O (MMIO), Polling-based State Machines The Project Overview This project serves as a deep-dive sandbox for mastering fundamental Firmware Engineering. I simulated the firmware for a custom microcontroller (ZX-8080) to manage ADC conversions and hardware timers based strictly on datasheet specifications.
-Technical Highlights Memory-Mapped I/O (MMIO): Manually defined peripheral base addresses and offsets to interface with system control, GPIO, ADC, and Timer registers. Timer Configuration: Calculated and configured Prescaler (PSC) and Auto-Reload Register (ARR) values to derive precise 0.5s hardware delays from an 80MHz system clock. ADC Data Acquisition: Developed a polling-based state machine to trigger ADC conversions, processing thermal sensor data for threshold-based thermal management logic. Bit-Level Optimization: Utilized XOR bitwise operations for efficient GPIO toggling and manual flag clearing in the Timer Status registers. Key Learning Outcomes Datasheet Implementation: Learned to translate raw hexadecimal address maps into functional C drivers. Clock Trees: Gained experience in frequency scaling and deriving timing intervals from system oscillators. Polling Logic: Mastered peripheral status flag management without the overhead of an OS. View Source on GitHub">
+  <meta property="og:description" content="🛠 Technology Stack Target Hardware: ZX-8080 (32-bit RISC-V Architecture) Clock Speed: 80 MHz System Frequency Language: Bare-Metal C Toolchain: RISC-V GCC / Memory-Mapped I/O (MMIO) Key Peripherals: 12-bit SAR ADC, General Purpose Timer (TIM1), GPIO Project Overview This repository contains a bare-metal C implementation for the ZX-8080. The project demonstrates low-level hardware abstraction by interfacing with an onboard 12-bit SAR ADC for thermal monitoring and utilizing a General Purpose Timer for precise LED toggling. By interfacing directly with hardware registers, I bypassed abstraction layers to optimize performance and memory footprint.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
@@ -62,13 +48,13 @@ Technical Highlights Memory-Mapped I/O (MMIO): Manually defined peripheral base 
     <meta property="article:modified_time" content="2026-04-12T10:00:00+00:00">
     <meta property="article:tag" content="C">
     <meta property="article:tag" content="Bare-Metal">
-    <meta property="article:tag" content="Computer Architecture">
+    <meta property="article:tag" content="RISC-V">
     <meta property="article:tag" content="ADC">
+    <meta property="article:tag" content="Timers">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="ZX-8080 MCU: Bare-Metal Peripheral Control">
-  <meta name="twitter:description" content="🛠 Technology Stack Language: Bare-Metal C (Register-level) Hardware: Simulated ZX-8080 MCU (based on technical datasheet) Key Concepts: Memory-Mapped I/O (MMIO), Polling-based State Machines The Project Overview This project serves as a deep-dive sandbox for mastering fundamental Firmware Engineering. I simulated the firmware for a custom microcontroller (ZX-8080) to manage ADC conversions and hardware timers based strictly on datasheet specifications.
-Technical Highlights Memory-Mapped I/O (MMIO): Manually defined peripheral base addresses and offsets to interface with system control, GPIO, ADC, and Timer registers. Timer Configuration: Calculated and configured Prescaler (PSC) and Auto-Reload Register (ARR) values to derive precise 0.5s hardware delays from an 80MHz system clock. ADC Data Acquisition: Developed a polling-based state machine to trigger ADC conversions, processing thermal sensor data for threshold-based thermal management logic. Bit-Level Optimization: Utilized XOR bitwise operations for efficient GPIO toggling and manual flag clearing in the Timer Status registers. Key Learning Outcomes Datasheet Implementation: Learned to translate raw hexadecimal address maps into functional C drivers. Clock Trees: Gained experience in frequency scaling and deriving timing intervals from system oscillators. Polling Logic: Mastered peripheral status flag management without the overhead of an OS. View Source on GitHub">
+  <meta name="twitter:description" content="🛠 Technology Stack Target Hardware: ZX-8080 (32-bit RISC-V Architecture) Clock Speed: 80 MHz System Frequency Language: Bare-Metal C Toolchain: RISC-V GCC / Memory-Mapped I/O (MMIO) Key Peripherals: 12-bit SAR ADC, General Purpose Timer (TIM1), GPIO Project Overview This repository contains a bare-metal C implementation for the ZX-8080. The project demonstrates low-level hardware abstraction by interfacing with an onboard 12-bit SAR ADC for thermal monitoring and utilizing a General Purpose Timer for precise LED toggling. By interfacing directly with hardware registers, I bypassed abstraction layers to optimize performance and memory footprint.">
 
 
 <script type="application/ld+json">
@@ -97,12 +83,12 @@ Technical Highlights Memory-Mapped I/O (MMIO): Manually defined peripheral base 
   "@type": "BlogPosting",
   "headline": "ZX-8080 MCU: Bare-Metal Peripheral Control",
   "name": "ZX-8080 MCU: Bare-Metal Peripheral Control",
-  "description": "🛠 Technology Stack Language: Bare-Metal C (Register-level) Hardware: Simulated ZX-8080 MCU (based on technical datasheet) Key Concepts: Memory-Mapped I/O (MMIO), Polling-based State Machines The Project Overview This project serves as a deep-dive sandbox for mastering fundamental Firmware Engineering. I simulated the firmware for a custom microcontroller (ZX-8080) to manage ADC conversions and hardware timers based strictly on datasheet specifications.\nTechnical Highlights Memory-Mapped I/O (MMIO): Manually defined peripheral base addresses and offsets to interface with system control, GPIO, ADC, and Timer registers. Timer Configuration: Calculated and configured Prescaler (PSC) and Auto-Reload Register (ARR) values to derive precise 0.5s hardware delays from an 80MHz system clock. ADC Data Acquisition: Developed a polling-based state machine to trigger ADC conversions, processing thermal sensor data for threshold-based thermal management logic. Bit-Level Optimization: Utilized XOR bitwise operations for efficient GPIO toggling and manual flag clearing in the Timer Status registers. Key Learning Outcomes Datasheet Implementation: Learned to translate raw hexadecimal address maps into functional C drivers. Clock Trees: Gained experience in frequency scaling and deriving timing intervals from system oscillators. Polling Logic: Mastered peripheral status flag management without the overhead of an OS. View Source on GitHub\n",
+  "description": "🛠 Technology Stack Target Hardware: ZX-8080 (32-bit RISC-V Architecture) Clock Speed: 80 MHz System Frequency Language: Bare-Metal C Toolchain: RISC-V GCC / Memory-Mapped I/O (MMIO) Key Peripherals: 12-bit SAR ADC, General Purpose Timer (TIM1), GPIO Project Overview This repository contains a bare-metal C implementation for the ZX-8080. The project demonstrates low-level hardware abstraction by interfacing with an onboard 12-bit SAR ADC for thermal monitoring and utilizing a General Purpose Timer for precise LED toggling. By interfacing directly with hardware registers, I bypassed abstraction layers to optimize performance and memory footprint.\n",
   "keywords": [
-    "C", "Bare-Metal", "Computer Architecture", "ADC"
+    "C", "Bare-Metal", "RISC-V", "ADC", "Timers"
   ],
-  "articleBody": "🛠 Technology Stack Language: Bare-Metal C (Register-level) Hardware: Simulated ZX-8080 MCU (based on technical datasheet) Key Concepts: Memory-Mapped I/O (MMIO), Polling-based State Machines The Project Overview This project serves as a deep-dive sandbox for mastering fundamental Firmware Engineering. I simulated the firmware for a custom microcontroller (ZX-8080) to manage ADC conversions and hardware timers based strictly on datasheet specifications.\nTechnical Highlights Memory-Mapped I/O (MMIO): Manually defined peripheral base addresses and offsets to interface with system control, GPIO, ADC, and Timer registers. Timer Configuration: Calculated and configured Prescaler (PSC) and Auto-Reload Register (ARR) values to derive precise 0.5s hardware delays from an 80MHz system clock. ADC Data Acquisition: Developed a polling-based state machine to trigger ADC conversions, processing thermal sensor data for threshold-based thermal management logic. Bit-Level Optimization: Utilized XOR bitwise operations for efficient GPIO toggling and manual flag clearing in the Timer Status registers. Key Learning Outcomes Datasheet Implementation: Learned to translate raw hexadecimal address maps into functional C drivers. Clock Trees: Gained experience in frequency scaling and deriving timing intervals from system oscillators. Polling Logic: Mastered peripheral status flag management without the overhead of an OS. View Source on GitHub\n",
-  "wordCount" : "191",
+  "articleBody": "🛠 Technology Stack Target Hardware: ZX-8080 (32-bit RISC-V Architecture) Clock Speed: 80 MHz System Frequency Language: Bare-Metal C Toolchain: RISC-V GCC / Memory-Mapped I/O (MMIO) Key Peripherals: 12-bit SAR ADC, General Purpose Timer (TIM1), GPIO Project Overview This repository contains a bare-metal C implementation for the ZX-8080. The project demonstrates low-level hardware abstraction by interfacing with an onboard 12-bit SAR ADC for thermal monitoring and utilizing a General Purpose Timer for precise LED toggling. By interfacing directly with hardware registers, I bypassed abstraction layers to optimize performance and memory footprint.\n⚙️ System Logic \u0026 Implementation The application performs two concurrent tasks within a robust super-loop:\n1. Precision Timing (LED Toggle) To achieve a human-readable 0.5s blink rate from an 80 MHz system clock, I implemented a two-stage clock division:\nPrescaler (PSC): Set to 7999. This reduces the timer clock to 10 kHz. Formula: 80,000,000 / (7999 + 1) = 10,000 Hz Auto-Reload Register (ARR): Set to 4999. The timer counts 5000 ticks before setting the Update Interrupt Flag (UIF). Calculation: (8000 * 5000) / 80,000,000 = 0.5s Delay 2. Thermal Monitoring (ADC Polling) The code interacts with a 12-bit SAR ADC (Scale: 0–4095) for real-time environmental monitoring.\nTrigger: Hardware conversion is initiated directly via software register writes. Synchronization: The CPU polls the START_CONV bit, waiting for hardware to clear it upon completion to ensure data integrity. Hysteresis Logic: * High Threshold (\u003e 3000): Activate Alarm (GPIO Pin 0 HIGH). Low Threshold (\u003c 1500): Deactivate Alarm (GPIO Pin 0 LOW). 🧠 Key Learnings Hardware Abstraction via Structs Instead of using error-prone pointer arithmetic, I utilized Memory-Mapped Structures. This approach maps a C struct directly to the peripheral’s register offsets, ensuring type-safe access and production-grade code readability.\nClock Tree Management Mastered the relationship between system oscillators and peripheral clock domains, specifically how to manipulate Prescalers and Auto-Reload values to derive accurate timing intervals.\nRegister-Level Synchronization Practiced robust peripheral handshaking by implementing polling methods—checking hardware status flags and manually clearing them to acknowledge events.\n🔗 Project Links View Source on GitHub\n",
+  "wordCount" : "338",
   "inLanguage": "en",
   "datePublished": "2026-04-12T10:00:00Z",
   "dateModified": "2026-04-12T10:00:00Z",
@@ -169,34 +155,60 @@ Technical Highlights Memory-Mapped I/O (MMIO): Manually defined peripheral base 
     <h1 class="post-title entry-hint-parent">
       ZX-8080 MCU: Bare-Metal Peripheral Control
     </h1>
-    <div class="post-meta"><span title='2026-04-12 10:00:00 +0000 UTC'>April 12, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span>
+    <div class="post-meta"><span title='2026-04-12 10:00:00 +0000 UTC'>April 12, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span>
 
 </div>
   </header> 
   <div class="post-content md-content"><h3 id="-technology-stack">🛠 Technology Stack<a hidden class="anchor" aria-hidden="true" href="#-technology-stack">#</a></h3>
 <ul>
-<li><strong>Language:</strong> Bare-Metal C (Register-level)</li>
-<li><strong>Hardware:</strong> Simulated ZX-8080 MCU (based on technical datasheet)</li>
-<li><strong>Key Concepts:</strong> Memory-Mapped I/O (MMIO), Polling-based State Machines</li>
+<li><strong>Target Hardware:</strong> ZX-8080 (32-bit RISC-V Architecture)</li>
+<li><strong>Clock Speed:</strong> 80 MHz System Frequency</li>
+<li><strong>Language:</strong> Bare-Metal C</li>
+<li><strong>Toolchain:</strong> RISC-V GCC / Memory-Mapped I/O (MMIO)</li>
+<li><strong>Key Peripherals:</strong> 12-bit SAR ADC, General Purpose Timer (TIM1), GPIO</li>
 </ul>
 <hr>
-<h3 id="the-project-overview">The Project Overview<a hidden class="anchor" aria-hidden="true" href="#the-project-overview">#</a></h3>
-<p>This project serves as a deep-dive sandbox for mastering fundamental Firmware Engineering. I simulated the firmware for a custom microcontroller (ZX-8080) to manage ADC conversions and hardware timers based strictly on datasheet specifications.</p>
-<h3 id="technical-highlights">Technical Highlights<a hidden class="anchor" aria-hidden="true" href="#technical-highlights">#</a></h3>
+<h3 id="project-overview">Project Overview<a hidden class="anchor" aria-hidden="true" href="#project-overview">#</a></h3>
+<p>This repository contains a bare-metal C implementation for the <strong>ZX-8080</strong>. The project demonstrates low-level hardware abstraction by interfacing with an onboard 12-bit SAR ADC for thermal monitoring and utilizing a General Purpose Timer for precise LED toggling. By interfacing directly with hardware registers, I bypassed abstraction layers to optimize performance and memory footprint.</p>
+<hr>
+<h3 id="-system-logic--implementation">⚙️ System Logic &amp; Implementation<a hidden class="anchor" aria-hidden="true" href="#-system-logic--implementation">#</a></h3>
+<p>The application performs two concurrent tasks within a robust super-loop:</p>
+<h4 id="1-precision-timing-led-toggle">1. Precision Timing (LED Toggle)<a hidden class="anchor" aria-hidden="true" href="#1-precision-timing-led-toggle">#</a></h4>
+<p>To achieve a human-readable <strong>0.5s blink rate</strong> from an <strong>80 MHz</strong> system clock, I implemented a two-stage clock division:</p>
 <ul>
-<li><strong>Memory-Mapped I/O (MMIO):</strong> Manually defined peripheral base addresses and offsets to interface with system control, GPIO, ADC, and Timer registers.</li>
-<li><strong>Timer Configuration:</strong> Calculated and configured <strong>Prescaler (PSC)</strong> and <strong>Auto-Reload Register (ARR)</strong> values to derive precise 0.5s hardware delays from an <strong>80MHz</strong> system clock.</li>
-<li><strong>ADC Data Acquisition:</strong> Developed a polling-based state machine to trigger ADC conversions, processing thermal sensor data for threshold-based thermal management logic.</li>
-<li><strong>Bit-Level Optimization:</strong> Utilized <strong>XOR bitwise operations</strong> for efficient GPIO toggling and manual flag clearing in the Timer Status registers.</li>
+<li><strong>Prescaler (PSC):</strong> Set to <strong>7999</strong>. This reduces the timer clock to <strong>10 kHz</strong>.
+<ul>
+<li>Formula: 80,000,000 / (7999 + 1) = 10,000 Hz</li>
+</ul>
+</li>
+<li><strong>Auto-Reload Register (ARR):</strong> Set to <strong>4999</strong>. The timer counts 5000 ticks before setting the Update Interrupt Flag (UIF).
+<ul>
+<li>Calculation: (8000 * 5000) / 80,000,000 = <strong>0.5s Delay</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="2-thermal-monitoring-adc-polling">2. Thermal Monitoring (ADC Polling)<a hidden class="anchor" aria-hidden="true" href="#2-thermal-monitoring-adc-polling">#</a></h4>
+<p>The code interacts with a <strong>12-bit SAR ADC</strong> (Scale: 0–4095) for real-time environmental monitoring.</p>
+<ul>
+<li><strong>Trigger:</strong> Hardware conversion is initiated directly via software register writes.</li>
+<li><strong>Synchronization:</strong> The CPU polls the <code>START_CONV</code> bit, waiting for hardware to clear it upon completion to ensure data integrity.</li>
+<li><strong>Hysteresis Logic:</strong> * <strong>High Threshold (&gt; 3000):</strong> Activate Alarm (GPIO Pin 0 HIGH).
+<ul>
+<li><strong>Low Threshold (&lt; 1500):</strong> Deactivate Alarm (GPIO Pin 0 LOW).</li>
+</ul>
+</li>
 </ul>
 <hr>
-<h3 id="key-learning-outcomes">Key Learning Outcomes<a hidden class="anchor" aria-hidden="true" href="#key-learning-outcomes">#</a></h3>
-<ul>
-<li><strong>Datasheet Implementation:</strong> Learned to translate raw hexadecimal address maps into functional C drivers.</li>
-<li><strong>Clock Trees:</strong> Gained experience in frequency scaling and deriving timing intervals from system oscillators.</li>
-<li><strong>Polling Logic:</strong> Mastered peripheral status flag management without the overhead of an OS.</li>
-</ul>
-<p><a href="https://github.com/VamsiKiran277/-EMBEDDED-small-projects/tree/main/ZX_8080_MCU" target="_blank" rel="noopener noreferrer">View Source on GitHub</a></p>
+<h3 id="-key-learnings">🧠 Key Learnings<a hidden class="anchor" aria-hidden="true" href="#-key-learnings">#</a></h3>
+<h4 id="hardware-abstraction-via-structs">Hardware Abstraction via Structs<a hidden class="anchor" aria-hidden="true" href="#hardware-abstraction-via-structs">#</a></h4>
+<p>Instead of using error-prone pointer arithmetic, I utilized <strong>Memory-Mapped Structures</strong>. This approach maps a C <code>struct</code> directly to the peripheral&rsquo;s register offsets, ensuring type-safe access and production-grade code readability.</p>
+<h4 id="clock-tree-management">Clock Tree Management<a hidden class="anchor" aria-hidden="true" href="#clock-tree-management">#</a></h4>
+<p>Mastered the relationship between system oscillators and peripheral clock domains, specifically how to manipulate <strong>Prescalers</strong> and <strong>Auto-Reload</strong> values to derive accurate timing intervals.</p>
+<h4 id="register-level-synchronization">Register-Level Synchronization<a hidden class="anchor" aria-hidden="true" href="#register-level-synchronization">#</a></h4>
+<p>Practiced robust peripheral handshaking by implementing polling methods—checking hardware status flags and manually clearing them to acknowledge events.</p>
+<hr>
+<h3 id="-project-links">🔗 Project Links<a hidden class="anchor" aria-hidden="true" href="#-project-links">#</a></h3>
+<p><a href="https://github.com/VamsiKiran277/-EMBEDDED-small-projects/tree/main/ZX_8080_MCU" target="_blank" rel="noopener noreferrer" style="padding: 10px 20px; background-color: #24292e; color: white; text-decoration: none; border-radius: 5px;">View Source on GitHub</a></p>
 
 
   </div>
@@ -205,8 +217,9 @@ Technical Highlights Memory-Mapped I/O (MMIO): Manually defined peripheral base 
     <ul class="post-tags">
       <li><a href="http://localhost:1313/tags/c/">C</a></li>
       <li><a href="http://localhost:1313/tags/bare-metal/">Bare-Metal</a></li>
-      <li><a href="http://localhost:1313/tags/computer-architecture/">Computer Architecture</a></li>
+      <li><a href="http://localhost:1313/tags/risc-v/">RISC-V</a></li>
       <li><a href="http://localhost:1313/tags/adc/">ADC</a></li>
+      <li><a href="http://localhost:1313/tags/timers/">Timers</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="http://localhost:1313/projects/peripheral-drivers/">
@@ -215,7 +228,7 @@ Technical Highlights Memory-Mapped I/O (MMIO): Manually defined peripheral base 
   </a>
   <a class="next" href="http://localhost:1313/projects/bitfield-optimization/">
     <span class="title">Next »</span>
-    <span>LED Toggle via C Bit-Fields</span>
+    <span>STM32F4 Bare-Metal LED Toggle (Bit-Field &amp; SIL)</span>
   </a>
 </nav>
 

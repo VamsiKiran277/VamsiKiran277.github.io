@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>RISC-V on Vamsi Kiran | Firmware Engineer</title>
+    <link>http://localhost:1313/tags/risc-v/</link>
+    <description>Recent content in RISC-V on Vamsi Kiran | Firmware Engineer</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Apr 2026 10:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/risc-v/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ZX-8080 MCU: Bare-Metal Peripheral Control</title>
+      <link>http://localhost:1313/projects/zx-8080-mcu/</link>
+      <pubDate>Sun, 12 Apr 2026 10:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/zx-8080-mcu/</guid>
+      <description>&lt;h3 id=&#34;-technology-stack&#34;&gt;🛠 Technology Stack&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Architecture:&lt;/strong&gt; RISC-V 32-bit (ZX-8080 Instruction Set)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Language:&lt;/strong&gt; Bare-Metal C (Register-level)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Clock System:&lt;/strong&gt; 80 MHz System Frequency&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Key Concepts:&lt;/strong&gt; Memory-Mapped I/O (MMIO), Clock Trees, SAR ADC Polling&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;the-project-overview&#34;&gt;The Project Overview&lt;/h3&gt;
+&lt;p&gt;This project serves as a deep-dive sandbox for mastering fundamental &lt;strong&gt;Firmware Engineering&lt;/strong&gt;. I implemented low-level drivers for a custom 32-bit RISC-V microcontroller to manage thermal monitoring and precision timing. By interfacing directly with hardware registers based on datasheet specifications, I bypassed abstraction layers to optimize performance and memory footprint.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
