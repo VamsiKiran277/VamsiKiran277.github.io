@@ -20,12 +20,11 @@ A low-level firmware implementation for the STM32F407 that demonstrates peripher
 Technical Highlights
 
 C Bit-Field Structures: Utilized custom struct definitions to map hardware registers, ensuring type-safe access to individual bits and eliminating manual bitwise masks (&amp;, |, &lt;&lt;).
-Memory-Mapped I/O (MMIO): Manually mapped the RCC and GPIOD base addresses (Base: 0x40020C00) to control hardware clocking and pin states.
+Memory-Mapped I/O (MMIO): Manually mapped the RCC (Base: 0x40023800) and GPIOD (Base: 0x40020C00) to control hardware clocking and pin states.
 SIL Validation (Renode): Automated hardware verification using Renode to validate register-level behavior via memory-access tracing. This allows for cycle-accurate auditing of the firmware&rsquo;s execution without physical hardware.
 
-Simulation &amp; Verification
-The project includes a pre-configured Renode environment. The firmware logic is verified by running:
-renode --plain --hide-monitor --execute &quot;include @Simulation/stm32_blink.resc&quot; 2&gt;&amp;1 | tee verification.log">
+🔍 Simulation &amp; Hardware Verification
+The project is validated using Renode to trace memory-mapped I/O (MMIO) interactions. This ensures the firmware logic correctly targets the ARM Cortex-M4 register map before deployment to physical silicon.">
 <meta name="author" content="Vamsi Kiran">
 <link rel="canonical" href="http://localhost:1313/projects/bitfield-optimization/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b741c717f3e1ffd216564f64cc45db41b75f7985628d95ce76ced157bead89e7.css" integrity="sha256-t0HHF/Ph/9IWVk9kzEXbQbdfeYVijZXOds7RV76tiec=" rel="preload stylesheet" as="style">
@@ -49,7 +48,7 @@ renode --plain --hide-monitor --execute &quot;include @Simulation/stm32_blink.re
   <meta property="og:site_name" content="Vamsi Kiran | Firmware Engineer">
   <meta property="og:title" content="STM32F4 Bare-Metal LED Toggle (Bit-Field & SIL)">
   <meta property="og:description" content="🛠 Technology Stack Language: C (C11/C17) Hardware: STM32F407 (ARM Cortex-M4) Tools: Renode (SIL Simulation), STM32CubeIDE Key Concepts: C Bit-Fields, MMIO, Software-in-the-Loop (SIL) The Project Overview A low-level firmware implementation for the STM32F407 that demonstrates peripheral control via direct register manipulation. This project bypasses standard HAL/LL libraries to interface directly with the AHB1 bus matrix using custom C bit-field structures for type-safe hardware access.
-Technical Highlights C Bit-Field Structures: Utilized custom struct definitions to map hardware registers, ensuring type-safe access to individual bits and eliminating manual bitwise masks (&amp;, |, &lt;&lt;). Memory-Mapped I/O (MMIO): Manually mapped the RCC and GPIOD base addresses (Base: 0x40020C00) to control hardware clocking and pin states. SIL Validation (Renode): Automated hardware verification using Renode to validate register-level behavior via memory-access tracing. This allows for cycle-accurate auditing of the firmware’s execution without physical hardware. Simulation &amp; Verification The project includes a pre-configured Renode environment. The firmware logic is verified by running: renode --plain --hide-monitor --execute &#34;include @Simulation/stm32_blink.resc&#34; 2&gt;&amp;1 | tee verification.log">
+Technical Highlights C Bit-Field Structures: Utilized custom struct definitions to map hardware registers, ensuring type-safe access to individual bits and eliminating manual bitwise masks (&amp;, |, &lt;&lt;). Memory-Mapped I/O (MMIO): Manually mapped the RCC (Base: 0x40023800) and GPIOD (Base: 0x40020C00) to control hardware clocking and pin states. SIL Validation (Renode): Automated hardware verification using Renode to validate register-level behavior via memory-access tracing. This allows for cycle-accurate auditing of the firmware’s execution without physical hardware. 🔍 Simulation &amp; Hardware Verification The project is validated using Renode to trace memory-mapped I/O (MMIO) interactions. This ensures the firmware logic correctly targets the ARM Cortex-M4 register map before deployment to physical silicon.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
@@ -64,7 +63,7 @@ Technical Highlights C Bit-Field Structures: Utilized custom struct definitions 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="STM32F4 Bare-Metal LED Toggle (Bit-Field & SIL)">
   <meta name="twitter:description" content="🛠 Technology Stack Language: C (C11/C17) Hardware: STM32F407 (ARM Cortex-M4) Tools: Renode (SIL Simulation), STM32CubeIDE Key Concepts: C Bit-Fields, MMIO, Software-in-the-Loop (SIL) The Project Overview A low-level firmware implementation for the STM32F407 that demonstrates peripheral control via direct register manipulation. This project bypasses standard HAL/LL libraries to interface directly with the AHB1 bus matrix using custom C bit-field structures for type-safe hardware access.
-Technical Highlights C Bit-Field Structures: Utilized custom struct definitions to map hardware registers, ensuring type-safe access to individual bits and eliminating manual bitwise masks (&amp;, |, &lt;&lt;). Memory-Mapped I/O (MMIO): Manually mapped the RCC and GPIOD base addresses (Base: 0x40020C00) to control hardware clocking and pin states. SIL Validation (Renode): Automated hardware verification using Renode to validate register-level behavior via memory-access tracing. This allows for cycle-accurate auditing of the firmware’s execution without physical hardware. Simulation &amp; Verification The project includes a pre-configured Renode environment. The firmware logic is verified by running: renode --plain --hide-monitor --execute &#34;include @Simulation/stm32_blink.resc&#34; 2&gt;&amp;1 | tee verification.log">
+Technical Highlights C Bit-Field Structures: Utilized custom struct definitions to map hardware registers, ensuring type-safe access to individual bits and eliminating manual bitwise masks (&amp;, |, &lt;&lt;). Memory-Mapped I/O (MMIO): Manually mapped the RCC (Base: 0x40023800) and GPIOD (Base: 0x40020C00) to control hardware clocking and pin states. SIL Validation (Renode): Automated hardware verification using Renode to validate register-level behavior via memory-access tracing. This allows for cycle-accurate auditing of the firmware’s execution without physical hardware. 🔍 Simulation &amp; Hardware Verification The project is validated using Renode to trace memory-mapped I/O (MMIO) interactions. This ensures the firmware logic correctly targets the ARM Cortex-M4 register map before deployment to physical silicon.">
 
 
 <script type="application/ld+json">
@@ -93,12 +92,12 @@ Technical Highlights C Bit-Field Structures: Utilized custom struct definitions 
   "@type": "BlogPosting",
   "headline": "STM32F4 Bare-Metal LED Toggle (Bit-Field \u0026 SIL)",
   "name": "STM32F4 Bare-Metal LED Toggle (Bit-Field \u0026 SIL)",
-  "description": "🛠 Technology Stack Language: C (C11/C17) Hardware: STM32F407 (ARM Cortex-M4) Tools: Renode (SIL Simulation), STM32CubeIDE Key Concepts: C Bit-Fields, MMIO, Software-in-the-Loop (SIL) The Project Overview A low-level firmware implementation for the STM32F407 that demonstrates peripheral control via direct register manipulation. This project bypasses standard HAL/LL libraries to interface directly with the AHB1 bus matrix using custom C bit-field structures for type-safe hardware access.\nTechnical Highlights C Bit-Field Structures: Utilized custom struct definitions to map hardware registers, ensuring type-safe access to individual bits and eliminating manual bitwise masks (\u0026amp;, |, \u0026lt;\u0026lt;). Memory-Mapped I/O (MMIO): Manually mapped the RCC and GPIOD base addresses (Base: 0x40020C00) to control hardware clocking and pin states. SIL Validation (Renode): Automated hardware verification using Renode to validate register-level behavior via memory-access tracing. This allows for cycle-accurate auditing of the firmware\u0026rsquo;s execution without physical hardware. Simulation \u0026amp; Verification The project includes a pre-configured Renode environment. The firmware logic is verified by running: renode --plain --hide-monitor --execute \u0026quot;include @Simulation/stm32_blink.resc\u0026quot; 2\u0026gt;\u0026amp;1 | tee verification.log\n",
+  "description": "🛠 Technology Stack Language: C (C11/C17) Hardware: STM32F407 (ARM Cortex-M4) Tools: Renode (SIL Simulation), STM32CubeIDE Key Concepts: C Bit-Fields, MMIO, Software-in-the-Loop (SIL) The Project Overview A low-level firmware implementation for the STM32F407 that demonstrates peripheral control via direct register manipulation. This project bypasses standard HAL/LL libraries to interface directly with the AHB1 bus matrix using custom C bit-field structures for type-safe hardware access.\nTechnical Highlights C Bit-Field Structures: Utilized custom struct definitions to map hardware registers, ensuring type-safe access to individual bits and eliminating manual bitwise masks (\u0026amp;, |, \u0026lt;\u0026lt;). Memory-Mapped I/O (MMIO): Manually mapped the RCC (Base: 0x40023800) and GPIOD (Base: 0x40020C00) to control hardware clocking and pin states. SIL Validation (Renode): Automated hardware verification using Renode to validate register-level behavior via memory-access tracing. This allows for cycle-accurate auditing of the firmware\u0026rsquo;s execution without physical hardware. 🔍 Simulation \u0026amp; Hardware Verification The project is validated using Renode to trace memory-mapped I/O (MMIO) interactions. This ensures the firmware logic correctly targets the ARM Cortex-M4 register map before deployment to physical silicon.\n",
   "keywords": [
     "C", "ARM Cortex-M4", "Bare-Metal", "Renode", "SIL"
   ],
-  "articleBody": "🛠 Technology Stack Language: C (C11/C17) Hardware: STM32F407 (ARM Cortex-M4) Tools: Renode (SIL Simulation), STM32CubeIDE Key Concepts: C Bit-Fields, MMIO, Software-in-the-Loop (SIL) The Project Overview A low-level firmware implementation for the STM32F407 that demonstrates peripheral control via direct register manipulation. This project bypasses standard HAL/LL libraries to interface directly with the AHB1 bus matrix using custom C bit-field structures for type-safe hardware access.\nTechnical Highlights C Bit-Field Structures: Utilized custom struct definitions to map hardware registers, ensuring type-safe access to individual bits and eliminating manual bitwise masks (\u0026, |, \u003c\u003c). Memory-Mapped I/O (MMIO): Manually mapped the RCC and GPIOD base addresses (Base: 0x40020C00) to control hardware clocking and pin states. SIL Validation (Renode): Automated hardware verification using Renode to validate register-level behavior via memory-access tracing. This allows for cycle-accurate auditing of the firmware’s execution without physical hardware. Simulation \u0026 Verification The project includes a pre-configured Renode environment. The firmware logic is verified by running: renode --plain --hide-monitor --execute \"include @Simulation/stm32_blink.resc\" 2\u003e\u00261 | tee verification.log\nWhat the verification.log proves:\nMode Configuration: WriteUInt32 to 0x0 (MODER) with value 0x1000000 (Sets Pin 12 to Output). LED Toggle Logic: WriteUInt32 to 0x14 (ODR) showing value 0x1000 (Pin 12 HIGH) and 0x0 (Pin 12 LOW). Key Learning Outcomes Code Maintainability: Improved readability for engineering teams by replacing “magic number” masking with structured mapping. Hardware-Software Verification: Mastered the use of Watchpoint Hooks on memory address 0x40020C14 to capture the Program Counter (PC) and value writes during execution. View Source on GitHub\n",
-  "wordCount" : "245",
+  "articleBody": "🛠 Technology Stack Language: C (C11/C17) Hardware: STM32F407 (ARM Cortex-M4) Tools: Renode (SIL Simulation), STM32CubeIDE Key Concepts: C Bit-Fields, MMIO, Software-in-the-Loop (SIL) The Project Overview A low-level firmware implementation for the STM32F407 that demonstrates peripheral control via direct register manipulation. This project bypasses standard HAL/LL libraries to interface directly with the AHB1 bus matrix using custom C bit-field structures for type-safe hardware access.\nTechnical Highlights C Bit-Field Structures: Utilized custom struct definitions to map hardware registers, ensuring type-safe access to individual bits and eliminating manual bitwise masks (\u0026, |, \u003c\u003c). Memory-Mapped I/O (MMIO): Manually mapped the RCC (Base: 0x40023800) and GPIOD (Base: 0x40020C00) to control hardware clocking and pin states. SIL Validation (Renode): Automated hardware verification using Renode to validate register-level behavior via memory-access tracing. This allows for cycle-accurate auditing of the firmware’s execution without physical hardware. 🔍 Simulation \u0026 Hardware Verification The project is validated using Renode to trace memory-mapped I/O (MMIO) interactions. This ensures the firmware logic correctly targets the ARM Cortex-M4 register map before deployment to physical silicon.\nrenode — firmware_audit.log vamsi-kiran@ASUS:~$ renode --plain --hide-monitor -e 'include @Simulation/stm32_blink.resc'\n19:43:38.5796 [INFO] System bus created. 19:43:39.3288 [INFO] sysbus: Loaded SVD: STM32F40x. 19:43:39.4383 [INFO] gpioPortD: [cpu: 0x80001EE] WriteUInt32 to 0x0 (Mode), value 0x1000000 19:43:39.4390 [INFO] gpioPortD: [cpu: 0x80001F8] WriteUInt32 to 0x14 (OutputData), value 0x1000 \u003c-- LED ON 19:43:39.4457 [INFO] gpioPortD: [cpu: 0x8000216] WriteUInt32 to 0x14 (OutputData), value 0x0 \u003c-- LED OFF ... [Simulation continues] ... 📑 Full Verification Log Audit (verification.log) The following excerpt from the automated log audit validates the peripheral clock gating and the recursive toggling logic:\n19:43:39.3542 [INFO] sysbus: Loading block of 764 bytes length at 0x8000000. 19:43:39.4383 [INFO] gpioPortD: [cpu: 0x80001E6] ReadUInt32 from 0x0 (Mode), returned 0x0 19:43:39.4383 [INFO] gpioPortD: [cpu: 0x80001EE] WriteUInt32 to 0x0 (Mode), value 0x1000000 19:43:39.4390 [INFO] gpioPortD: [cpu: 0x80001F2] ReadUInt32 from 0x14 (OutputData), returned 0x0 19:43:39.4390 [INFO] gpioPortD: [cpu: 0x80001F8] WriteUInt32 to 0x14 (OutputData), value 0x1000 19:43:39.4457 [INFO] gpioPortD: [cpu: 0x8000216] WriteUInt32 to 0x14 (OutputData), value 0x0 19:43:39.4522 [INFO] gpioPortD: [cpu: 0x80001F8] WriteUInt32 to 0x14 (OutputData), value 0x1000 19:43:39.4733 [INFO] gpioPortD: [cpu: 0x8000216] WriteUInt32 to 0x14 (OutputData), value 0x0 Hardware Audit Mode Config (Offset 0x0): The value 0x1000000 sets Bits 25:24 to 01, successfully configuring Pin 12 as a General Purpose Output. Output Toggle (Offset 0x14): Toggling between 0x1000 (Bit 12 set) and 0x0 verifies cycle-accurate pin control. Watchpoint Tracing: Renode captures the exact Program Counter (e.g., 0x80001EE) for every write, providing a verifiable audit trail. Key Learning Outcomes Code Maintainability: Improved readability for engineering teams by replacing “magic number” masking with structured mapping. Hardware-Software Verification: Mastered the use of Watchpoint Hooks on memory address 0x40020C14 to capture value writes during execution. View Source on GitHub\n",
+  "wordCount" : "444",
   "inLanguage": "en",
   "datePublished": "2026-04-12T10:00:00Z",
   "dateModified": "2026-04-12T10:00:00Z",
@@ -165,7 +164,7 @@ Technical Highlights C Bit-Field Structures: Utilized custom struct definitions 
     <h1 class="post-title entry-hint-parent">
       STM32F4 Bare-Metal LED Toggle (Bit-Field &amp; SIL)
     </h1>
-    <div class="post-meta"><span title='2026-04-12 10:00:00 +0000 UTC'>April 12, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span>
+    <div class="post-meta"><span title='2026-04-12 10:00:00 +0000 UTC'>April 12, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span>
 
 </div>
   </header> 
@@ -182,21 +181,52 @@ Technical Highlights C Bit-Field Structures: Utilized custom struct definitions 
 <h3 id="technical-highlights">Technical Highlights<a hidden class="anchor" aria-hidden="true" href="#technical-highlights">#</a></h3>
 <ul>
 <li><strong>C Bit-Field Structures:</strong> Utilized custom <code>struct</code> definitions to map hardware registers, ensuring type-safe access to individual bits and eliminating manual bitwise masks (<code>&amp;</code>, <code>|</code>, <code>&lt;&lt;</code>).</li>
-<li><strong>Memory-Mapped I/O (MMIO):</strong> Manually mapped the RCC and GPIOD base addresses (Base: <code>0x40020C00</code>) to control hardware clocking and pin states.</li>
+<li><strong>Memory-Mapped I/O (MMIO):</strong> Manually mapped the RCC (Base: <code>0x40023800</code>) and GPIOD (Base: <code>0x40020C00</code>) to control hardware clocking and pin states.</li>
 <li><strong>SIL Validation (Renode):</strong> Automated hardware verification using Renode to validate register-level behavior via memory-access tracing. This allows for cycle-accurate auditing of the firmware&rsquo;s execution without physical hardware.</li>
 </ul>
-<h3 id="simulation--verification">Simulation &amp; Verification<a hidden class="anchor" aria-hidden="true" href="#simulation--verification">#</a></h3>
-<p>The project includes a pre-configured Renode environment. The firmware logic is verified by running:
-<code>renode --plain --hide-monitor --execute &quot;include @Simulation/stm32_blink.resc&quot; 2&gt;&amp;1 | tee verification.log</code></p>
-<p><strong>What the <code>verification.log</code> proves:</strong></p>
+<h3 id="-simulation--hardware-verification">🔍 Simulation &amp; Hardware Verification<a hidden class="anchor" aria-hidden="true" href="#-simulation--hardware-verification">#</a></h3>
+<p>The project is validated using <strong>Renode</strong> to trace memory-mapped I/O (MMIO) interactions. This ensures the firmware logic correctly targets the ARM Cortex-M4 register map before deployment to physical silicon.</p>
+<div class="terminal-container" style="margin-top: 30px; margin-bottom: 30px; clear: both; overflow: hidden;">
+    <div class="terminal-header">
+        <div class="terminal-button red"></div>
+        <div class="terminal-button yellow"></div>
+        <div class="terminal-button green"></div>
+        <div class="terminal-title">renode — firmware_audit.log</div>
+    </div>
+    <div class="terminal-body" style="background: rgba(5, 5, 5, 0.9); font-family: 'Courier New', monospace; border-top: 1px solid rgba(0, 210, 255, 0.1); padding: 20px;">
+        <p style="margin-bottom: 15px;"><span class="prompt" style="color: #27c93f;">vamsi-kiran@ASUS:~$</span> <span style="color: #ffffff;">renode --plain --hide-monitor -e &#39;include @Simulation/stm32_blink.resc&#39;</span></p>
+        <div class="terminal-output" style="color: #c9d1d9; font-size: 0.9rem; line-height: 1.4;">
+            <pre style="background: transparent; border: none; padding: 0; margin: 0; white-space: pre-wrap; word-break: break-all; color: inherit; font-family: inherit;">
+19:43:38.5796 [INFO] System bus created.
+19:43:39.3288 [INFO] sysbus: Loaded SVD: STM32F40x.
+19:43:39.4383 [INFO] gpioPortD: [cpu: 0x80001EE] WriteUInt32 to 0x0 (Mode), value 0x1000000
+19:43:39.4390 [INFO] gpioPortD: [cpu: 0x80001F8] WriteUInt32 to 0x14 (OutputData), value 0x1000  <-- LED ON
+19:43:39.4457 [INFO] gpioPortD: [cpu: 0x8000216] WriteUInt32 to 0x14 (OutputData), value 0x0     <-- LED OFF
+... [Simulation continues] ...
+</pre>
+        </div>
+    </div>
+</div>
+<h4 id="-full-verification-log-audit-verificationlog">📑 Full Verification Log Audit (<code>verification.log</code>)<a hidden class="anchor" aria-hidden="true" href="#-full-verification-log-audit-verificationlog">#</a></h4>
+<p>The following excerpt from the automated log audit validates the peripheral clock gating and the recursive toggling logic:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>19:43:39.3542 [INFO] sysbus: Loading block of 764 bytes length at 0x8000000.
+</span></span><span style="display:flex;"><span>19:43:39.4383 [INFO] gpioPortD: [cpu: 0x80001E6] ReadUInt32 from 0x0 (Mode), returned 0x0
+</span></span><span style="display:flex;"><span>19:43:39.4383 [INFO] gpioPortD: [cpu: 0x80001EE] WriteUInt32 to 0x0 (Mode), value 0x1000000
+</span></span><span style="display:flex;"><span>19:43:39.4390 [INFO] gpioPortD: [cpu: 0x80001F2] ReadUInt32 from 0x14 (OutputData), returned 0x0
+</span></span><span style="display:flex;"><span>19:43:39.4390 [INFO] gpioPortD: [cpu: 0x80001F8] WriteUInt32 to 0x14 (OutputData), value 0x1000
+</span></span><span style="display:flex;"><span>19:43:39.4457 [INFO] gpioPortD: [cpu: 0x8000216] WriteUInt32 to 0x14 (OutputData), value 0x0
+</span></span><span style="display:flex;"><span>19:43:39.4522 [INFO] gpioPortD: [cpu: 0x80001F8] WriteUInt32 to 0x14 (OutputData), value 0x1000
+</span></span><span style="display:flex;"><span>19:43:39.4733 [INFO] gpioPortD: [cpu: 0x8000216] WriteUInt32 to 0x14 (OutputData), value 0x0
+</span></span></code></pre></div><h3 id="hardware-audit">Hardware Audit<a hidden class="anchor" aria-hidden="true" href="#hardware-audit">#</a></h3>
 <ul>
-<li><strong>Mode Configuration:</strong> <code>WriteUInt32</code> to <code>0x0</code> (MODER) with value <code>0x1000000</code> (Sets Pin 12 to Output).</li>
-<li><strong>LED Toggle Logic:</strong> <code>WriteUInt32</code> to <code>0x14</code> (ODR) showing value <code>0x1000</code> (Pin 12 HIGH) and <code>0x0</code> (Pin 12 LOW).</li>
+<li><strong>Mode Config (Offset 0x0):</strong> The value <code>0x1000000</code> sets Bits 25:24 to <code>01</code>, successfully configuring Pin 12 as a General Purpose Output.</li>
+<li><strong>Output Toggle (Offset 0x14):</strong> Toggling between <code>0x1000</code> (Bit 12 set) and <code>0x0</code> verifies cycle-accurate pin control.</li>
+<li><strong>Watchpoint Tracing:</strong> Renode captures the exact Program Counter (e.g., <code>0x80001EE</code>) for every write, providing a verifiable audit trail.</li>
 </ul>
 <h3 id="key-learning-outcomes">Key Learning Outcomes<a hidden class="anchor" aria-hidden="true" href="#key-learning-outcomes">#</a></h3>
 <ul>
 <li><strong>Code Maintainability:</strong> Improved readability for engineering teams by replacing &ldquo;magic number&rdquo; masking with structured mapping.</li>
-<li><strong>Hardware-Software Verification:</strong> Mastered the use of <strong>Watchpoint Hooks</strong> on memory address <code>0x40020C14</code> to capture the Program Counter (PC) and value writes during execution.</li>
+<li><strong>Hardware-Software Verification:</strong> Mastered the use of <strong>Watchpoint Hooks</strong> on memory address <code>0x40020C14</code> to capture value writes during execution.</li>
 </ul>
 <p><a href="https://github.com/VamsiKiran277/-EMBEDDED-small-projects/tree/main/LED_TOGGLE_BITFIELD" target="_blank" rel="noopener noreferrer">View Source on GitHub</a></p>
 

@@ -1,0 +1,16 @@
+<div class="terminal-container" style="margin-top: 30px; margin-bottom: 30px; clear: both; overflow: hidden;">
+    <div class="terminal-header">
+        <div class="terminal-button red"></div>
+        <div class="terminal-button yellow"></div>
+        <div class="terminal-button green"></div>
+        <div class="terminal-title">renode — firmware_audit.log</div>
+    </div>
+    <div class="terminal-body" style="background: rgba(5, 5, 5, 0.9); font-family: 'Courier New', monospace; border-top: 1px solid rgba(0, 210, 255, 0.1); padding: 20px;">
+        <p style="margin-bottom: 15px;"><span class="prompt" style="color: #27c93f;">vamsi-kiran@ASUS:~$</span> <span style="color: #ffffff;">{{ .Get "command" }}</span></p>
+        <div class="terminal-output" style="color: #c9d1d9; font-size: 0.9rem; line-height: 1.4;">
+            <pre style="background: transparent; border: none; padding: 0; margin: 0; white-space: pre-wrap; word-break: break-all; color: inherit; font-family: inherit;">
+{{- .Inner -}}
+            </pre>
+        </div>
+    </div>
+</div>

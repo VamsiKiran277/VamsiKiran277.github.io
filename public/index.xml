@@ -6,7 +6,6 @@
     <description>Recent content on Vamsi Kiran | Firmware Engineer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Apr 2026 10:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Smart Asset Tracker &amp; Telemetry Dashboard</title>
@@ -159,12 +158,11 @@
 &lt;h3 id=&#34;technical-highlights&#34;&gt;Technical Highlights&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;C Bit-Field Structures:&lt;/strong&gt; Utilized custom &lt;code&gt;struct&lt;/code&gt; definitions to map hardware registers, ensuring type-safe access to individual bits and eliminating manual bitwise masks (&lt;code&gt;&amp;amp;&lt;/code&gt;, &lt;code&gt;|&lt;/code&gt;, &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Memory-Mapped I/O (MMIO):&lt;/strong&gt; Manually mapped the RCC and GPIOD base addresses (Base: &lt;code&gt;0x40020C00&lt;/code&gt;) to control hardware clocking and pin states.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Memory-Mapped I/O (MMIO):&lt;/strong&gt; Manually mapped the RCC (Base: &lt;code&gt;0x40023800&lt;/code&gt;) and GPIOD (Base: &lt;code&gt;0x40020C00&lt;/code&gt;) to control hardware clocking and pin states.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;SIL Validation (Renode):&lt;/strong&gt; Automated hardware verification using Renode to validate register-level behavior via memory-access tracing. This allows for cycle-accurate auditing of the firmware&amp;rsquo;s execution without physical hardware.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;simulation--verification&#34;&gt;Simulation &amp;amp; Verification&lt;/h3&gt;
-&lt;p&gt;The project includes a pre-configured Renode environment. The firmware logic is verified by running:
-&lt;code&gt;renode --plain --hide-monitor --execute &amp;quot;include @Simulation/stm32_blink.resc&amp;quot; 2&amp;gt;&amp;amp;1 | tee verification.log&lt;/code&gt;&lt;/p&gt;</description>
+&lt;h3 id=&#34;-simulation--hardware-verification&#34;&gt;🔍 Simulation &amp;amp; Hardware Verification&lt;/h3&gt;
+&lt;p&gt;The project is validated using &lt;strong&gt;Renode&lt;/strong&gt; to trace memory-mapped I/O (MMIO) interactions. This ensures the firmware logic correctly targets the ARM Cortex-M4 register map before deployment to physical silicon.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Technical Resume</title>
