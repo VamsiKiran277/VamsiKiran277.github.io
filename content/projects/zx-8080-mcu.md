@@ -21,7 +21,7 @@ This repository contains a bare-metal C implementation for the **ZX-8080**. The 
 
 ---
 
-### ⚙️ System Logic & Implementation
+### System Logic & Implementation
 The application performs two concurrent tasks within a robust super-loop:
 
 #### 1. Precision Timing (LED Toggle)
@@ -41,7 +41,7 @@ The code interacts with a **12-bit SAR ADC** (Scale: 0–4095) for real-time env
 
 ---
 
-### 🧠 Key Learnings
+### Key Learnings
 
 #### Hardware Abstraction via Structs
 Instead of using error-prone pointer arithmetic, I utilized **Memory-Mapped Structures**. This approach maps a C `struct` directly to the peripheral's register offsets, ensuring type-safe access and production-grade code readability.
