@@ -30,4 +30,4 @@ This project serves as a deep-dive sandbox for mastering fundamental Firmware En
 * **Clock Trees:** Gained experience in frequency scaling and deriving timing intervals from system oscillators.
 * **Polling Logic:** Mastered peripheral status flag management without the overhead of an OS.
 
-<a href="https://github.com/VamsiKiran277/EMBEDDED-small-projects" target="_blank" rel="noopener noreferrer">View Source on GitHub</a>
+<a href="https://github.com/VamsiKiran277/-EMBEDDED-small-projects/tree/main/ZX_8080_MCU" target="_blank" rel="noopener noreferrer">View Source on GitHub</a>
