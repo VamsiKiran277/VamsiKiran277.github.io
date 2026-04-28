@@ -61,30 +61,24 @@
       <description>&lt;h3 id=&#34;-technology-stack&#34;&gt;🛠 Technology Stack&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Languages:&lt;/strong&gt; Bare-Metal C (C11)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Protocols:&lt;/strong&gt; UART/USART, SysTick Timer logic&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Hardware:&lt;/strong&gt; STM32F407 (Discovery Board) - ARM Cortex-M4&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Tools:&lt;/strong&gt; STM32CubeIDE, GDB, Real-term/Putty (Serial Debugging)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Simulation:&lt;/strong&gt; Renode (Antmicro)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Protocols:&lt;/strong&gt; UART (USART2), SysTick Timer logic&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tools:&lt;/strong&gt; arm-none-eabi-gcc, GDB, Renode&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;the-project-overview&#34;&gt;The Project Overview&lt;/h3&gt;
-&lt;p&gt;A modular, power-conscious firmware application that demonstrates a clean separation between hardware-specific drivers (BSP) and high-level application logic. The project focuses on non-blocking execution and architectural maintainability.&lt;/p&gt;
+&lt;p&gt;A modular firmware application demonstrating a clean separation between hardware-specific drivers (BSP) and high-level application logic. The project focuses on non-blocking execution, architectural maintainability, and full system virtualization using the Renode framework.&lt;/p&gt;
 &lt;h3 id=&#34;technical-highlights&#34;&gt;Technical Highlights&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Layered Architecture (BSP):&lt;/strong&gt; All register-level operations (RCC, GPIO, UART) are encapsulated within a dedicated Board Support Package. The application layer contains zero raw register addresses.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Non-Blocking Logic:&lt;/strong&gt; Replaced &amp;ldquo;busy-wait&amp;rdquo; &lt;code&gt;delay()&lt;/code&gt; loops with a &lt;strong&gt;SysTick-based timer flag system&lt;/strong&gt;, allowing the CPU to process multiple tasks (LED Heartbeat &amp;amp; Status Reporting) concurrently.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Clock Configuration:&lt;/strong&gt; Calculated and implemented the &lt;strong&gt;42 MHz APB1&lt;/strong&gt; clock math to ensure a precise &lt;strong&gt;115200 baud rate&lt;/strong&gt; for serial communication.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Hardware Abstraction:&lt;/strong&gt; Developed a suite of APIs (e.g., &lt;code&gt;BSP_LED_Toggle&lt;/code&gt;, &lt;code&gt;BSP_UART_Write&lt;/code&gt;) to ensure high-level logic remains portable across different MCU architectures.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Layered Architecture (BSP):&lt;/strong&gt; All register-level operations (RCC, GPIO, UART) are encapsulated within a dedicated Board Support Package. The application layer interacts only with abstract APIs, containing zero raw register addresses.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Non-Blocking Logic:&lt;/strong&gt; Replaced &amp;ldquo;busy-wait&amp;rdquo; loops with a &lt;strong&gt;SysTick-based interrupt system&lt;/strong&gt;, allowing the CPU to process concurrent tasks (LED Heartbeat and Status Reporting) without stalling the execution thread.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;UART Serial Driver:&lt;/strong&gt; Developed a custom driver for USART2, featuring manual Baud Rate calculation for the &lt;strong&gt;16 MHz HSI clock&lt;/strong&gt; to ensure stable &lt;strong&gt;115200 baud&lt;/strong&gt; communication.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Virtual Hardware Validation:&lt;/strong&gt; Successfully virtualized the STM32F407 hardware environment in &lt;strong&gt;Renode&lt;/strong&gt;, enabling cycle-accurate firmware testing and UART output auditing without physical silicon.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h3 id=&#34;key-learning-outcomes&#34;&gt;Key Learning Outcomes&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Register Mapping:&lt;/strong&gt; Mastered the translation of technical datasheets into functional C code using structures and bit-fields.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Software Design Patterns:&lt;/strong&gt; Implemented the &amp;ldquo;Separation of Concerns&amp;rdquo; principle to reduce coupling between hardware and application code.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Asynchronous Timing:&lt;/strong&gt; Learned to manage time-based events in a super-loop environment without blocking the main execution thread.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;hardware-target&#34;&gt;Hardware Target&lt;/h3&gt;
-&lt;p&gt;This project was designed and tested on the &lt;strong&gt;STM32F407 Discovery Board&lt;/strong&gt;. It utilizes the onboard &lt;strong&gt;PD12 (Green LED)&lt;/strong&gt; for heartbeats and &lt;strong&gt;USART2 (PD5/PD6)&lt;/strong&gt; for system status reporting.&lt;/p&gt;</description>
+&lt;h3 id=&#34;simulation--hardware-verification&#34;&gt;Simulation &amp;amp; Hardware Verification&lt;/h3&gt;
+&lt;p&gt;The project is validated using &lt;strong&gt;Renode&lt;/strong&gt; to audit register-level interactions and verify the timing logic of the Board Support Package. By mapping the internal &lt;code&gt;USART2&lt;/code&gt; peripheral to a virtual analyzer, the firmware execution is audited for cycle-accurate behavior before deployment to physical silicon.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Peripheral Driver Suite: GPIO, I2C, SPI &amp; UART</title>
