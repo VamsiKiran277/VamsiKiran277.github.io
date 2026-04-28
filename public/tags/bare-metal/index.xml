@@ -64,28 +64,40 @@
       <guid>http://localhost:1313/projects/zx-8080-mcu/</guid>
       <description>&lt;h3 id=&#34;-technology-stack&#34;&gt;🛠 Technology Stack&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Language:&lt;/strong&gt; Bare-Metal C (Register-level)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Hardware:&lt;/strong&gt; Simulated ZX-8080 MCU (based on technical datasheet)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Key Concepts:&lt;/strong&gt; Memory-Mapped I/O (MMIO), Polling-based State Machines&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Target Hardware:&lt;/strong&gt; ZX-8080 (32-bit RISC-V Architecture)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Clock Speed:&lt;/strong&gt; 80 MHz System Frequency&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Language:&lt;/strong&gt; Bare-Metal C&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Toolchain:&lt;/strong&gt; RISC-V GCC (&lt;code&gt;riscv64-unknown-elf-gcc&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Simulation:&lt;/strong&gt; Renode (Antmicro)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Key Peripherals:&lt;/strong&gt; 12-bit SAR ADC, General Purpose Timer (TIM1), GPIO&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;the-project-overview&#34;&gt;The Project Overview&lt;/h3&gt;
-&lt;p&gt;This project serves as a deep-dive sandbox for mastering fundamental Firmware Engineering. I simulated the firmware for a custom microcontroller (ZX-8080) to manage ADC conversions and hardware timers based strictly on datasheet specifications.&lt;/p&gt;
-&lt;h3 id=&#34;technical-highlights&#34;&gt;Technical Highlights&lt;/h3&gt;
+&lt;p&gt;This repository contains a bare-metal C implementation for the &lt;strong&gt;ZX-8080&lt;/strong&gt;, a custom 32-bit RISC-V based microcontroller. The project demonstrates low-level hardware abstraction by interfacing with an onboard 12-bit SAR ADC for thermal monitoring and utilizing a General Purpose Timer for precise LED toggling. Furthermore, the entire hardware environment is successfully virtualized and tested using the &lt;strong&gt;Renode&lt;/strong&gt; simulation framework.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>STM32F4 Bare-Metal LED Toggle (Bit-Field &amp; SIL)</title>
+      <link>http://localhost:1313/projects/bitfield-optimization/</link>
+      <pubDate>Sun, 12 Apr 2026 10:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/bitfield-optimization/</guid>
+      <description>&lt;h3 id=&#34;-technology-stack&#34;&gt;🛠 Technology Stack&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Memory-Mapped I/O (MMIO):&lt;/strong&gt; Manually defined peripheral base addresses and offsets to interface with system control, GPIO, ADC, and Timer registers.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Timer Configuration:&lt;/strong&gt; Calculated and configured &lt;strong&gt;Prescaler (PSC)&lt;/strong&gt; and &lt;strong&gt;Auto-Reload Register (ARR)&lt;/strong&gt; values to derive precise 0.5s hardware delays from an &lt;strong&gt;80MHz&lt;/strong&gt; system clock.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ADC Data Acquisition:&lt;/strong&gt; Developed a polling-based state machine to trigger ADC conversions, processing thermal sensor data for threshold-based thermal management logic.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Bit-Level Optimization:&lt;/strong&gt; Utilized &lt;strong&gt;XOR bitwise operations&lt;/strong&gt; for efficient GPIO toggling and manual flag clearing in the Timer Status registers.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Language:&lt;/strong&gt; C (C11/C17)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hardware:&lt;/strong&gt; STM32F407 (ARM Cortex-M4)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tools:&lt;/strong&gt; Renode (SIL Simulation), STM32CubeIDE&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Key Concepts:&lt;/strong&gt; C Bit-Fields, MMIO, Software-in-the-Loop (SIL)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h3 id=&#34;key-learning-outcomes&#34;&gt;Key Learning Outcomes&lt;/h3&gt;
+&lt;h3 id=&#34;the-project-overview&#34;&gt;The Project Overview&lt;/h3&gt;
+&lt;p&gt;A low-level firmware implementation for the STM32F407 that demonstrates peripheral control via direct register manipulation. This project bypasses standard HAL/LL libraries to interface directly with the &lt;strong&gt;AHB1 bus matrix&lt;/strong&gt; using custom C bit-field structures for type-safe hardware access.&lt;/p&gt;
+&lt;h3 id=&#34;technical-highlights&#34;&gt;Technical Highlights&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Datasheet Implementation:&lt;/strong&gt; Learned to translate raw hexadecimal address maps into functional C drivers.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Clock Trees:&lt;/strong&gt; Gained experience in frequency scaling and deriving timing intervals from system oscillators.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Polling Logic:&lt;/strong&gt; Mastered peripheral status flag management without the overhead of an OS.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;C Bit-Field Structures:&lt;/strong&gt; Utilized custom &lt;code&gt;struct&lt;/code&gt; definitions to map hardware registers, ensuring type-safe access to individual bits and eliminating manual bitwise masks (&lt;code&gt;&amp;amp;&lt;/code&gt;, &lt;code&gt;|&lt;/code&gt;, &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Memory-Mapped I/O (MMIO):&lt;/strong&gt; Manually mapped the RCC (Base: &lt;code&gt;0x40023800&lt;/code&gt;) and GPIOD (Base: &lt;code&gt;0x40020C00&lt;/code&gt;) to control hardware clocking and pin states.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SIL Validation (Renode):&lt;/strong&gt; Automated hardware verification using Renode to validate register-level behavior via memory-access tracing. This allows for cycle-accurate auditing of the firmware&amp;rsquo;s execution without physical hardware.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/VamsiKiran277/EMBEDDED-small-projects&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;View Source on GitHub&lt;/a&gt;&lt;/p&gt;</description>
+&lt;h3 id=&#34;-simulation--hardware-verification&#34;&gt;🔍 Simulation &amp;amp; Hardware Verification&lt;/h3&gt;
+&lt;p&gt;The project is validated using &lt;strong&gt;Renode&lt;/strong&gt; to trace memory-mapped I/O (MMIO) interactions. This ensures the firmware logic correctly targets the ARM Cortex-M4 register map before deployment to physical silicon.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

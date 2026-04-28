@@ -15,14 +15,16 @@
       <guid>http://localhost:1313/projects/zx-8080-mcu/</guid>
       <description>&lt;h3 id=&#34;-technology-stack&#34;&gt;🛠 Technology Stack&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Architecture:&lt;/strong&gt; RISC-V 32-bit (ZX-8080 Instruction Set)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Language:&lt;/strong&gt; Bare-Metal C (Register-level)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Clock System:&lt;/strong&gt; 80 MHz System Frequency&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Key Concepts:&lt;/strong&gt; Memory-Mapped I/O (MMIO), Clock Trees, SAR ADC Polling&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Target Hardware:&lt;/strong&gt; ZX-8080 (32-bit RISC-V Architecture)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Clock Speed:&lt;/strong&gt; 80 MHz System Frequency&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Language:&lt;/strong&gt; Bare-Metal C&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Toolchain:&lt;/strong&gt; RISC-V GCC (&lt;code&gt;riscv64-unknown-elf-gcc&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Simulation:&lt;/strong&gt; Renode (Antmicro)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Key Peripherals:&lt;/strong&gt; 12-bit SAR ADC, General Purpose Timer (TIM1), GPIO&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;the-project-overview&#34;&gt;The Project Overview&lt;/h3&gt;
-&lt;p&gt;This project serves as a deep-dive sandbox for mastering fundamental &lt;strong&gt;Firmware Engineering&lt;/strong&gt;. I implemented low-level drivers for a custom 32-bit RISC-V microcontroller to manage thermal monitoring and precision timing. By interfacing directly with hardware registers based on datasheet specifications, I bypassed abstraction layers to optimize performance and memory footprint.&lt;/p&gt;</description>
+&lt;p&gt;This repository contains a bare-metal C implementation for the &lt;strong&gt;ZX-8080&lt;/strong&gt;, a custom 32-bit RISC-V based microcontroller. The project demonstrates low-level hardware abstraction by interfacing with an onboard 12-bit SAR ADC for thermal monitoring and utilizing a General Purpose Timer for precise LED toggling. Furthermore, the entire hardware environment is successfully virtualized and tested using the &lt;strong&gt;Renode&lt;/strong&gt; simulation framework.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -6,27 +6,49 @@
     <description>Recent content in Renode on Vamsi Kiran | Firmware Engineer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Apr 2026 11:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 12 Apr 2026 10:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/renode/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>STM32F4 Bare-Metal LED Toggle: Bit-Fields &amp; SIL Validation</title>
+      <title>ZX-8080 MCU: Bare-Metal Peripheral Control</title>
+      <link>http://localhost:1313/projects/zx-8080-mcu/</link>
+      <pubDate>Sun, 12 Apr 2026 10:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/zx-8080-mcu/</guid>
+      <description>&lt;h3 id=&#34;-technology-stack&#34;&gt;🛠 Technology Stack&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Target Hardware:&lt;/strong&gt; ZX-8080 (32-bit RISC-V Architecture)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Clock Speed:&lt;/strong&gt; 80 MHz System Frequency&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Language:&lt;/strong&gt; Bare-Metal C&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Toolchain:&lt;/strong&gt; RISC-V GCC (&lt;code&gt;riscv64-unknown-elf-gcc&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Simulation:&lt;/strong&gt; Renode (Antmicro)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Key Peripherals:&lt;/strong&gt; 12-bit SAR ADC, General Purpose Timer (TIM1), GPIO&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;the-project-overview&#34;&gt;The Project Overview&lt;/h3&gt;
+&lt;p&gt;This repository contains a bare-metal C implementation for the &lt;strong&gt;ZX-8080&lt;/strong&gt;, a custom 32-bit RISC-V based microcontroller. The project demonstrates low-level hardware abstraction by interfacing with an onboard 12-bit SAR ADC for thermal monitoring and utilizing a General Purpose Timer for precise LED toggling. Furthermore, the entire hardware environment is successfully virtualized and tested using the &lt;strong&gt;Renode&lt;/strong&gt; simulation framework.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>STM32F4 Bare-Metal LED Toggle (Bit-Field &amp; SIL)</title>
       <link>http://localhost:1313/projects/bitfield-optimization/</link>
-      <pubDate>Sun, 12 Apr 2026 11:00:00 +0000</pubDate>
+      <pubDate>Sun, 12 Apr 2026 10:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/bitfield-optimization/</guid>
       <description>&lt;h3 id=&#34;-technology-stack&#34;&gt;🛠 Technology Stack&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Hardware:&lt;/strong&gt; STM32F407VG (ARM Cortex-M4)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Language:&lt;/strong&gt; C (C11/C17)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Verification:&lt;/strong&gt; Renode (Software-in-the-Loop)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Key Concepts:&lt;/strong&gt; C Bit-Fields, MMIO, Register Mapping, SIL Testing&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hardware:&lt;/strong&gt; STM32F407 (ARM Cortex-M4)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tools:&lt;/strong&gt; Renode (SIL Simulation), STM32CubeIDE&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Key Concepts:&lt;/strong&gt; C Bit-Fields, MMIO, Software-in-the-Loop (SIL)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h3 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h3&gt;
-&lt;p&gt;This project is a low-level firmware implementation for the &lt;strong&gt;STM32F407&lt;/strong&gt; demonstrating peripheral control via direct register manipulation. The primary focus was replacing standard &amp;ldquo;magic number&amp;rdquo; bit-masking with type-safe &lt;strong&gt;C Bit-Field structures&lt;/strong&gt; to interface directly with the AHB1 bus matrix.&lt;/p&gt;
-&lt;hr&gt;
+&lt;h3 id=&#34;the-project-overview&#34;&gt;The Project Overview&lt;/h3&gt;
+&lt;p&gt;A low-level firmware implementation for the STM32F407 that demonstrates peripheral control via direct register manipulation. This project bypasses standard HAL/LL libraries to interface directly with the &lt;strong&gt;AHB1 bus matrix&lt;/strong&gt; using custom C bit-field structures for type-safe hardware access.&lt;/p&gt;
 &lt;h3 id=&#34;technical-highlights&#34;&gt;Technical Highlights&lt;/h3&gt;
-&lt;h4 id=&#34;1-structured-register-mapping-bit-fields&#34;&gt;1. Structured Register Mapping (Bit-Fields)&lt;/h4&gt;
-&lt;p&gt;Instead of using manual bit-shifting (e.g., &lt;code&gt;*(GPIO + OFFSET) |= (1 &amp;lt;&amp;lt; 12)&lt;/code&gt;), I utilized structured bit-fields within C &lt;code&gt;unions&lt;/code&gt; and &lt;code&gt;structs&lt;/code&gt;.&lt;/p&gt;</description>
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;C Bit-Field Structures:&lt;/strong&gt; Utilized custom &lt;code&gt;struct&lt;/code&gt; definitions to map hardware registers, ensuring type-safe access to individual bits and eliminating manual bitwise masks (&lt;code&gt;&amp;amp;&lt;/code&gt;, &lt;code&gt;|&lt;/code&gt;, &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Memory-Mapped I/O (MMIO):&lt;/strong&gt; Manually mapped the RCC (Base: &lt;code&gt;0x40023800&lt;/code&gt;) and GPIOD (Base: &lt;code&gt;0x40020C00&lt;/code&gt;) to control hardware clocking and pin states.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SIL Validation (Renode):&lt;/strong&gt; Automated hardware verification using Renode to validate register-level behavior via memory-access tracing. This allows for cycle-accurate auditing of the firmware&amp;rsquo;s execution without physical hardware.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;-simulation--hardware-verification&#34;&gt;🔍 Simulation &amp;amp; Hardware Verification&lt;/h3&gt;
+&lt;p&gt;The project is validated using &lt;strong&gt;Renode&lt;/strong&gt; to trace memory-mapped I/O (MMIO) interactions. This ensures the firmware logic correctly targets the ARM Cortex-M4 register map before deployment to physical silicon.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

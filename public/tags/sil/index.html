@@ -72,7 +72,12 @@
 </header>
 <main class="main"> 
 <header class="page-header"><nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
-    <a href='http://localhost:1313/'>Home</a></nav>
+    <a href='http://localhost:1313/'>Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="http://localhost:1313/tags/">Tags</a></nav>
   <h1>
     SIL
   </h1>
@@ -80,16 +85,16 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">STM32F4 Bare-Metal LED Toggle: Bit-Fields &amp; SIL Validation
+    <h2 class="entry-hint-parent">STM32F4 Bare-Metal LED Toggle (Bit-Field &amp; SIL)
     </h2>
   </header>
   <div class="entry-content">
-    <p>🛠 Technology Stack Hardware: STM32F407VG (ARM Cortex-M4) Language: C (C11/C17) Verification: Renode (Software-in-the-Loop) Key Concepts: C Bit-Fields, MMIO, Register Mapping, SIL Testing Project Overview This project is a low-level firmware implementation for the STM32F407 demonstrating peripheral control via direct register manipulation. The primary focus was replacing standard “magic number” bit-masking with type-safe C Bit-Field structures to interface directly with the AHB1 bus matrix.
-Technical Highlights 1. Structured Register Mapping (Bit-Fields) Instead of using manual bit-shifting (e.g., *(GPIO &#43; OFFSET) |= (1 &lt;&lt; 12)), I utilized structured bit-fields within C unions and structs.
+    <p>🛠 Technology Stack Language: C (C11/C17) Hardware: STM32F407 (ARM Cortex-M4) Tools: Renode (SIL Simulation), STM32CubeIDE Key Concepts: C Bit-Fields, MMIO, Software-in-the-Loop (SIL) The Project Overview A low-level firmware implementation for the STM32F407 that demonstrates peripheral control via direct register manipulation. This project bypasses standard HAL/LL libraries to interface directly with the AHB1 bus matrix using custom C bit-field structures for type-safe hardware access.
+Technical Highlights C Bit-Field Structures: Utilized custom struct definitions to map hardware registers, ensuring type-safe access to individual bits and eliminating manual bitwise masks (&amp;, |, &lt;&lt;). Memory-Mapped I/O (MMIO): Manually mapped the RCC (Base: 0x40023800) and GPIOD (Base: 0x40020C00) to control hardware clocking and pin states. SIL Validation (Renode): Automated hardware verification using Renode to validate register-level behavior via memory-access tracing. This allows for cycle-accurate auditing of the firmware’s execution without physical hardware. 🔍 Simulation &amp; Hardware Verification The project is validated using Renode to trace memory-mapped I/O (MMIO) interactions. This ensures the firmware logic correctly targets the ARM Cortex-M4 register map before deployment to physical silicon.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-04-12 11:00:00 +0000 UTC'>April 12, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span></footer>
-  <a class="entry-link" aria-label="post link to STM32F4 Bare-Metal LED Toggle: Bit-Fields & SIL Validation" href="http://localhost:1313/projects/bitfield-optimization/"></a>
+  <footer class="entry-footer"><span title='2026-04-12 10:00:00 +0000 UTC'>April 12, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span></footer>
+  <a class="entry-link" aria-label="post link to STM32F4 Bare-Metal LED Toggle (Bit-Field & SIL)" href="http://localhost:1313/projects/bitfield-optimization/"></a>
 </article>
     </main>
     

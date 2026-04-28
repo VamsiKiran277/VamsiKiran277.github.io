@@ -6,6 +6,7 @@
     <description>Recent content in Projects on Vamsi Kiran | Firmware Engineer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
+    <lastBuildDate>Mon, 20 Apr 2026 10:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Smart Asset Tracker &amp; Telemetry Dashboard</title>
@@ -133,12 +134,13 @@
 &lt;li&gt;&lt;strong&gt;Target Hardware:&lt;/strong&gt; ZX-8080 (32-bit RISC-V Architecture)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Clock Speed:&lt;/strong&gt; 80 MHz System Frequency&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Language:&lt;/strong&gt; Bare-Metal C&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Toolchain:&lt;/strong&gt; RISC-V GCC / Memory-Mapped I/O (MMIO)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Toolchain:&lt;/strong&gt; RISC-V GCC (&lt;code&gt;riscv64-unknown-elf-gcc&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Simulation:&lt;/strong&gt; Renode (Antmicro)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Key Peripherals:&lt;/strong&gt; 12-bit SAR ADC, General Purpose Timer (TIM1), GPIO&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h3 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h3&gt;
-&lt;p&gt;This repository contains a bare-metal C implementation for the &lt;strong&gt;ZX-8080&lt;/strong&gt;. The project demonstrates low-level hardware abstraction by interfacing with an onboard 12-bit SAR ADC for thermal monitoring and utilizing a General Purpose Timer for precise LED toggling. By interfacing directly with hardware registers, I bypassed abstraction layers to optimize performance and memory footprint.&lt;/p&gt;</description>
+&lt;h3 id=&#34;the-project-overview&#34;&gt;The Project Overview&lt;/h3&gt;
+&lt;p&gt;This repository contains a bare-metal C implementation for the &lt;strong&gt;ZX-8080&lt;/strong&gt;, a custom 32-bit RISC-V based microcontroller. The project demonstrates low-level hardware abstraction by interfacing with an onboard 12-bit SAR ADC for thermal monitoring and utilizing a General Purpose Timer for precise LED toggling. Furthermore, the entire hardware environment is successfully virtualized and tested using the &lt;strong&gt;Renode&lt;/strong&gt; simulation framework.&lt;/p&gt;</description>
     </item>
     <item>
       <title>STM32F4 Bare-Metal LED Toggle (Bit-Field &amp; SIL)</title>
