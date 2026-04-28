@@ -5,11 +5,11 @@ date: 2026-04-13T10:00:00Z
 weight: 1
 draft: false
 tags: ["IoT", "C++", "Qt 6", "MQTT", "Raspberry Pi", "Cybersecurity"]
-cover:
-    image: "/images/dashboard.png"
-    alt: "Qt Dashboard"
-    caption: "Real-time Telemetry Dashboard"
-    relative: false
+# cover:
+#     image: "/images/dashboard.png"
+#     alt: "Qt Dashboard"
+#     caption: "Real-time Telemetry Dashboard"
+#     relative: false
 ShowShareButtons: false
 showShareButtons: false
 ---

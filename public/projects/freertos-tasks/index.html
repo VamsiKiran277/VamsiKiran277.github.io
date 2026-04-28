@@ -26,15 +26,8 @@ Deterministic Scheduling: Replaced standard sleep calls with vTaskDelayUntil() t
 Resource Cleanup: Engineered a custom shutdown() sequence ensuring all RTOS tasks are deleted and Linux file descriptors (I2C/GPIO) are properly closed before process termination.
 
 
-Key Learning Outcomes
-
-Concurrency Control: Mastered the use of Mutexes and Semaphores to handle shared resource contention in a real-time environment.
-RTOS Scheduling: Understood the difference between &ldquo;soft&rdquo; delays and deterministic &ldquo;fixed-frequency&rdquo; scheduling for sensor data integrity.
-System Robustness: Learned to implement graceful degradation and cleanup procedures to prevent memory leaks and &ldquo;hung&rdquo; hardware peripherals.
-
-
-Hardware Target
-This project is designed for Linux-based Embedded Systems (specifically tested on Raspberry Pi). It interfaces with an ADXL345 for motion data and a DS3231 Real-Time Clock for timestamping via the I2C protocol.">
+Live RTOS Execution &amp; Task Arbitration
+The following terminal trace captures the live execution of the FreeRTOS tasks. It demonstrates the real-time arbitration of the I2C bus between the high-frequency accelerometer and the low-frequency real-time clock.">
 <meta name="author" content="Vamsi Kiran">
 <link rel="canonical" href="http://localhost:1313/projects/freertos-tasks/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b741c717f3e1ffd216564f64cc45db41b75f7985628d95ce76ced157bead89e7.css" integrity="sha256-t0HHF/Ph/9IWVk9kzEXbQbdfeYVijZXOds7RV76tiec=" rel="preload stylesheet" as="style">
@@ -58,7 +51,7 @@ This project is designed for Linux-based Embedded Systems (specifically tested o
   <meta property="og:site_name" content="Vamsi Kiran | Firmware Engineer">
   <meta property="og:title" content="FreeRTOS Task Management & Sensor Suite">
   <meta property="og:description" content="🛠 Technology Stack Languages: Embedded C (C11) Operating System: FreeRTOS (POSIX Port) Protocols: I2C, Hardware Interrupts (GPIO) Tools: libgpiod, GDB, GCC, Linux terminal The Project Overview The objective was to design a robust, thread-safe sensor acquisition system on a Linux-based RTOS environment. This project demonstrates high-reliability multitasking where multiple sensors share a single communication bus without data corruption or timing jitter.
-Technical Highlights Kernel-Level Multitasking: Leveraged the FreeRTOS POSIX Port to manage three concurrent tasks using fixed-priority preemption, ensuring mission-critical tasks always receive CPU time. Thread-Safe I2C Management: Implemented a Mutex Semaphore to arbitrate access to the I2C bus. This prevents data collisions between the ADXL345 Accelerometer and DS3231 RTC tasks when accessing shared hardware. Asynchronous Event Handling: Developed a high-priority hardware listener using libgpiod to capture falling-edge interrupts on GPIO 17, triggering a system-wide graceful shutdown. Deterministic Scheduling: Replaced standard sleep calls with vTaskDelayUntil() to ensure a consistent 10Hz sampling frequency, eliminating timing drift critical for real-time telemetry analysis. Resource Cleanup: Engineered a custom shutdown() sequence ensuring all RTOS tasks are deleted and Linux file descriptors (I2C/GPIO) are properly closed before process termination. Key Learning Outcomes Concurrency Control: Mastered the use of Mutexes and Semaphores to handle shared resource contention in a real-time environment. RTOS Scheduling: Understood the difference between “soft” delays and deterministic “fixed-frequency” scheduling for sensor data integrity. System Robustness: Learned to implement graceful degradation and cleanup procedures to prevent memory leaks and “hung” hardware peripherals. Hardware Target This project is designed for Linux-based Embedded Systems (specifically tested on Raspberry Pi). It interfaces with an ADXL345 for motion data and a DS3231 Real-Time Clock for timestamping via the I2C protocol.">
+Technical Highlights Kernel-Level Multitasking: Leveraged the FreeRTOS POSIX Port to manage three concurrent tasks using fixed-priority preemption, ensuring mission-critical tasks always receive CPU time. Thread-Safe I2C Management: Implemented a Mutex Semaphore to arbitrate access to the I2C bus. This prevents data collisions between the ADXL345 Accelerometer and DS3231 RTC tasks when accessing shared hardware. Asynchronous Event Handling: Developed a high-priority hardware listener using libgpiod to capture falling-edge interrupts on GPIO 17, triggering a system-wide graceful shutdown. Deterministic Scheduling: Replaced standard sleep calls with vTaskDelayUntil() to ensure a consistent 10Hz sampling frequency, eliminating timing drift critical for real-time telemetry analysis. Resource Cleanup: Engineered a custom shutdown() sequence ensuring all RTOS tasks are deleted and Linux file descriptors (I2C/GPIO) are properly closed before process termination. Live RTOS Execution &amp; Task Arbitration The following terminal trace captures the live execution of the FreeRTOS tasks. It demonstrates the real-time arbitration of the I2C bus between the high-frequency accelerometer and the low-frequency real-time clock.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
@@ -73,7 +66,7 @@ Technical Highlights Kernel-Level Multitasking: Leveraged the FreeRTOS POSIX Por
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="FreeRTOS Task Management & Sensor Suite">
   <meta name="twitter:description" content="🛠 Technology Stack Languages: Embedded C (C11) Operating System: FreeRTOS (POSIX Port) Protocols: I2C, Hardware Interrupts (GPIO) Tools: libgpiod, GDB, GCC, Linux terminal The Project Overview The objective was to design a robust, thread-safe sensor acquisition system on a Linux-based RTOS environment. This project demonstrates high-reliability multitasking where multiple sensors share a single communication bus without data corruption or timing jitter.
-Technical Highlights Kernel-Level Multitasking: Leveraged the FreeRTOS POSIX Port to manage three concurrent tasks using fixed-priority preemption, ensuring mission-critical tasks always receive CPU time. Thread-Safe I2C Management: Implemented a Mutex Semaphore to arbitrate access to the I2C bus. This prevents data collisions between the ADXL345 Accelerometer and DS3231 RTC tasks when accessing shared hardware. Asynchronous Event Handling: Developed a high-priority hardware listener using libgpiod to capture falling-edge interrupts on GPIO 17, triggering a system-wide graceful shutdown. Deterministic Scheduling: Replaced standard sleep calls with vTaskDelayUntil() to ensure a consistent 10Hz sampling frequency, eliminating timing drift critical for real-time telemetry analysis. Resource Cleanup: Engineered a custom shutdown() sequence ensuring all RTOS tasks are deleted and Linux file descriptors (I2C/GPIO) are properly closed before process termination. Key Learning Outcomes Concurrency Control: Mastered the use of Mutexes and Semaphores to handle shared resource contention in a real-time environment. RTOS Scheduling: Understood the difference between “soft” delays and deterministic “fixed-frequency” scheduling for sensor data integrity. System Robustness: Learned to implement graceful degradation and cleanup procedures to prevent memory leaks and “hung” hardware peripherals. Hardware Target This project is designed for Linux-based Embedded Systems (specifically tested on Raspberry Pi). It interfaces with an ADXL345 for motion data and a DS3231 Real-Time Clock for timestamping via the I2C protocol.">
+Technical Highlights Kernel-Level Multitasking: Leveraged the FreeRTOS POSIX Port to manage three concurrent tasks using fixed-priority preemption, ensuring mission-critical tasks always receive CPU time. Thread-Safe I2C Management: Implemented a Mutex Semaphore to arbitrate access to the I2C bus. This prevents data collisions between the ADXL345 Accelerometer and DS3231 RTC tasks when accessing shared hardware. Asynchronous Event Handling: Developed a high-priority hardware listener using libgpiod to capture falling-edge interrupts on GPIO 17, triggering a system-wide graceful shutdown. Deterministic Scheduling: Replaced standard sleep calls with vTaskDelayUntil() to ensure a consistent 10Hz sampling frequency, eliminating timing drift critical for real-time telemetry analysis. Resource Cleanup: Engineered a custom shutdown() sequence ensuring all RTOS tasks are deleted and Linux file descriptors (I2C/GPIO) are properly closed before process termination. Live RTOS Execution &amp; Task Arbitration The following terminal trace captures the live execution of the FreeRTOS tasks. It demonstrates the real-time arbitration of the I2C bus between the high-frequency accelerometer and the low-frequency real-time clock.">
 
 
 <script type="application/ld+json">
@@ -102,12 +95,12 @@ Technical Highlights Kernel-Level Multitasking: Leveraged the FreeRTOS POSIX Por
   "@type": "BlogPosting",
   "headline": "FreeRTOS Task Management \u0026 Sensor Suite",
   "name": "FreeRTOS Task Management \u0026 Sensor Suite",
-  "description": "🛠 Technology Stack Languages: Embedded C (C11) Operating System: FreeRTOS (POSIX Port) Protocols: I2C, Hardware Interrupts (GPIO) Tools: libgpiod, GDB, GCC, Linux terminal The Project Overview The objective was to design a robust, thread-safe sensor acquisition system on a Linux-based RTOS environment. This project demonstrates high-reliability multitasking where multiple sensors share a single communication bus without data corruption or timing jitter.\nTechnical Highlights Kernel-Level Multitasking: Leveraged the FreeRTOS POSIX Port to manage three concurrent tasks using fixed-priority preemption, ensuring mission-critical tasks always receive CPU time. Thread-Safe I2C Management: Implemented a Mutex Semaphore to arbitrate access to the I2C bus. This prevents data collisions between the ADXL345 Accelerometer and DS3231 RTC tasks when accessing shared hardware. Asynchronous Event Handling: Developed a high-priority hardware listener using libgpiod to capture falling-edge interrupts on GPIO 17, triggering a system-wide graceful shutdown. Deterministic Scheduling: Replaced standard sleep calls with vTaskDelayUntil() to ensure a consistent 10Hz sampling frequency, eliminating timing drift critical for real-time telemetry analysis. Resource Cleanup: Engineered a custom shutdown() sequence ensuring all RTOS tasks are deleted and Linux file descriptors (I2C/GPIO) are properly closed before process termination. Key Learning Outcomes Concurrency Control: Mastered the use of Mutexes and Semaphores to handle shared resource contention in a real-time environment. RTOS Scheduling: Understood the difference between \u0026ldquo;soft\u0026rdquo; delays and deterministic \u0026ldquo;fixed-frequency\u0026rdquo; scheduling for sensor data integrity. System Robustness: Learned to implement graceful degradation and cleanup procedures to prevent memory leaks and \u0026ldquo;hung\u0026rdquo; hardware peripherals. Hardware Target This project is designed for Linux-based Embedded Systems (specifically tested on Raspberry Pi). It interfaces with an ADXL345 for motion data and a DS3231 Real-Time Clock for timestamping via the I2C protocol.\n",
+  "description": "🛠 Technology Stack Languages: Embedded C (C11) Operating System: FreeRTOS (POSIX Port) Protocols: I2C, Hardware Interrupts (GPIO) Tools: libgpiod, GDB, GCC, Linux terminal The Project Overview The objective was to design a robust, thread-safe sensor acquisition system on a Linux-based RTOS environment. This project demonstrates high-reliability multitasking where multiple sensors share a single communication bus without data corruption or timing jitter.\nTechnical Highlights Kernel-Level Multitasking: Leveraged the FreeRTOS POSIX Port to manage three concurrent tasks using fixed-priority preemption, ensuring mission-critical tasks always receive CPU time. Thread-Safe I2C Management: Implemented a Mutex Semaphore to arbitrate access to the I2C bus. This prevents data collisions between the ADXL345 Accelerometer and DS3231 RTC tasks when accessing shared hardware. Asynchronous Event Handling: Developed a high-priority hardware listener using libgpiod to capture falling-edge interrupts on GPIO 17, triggering a system-wide graceful shutdown. Deterministic Scheduling: Replaced standard sleep calls with vTaskDelayUntil() to ensure a consistent 10Hz sampling frequency, eliminating timing drift critical for real-time telemetry analysis. Resource Cleanup: Engineered a custom shutdown() sequence ensuring all RTOS tasks are deleted and Linux file descriptors (I2C/GPIO) are properly closed before process termination. Live RTOS Execution \u0026amp; Task Arbitration The following terminal trace captures the live execution of the FreeRTOS tasks. It demonstrates the real-time arbitration of the I2C bus between the high-frequency accelerometer and the low-frequency real-time clock.\n",
   "keywords": [
     "FreeRTOS", "Embedded C", "Real-Time Systems", "IPC", "I2C"
   ],
-  "articleBody": "🛠 Technology Stack Languages: Embedded C (C11) Operating System: FreeRTOS (POSIX Port) Protocols: I2C, Hardware Interrupts (GPIO) Tools: libgpiod, GDB, GCC, Linux terminal The Project Overview The objective was to design a robust, thread-safe sensor acquisition system on a Linux-based RTOS environment. This project demonstrates high-reliability multitasking where multiple sensors share a single communication bus without data corruption or timing jitter.\nTechnical Highlights Kernel-Level Multitasking: Leveraged the FreeRTOS POSIX Port to manage three concurrent tasks using fixed-priority preemption, ensuring mission-critical tasks always receive CPU time. Thread-Safe I2C Management: Implemented a Mutex Semaphore to arbitrate access to the I2C bus. This prevents data collisions between the ADXL345 Accelerometer and DS3231 RTC tasks when accessing shared hardware. Asynchronous Event Handling: Developed a high-priority hardware listener using libgpiod to capture falling-edge interrupts on GPIO 17, triggering a system-wide graceful shutdown. Deterministic Scheduling: Replaced standard sleep calls with vTaskDelayUntil() to ensure a consistent 10Hz sampling frequency, eliminating timing drift critical for real-time telemetry analysis. Resource Cleanup: Engineered a custom shutdown() sequence ensuring all RTOS tasks are deleted and Linux file descriptors (I2C/GPIO) are properly closed before process termination. Key Learning Outcomes Concurrency Control: Mastered the use of Mutexes and Semaphores to handle shared resource contention in a real-time environment. RTOS Scheduling: Understood the difference between “soft” delays and deterministic “fixed-frequency” scheduling for sensor data integrity. System Robustness: Learned to implement graceful degradation and cleanup procedures to prevent memory leaks and “hung” hardware peripherals. Hardware Target This project is designed for Linux-based Embedded Systems (specifically tested on Raspberry Pi). It interfaces with an ADXL345 for motion data and a DS3231 Real-Time Clock for timestamping via the I2C protocol.\nView Source on GitHub\n",
-  "wordCount" : "277",
+  "articleBody": "🛠 Technology Stack Languages: Embedded C (C11) Operating System: FreeRTOS (POSIX Port) Protocols: I2C, Hardware Interrupts (GPIO) Tools: libgpiod, GDB, GCC, Linux terminal The Project Overview The objective was to design a robust, thread-safe sensor acquisition system on a Linux-based RTOS environment. This project demonstrates high-reliability multitasking where multiple sensors share a single communication bus without data corruption or timing jitter.\nTechnical Highlights Kernel-Level Multitasking: Leveraged the FreeRTOS POSIX Port to manage three concurrent tasks using fixed-priority preemption, ensuring mission-critical tasks always receive CPU time. Thread-Safe I2C Management: Implemented a Mutex Semaphore to arbitrate access to the I2C bus. This prevents data collisions between the ADXL345 Accelerometer and DS3231 RTC tasks when accessing shared hardware. Asynchronous Event Handling: Developed a high-priority hardware listener using libgpiod to capture falling-edge interrupts on GPIO 17, triggering a system-wide graceful shutdown. Deterministic Scheduling: Replaced standard sleep calls with vTaskDelayUntil() to ensure a consistent 10Hz sampling frequency, eliminating timing drift critical for real-time telemetry analysis. Resource Cleanup: Engineered a custom shutdown() sequence ensuring all RTOS tasks are deleted and Linux file descriptors (I2C/GPIO) are properly closed before process termination. Live RTOS Execution \u0026 Task Arbitration The following terminal trace captures the live execution of the FreeRTOS tasks. It demonstrates the real-time arbitration of the I2C bus between the high-frequency accelerometer and the low-frequency real-time clock.\nrenode — firmware_audit.log vamsi-kiran@ASUS:~$ ./telemetry_app\nADXL initialized succesfully X:0 | Y:0 | Z:0 H:02 | M:20 | S:29 X:-4 | Y:144 | Z:192 X:-6 | Y:144 | Z:191 X:-4 | Y:144 | Z:194 X:-5 | Y:144 | Z:193 X:-7 | Y:145 | Z:192 X:-4 | Y:143 | Z:194 X:-4 | Y:145 | Z:190 X:-5 | Y:145 | Z:190 X:-6 | Y:143 | Z:197 X:-5 | Y:145 | Z:193 H:02 | M:20 | S:30 X:-5 | Y:143 | Z:189 X:-4 | Y:142 | Z:193 ... [Simulation continues] ... ^C Telemetry Data Audit Deterministic 10Hz Scheduling: Between the RTC outputs of S:29 and S:30, there are exactly ten X/Y/Z coordinate lines. This proves the vTaskDelayUntil() logic successfully avoids drift and maintains a strict 100ms task frequency. Thread-Safe IPC (Mutex): Notice that the output lines never mangle or overlap (e.g., you never see X:-4 | H:02 Y:144...). This confirms the FreeRTOS Mutex is successfully locking the printf and I2C file descriptors during context switches. Graceful Termination: The ^C (SIGINT) is caught by the system, allowing the process to release the I2C bus and terminate gracefully without hanging the hardware state. Key Learning Outcomes Concurrency Control: Mastered the use of Mutexes and Semaphores to handle shared resource contention in a real-time environment. RTOS Scheduling: Understood the difference between “soft” delays and deterministic “fixed-frequency” scheduling for sensor data integrity. System Robustness: Learned to implement graceful degradation and cleanup procedures to prevent memory leaks and “hung” hardware peripherals. Hardware Target This project is designed for Linux-based Embedded Systems (specifically tested on Raspberry Pi). It interfaces with an ADXL345 for motion data and a DS3231 Real-Time Clock for timestamping via the I2C protocol.\nView Source on GitHub\n",
+  "wordCount" : "500",
   "inLanguage": "en",
   "datePublished": "2026-04-18T10:00:00Z",
   "dateModified": "2026-04-18T10:00:00Z",
@@ -174,7 +167,7 @@ Technical Highlights Kernel-Level Multitasking: Leveraged the FreeRTOS POSIX Por
     <h1 class="post-title entry-hint-parent">
       FreeRTOS Task Management &amp; Sensor Suite
     </h1>
-    <div class="post-meta"><span title='2026-04-18 10:00:00 +0000 UTC'>April 18, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span>
+    <div class="post-meta"><span title='2026-04-18 10:00:00 +0000 UTC'>April 18, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Vamsi Kiran</span>
 
 </div>
   </header> 
@@ -197,6 +190,48 @@ Technical Highlights Kernel-Level Multitasking: Leveraged the FreeRTOS POSIX Por
 <li><strong>Resource Cleanup:</strong> Engineered a custom <code>shutdown()</code> sequence ensuring all RTOS tasks are deleted and Linux file descriptors (I2C/GPIO) are properly closed before process termination.</li>
 </ul>
 <hr>
+<h3 id="live-rtos-execution--task-arbitration">Live RTOS Execution &amp; Task Arbitration<a hidden class="anchor" aria-hidden="true" href="#live-rtos-execution--task-arbitration">#</a></h3>
+<p>The following terminal trace captures the live execution of the FreeRTOS tasks. It demonstrates the real-time arbitration of the I2C bus between the high-frequency accelerometer and the low-frequency real-time clock.</p>
+<div class="terminal-container" style="margin-top: 30px; margin-bottom: 30px; clear: both; overflow: hidden;">
+    <div class="terminal-header">
+        <div class="terminal-button red"></div>
+        <div class="terminal-button yellow"></div>
+        <div class="terminal-button green"></div>
+        <div class="terminal-title">renode — firmware_audit.log</div>
+    </div>
+    <div class="terminal-body" style="background: rgba(5, 5, 5, 0.9); font-family: 'Courier New', monospace; border-top: 1px solid rgba(0, 210, 255, 0.1); padding: 20px;">
+        <p style="margin-bottom: 15px;"><span class="prompt" style="color: #27c93f;">vamsi-kiran@ASUS:~$</span> <span style="color: #ffffff;">./telemetry_app</span></p>
+        <div class="terminal-output" style="color: #c9d1d9; font-size: 0.9rem; line-height: 1.4;">
+            <pre style="background: transparent; border: none; padding: 0; margin: 0; white-space: pre-wrap; word-break: break-all; color: inherit; font-family: inherit;">
+ADXL initialized succesfully
+X:0 | Y:0 | Z:0
+H:02 | M:20 | S:29
+X:-4 | Y:144 | Z:192
+X:-6 | Y:144 | Z:191
+X:-4 | Y:144 | Z:194
+X:-5 | Y:144 | Z:193
+X:-7 | Y:145 | Z:192
+X:-4 | Y:143 | Z:194
+X:-4 | Y:145 | Z:190
+X:-5 | Y:145 | Z:190
+X:-6 | Y:143 | Z:197
+X:-5 | Y:145 | Z:193
+H:02 | M:20 | S:30
+X:-5 | Y:143 | Z:189
+X:-4 | Y:142 | Z:193
+... [Simulation continues] ...
+^C
+</pre>
+        </div>
+    </div>
+</div>
+<h3 id="telemetry-data-audit">Telemetry Data Audit<a hidden class="anchor" aria-hidden="true" href="#telemetry-data-audit">#</a></h3>
+<ul>
+<li><strong>Deterministic 10Hz Scheduling:</strong> Between the RTC outputs of <code>S:29</code> and <code>S:30</code>, there are exactly ten <code>X/Y/Z</code> coordinate lines. This proves the <code>vTaskDelayUntil()</code> logic successfully avoids drift and maintains a strict 100ms task frequency.</li>
+<li><strong>Thread-Safe IPC (Mutex):</strong> Notice that the output lines never mangle or overlap (e.g., you never see <code>X:-4 | H:02 Y:144...</code>). This confirms the FreeRTOS Mutex is successfully locking the <code>printf</code> and I2C file descriptors during context switches.</li>
+<li><strong>Graceful Termination:</strong> The <code>^C</code> (SIGINT) is caught by the system, allowing the process to release the I2C bus and terminate gracefully without hanging the hardware state.</li>
+</ul>
+<hr>
 <h3 id="key-learning-outcomes">Key Learning Outcomes<a hidden class="anchor" aria-hidden="true" href="#key-learning-outcomes">#</a></h3>
 <ul>
 <li><strong>Concurrency Control:</strong> Mastered the use of Mutexes and Semaphores to handle shared resource contention in a real-time environment.</li>
@@ -206,7 +241,8 @@ Technical Highlights Kernel-Level Multitasking: Leveraged the FreeRTOS POSIX Por
 <hr>
 <h3 id="hardware-target">Hardware Target<a hidden class="anchor" aria-hidden="true" href="#hardware-target">#</a></h3>
 <p>This project is designed for <strong>Linux-based Embedded Systems</strong> (specifically tested on Raspberry Pi). It interfaces with an <strong>ADXL345</strong> for motion data and a <strong>DS3231</strong> Real-Time Clock for timestamping via the I2C protocol.</p>
-<p><a href="https://github.com/VamsiKiran277/FreeRTOS_project.git" target="_blank" rel="noopener noreferrer">View Source on GitHub</a></p>
+<br>
+<p><a href="https://github.com/VamsiKiran277/FreeRTOS_project.git" target="_blank" rel="noopener noreferrer" style="padding: 10px 20px; background-color: #24292e; color: #00d2ff; text-decoration: none; border-radius: 5px; border: 1px solid #00d2ff; font-weight: 600;">View Source on GitHub</a></p>
 
 
   </div>

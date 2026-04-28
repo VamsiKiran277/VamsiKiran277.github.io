@@ -69,9 +69,8 @@ Technical Highlights IoT Cloud Integration: Configured a secure MQTT pipeline to
     <meta property="article:tag" content="MQTT">
     <meta property="article:tag" content="Raspberry Pi">
     <meta property="article:tag" content="Cybersecurity">
-    <meta property="og:image" content="http://localhost:1313/images/dashboard.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://localhost:1313/images/dashboard.png">
+
+  <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Smart Asset Tracker & Telemetry Dashboard">
   <meta name="twitter:description" content="🛠 Technology Stack Languages: C&#43;&#43; (Qt 6), Embedded C (Paho MQTT), Python (Scripting/Testing) Protocols: MQTT over SSL/TLS, I2C (Register-level), JSON Hardware: Raspberry Pi 4, ADXL345 (3-Axis Accelerometer) Cloud: HiveMQ Cloud Broker The Project Overview Engineered a secure, end-to-end telemetry pipeline designed to monitor and synchronize high-G impact data from edge devices to a centralized monitoring station. This project bridges the gap between low-level sensor interfacing and high-level data visualization.
 Technical Highlights IoT Cloud Integration: Configured a secure MQTT pipeline to sync data to HiveMQ Cloud, enforcing industry-standard SSL/TLS encryption via port 8883 to prevent data sniffing. Custom Qt Dashboard: Developed a high-performance visualization suite in C&#43;&#43; (Qt 6). It features an asynchronous JSON parser and a live-scrolling UI that renders 3-axis vibration data in real-time. Asynchronous Event Handling: Architected an interrupt-driven sensing system using libgpiod. By monitoring hardware interrupts from the ADXL345, the system eliminates CPU polling, drastically reducing power consumption and latency. Hardware Driver Development: Wrote custom I2C drivers from scratch, handling raw bit-manipulation and implementing Two’s Complement sign-extension for accurate acceleration processing. Key Learning Outcomes End-to-End IoT Security: Gained practical experience in implementing secure cloud handshakes and managing certificates for embedded devices. Real-Time Data Streams: Mastered the management of asynchronous data buffers and UI thread synchronization in Qt to prevent interface “freezing” during high-speed data bursts. Embedded Linux API: Deepened knowledge of Linux character device drivers and the libgpiod library for modern hardware interfacing. Hardware Target The system is built on the Raspberry Pi 4 platform, utilizing an ADXL345 digital accelerometer for impact sensing. It is designed to be easily portable to other Linux-based Single Board Computers (SBCs).">
@@ -110,7 +109,7 @@ Technical Highlights IoT Cloud Integration: Configured a secure MQTT pipeline to
   "articleBody": "🛠 Technology Stack Languages: C++ (Qt 6), Embedded C (Paho MQTT), Python (Scripting/Testing) Protocols: MQTT over SSL/TLS, I2C (Register-level), JSON Hardware: Raspberry Pi 4, ADXL345 (3-Axis Accelerometer) Cloud: HiveMQ Cloud Broker The Project Overview Engineered a secure, end-to-end telemetry pipeline designed to monitor and synchronize high-G impact data from edge devices to a centralized monitoring station. This project bridges the gap between low-level sensor interfacing and high-level data visualization.\nTechnical Highlights IoT Cloud Integration: Configured a secure MQTT pipeline to sync data to HiveMQ Cloud, enforcing industry-standard SSL/TLS encryption via port 8883 to prevent data sniffing. Custom Qt Dashboard: Developed a high-performance visualization suite in C++ (Qt 6). It features an asynchronous JSON parser and a live-scrolling UI that renders 3-axis vibration data in real-time. Asynchronous Event Handling: Architected an interrupt-driven sensing system using libgpiod. By monitoring hardware interrupts from the ADXL345, the system eliminates CPU polling, drastically reducing power consumption and latency. Hardware Driver Development: Wrote custom I2C drivers from scratch, handling raw bit-manipulation and implementing Two’s Complement sign-extension for accurate acceleration processing. Key Learning Outcomes End-to-End IoT Security: Gained practical experience in implementing secure cloud handshakes and managing certificates for embedded devices. Real-Time Data Streams: Mastered the management of asynchronous data buffers and UI thread synchronization in Qt to prevent interface “freezing” during high-speed data bursts. Embedded Linux API: Deepened knowledge of Linux character device drivers and the libgpiod library for modern hardware interfacing. Hardware Target The system is built on the Raspberry Pi 4 platform, utilizing an ADXL345 digital accelerometer for impact sensing. It is designed to be easily portable to other Linux-based Single Board Computers (SBCs).\nView Source on GitHub\n",
   "wordCount" : "274",
   "inLanguage": "en",
-  "image":"http://localhost:1313/images/dashboard.png","datePublished": "2026-04-13T10:00:00Z",
+  "datePublished": "2026-04-13T10:00:00Z",
   "dateModified": "2026-04-13T10:00:00Z",
   "author":{
     "@type": "Person",
@@ -179,10 +178,6 @@ Technical Highlights IoT Cloud Integration: Configured a secure MQTT pipeline to
 
 </div>
   </header> 
-<figure class="entry-cover">
-        <img loading="eager" src="http://localhost:1313/images/dashboard.png" alt="Qt Dashboard">
-        <figcaption>Real-time Telemetry Dashboard</figcaption>
-</figure>
   <div class="post-content md-content"><h3 id="-technology-stack">🛠 Technology Stack<a hidden class="anchor" aria-hidden="true" href="#-technology-stack">#</a></h3>
 <ul>
 <li><strong>Languages:</strong> C++ (Qt 6), Embedded C (Paho MQTT), Python (Scripting/Testing)</li>

@@ -5,7 +5,6 @@ date: 2026-04-18T10:00:00Z
 weight: 2
 draft: false
 tags: ["FreeRTOS", "Embedded C", "Real-Time Systems", "IPC", "I2C"]
-# These flags kill the social sharing bar at the bottom
 ShowShareButtons: false
 showShareButtons: false
 ---
@@ -30,6 +29,39 @@ The objective was to design a robust, thread-safe sensor acquisition system on a
 
 ---
 
+###  Live RTOS Execution & Task Arbitration
+
+The following terminal trace captures the live execution of the FreeRTOS tasks. It demonstrates the real-time arbitration of the I2C bus between the high-frequency accelerometer and the low-frequency real-time clock.
+
+{{< terminal command="./telemetry_app" >}}
+ADXL initialized succesfully
+X:0 | Y:0 | Z:0
+H:02 | M:20 | S:29
+X:-4 | Y:144 | Z:192
+X:-6 | Y:144 | Z:191
+X:-4 | Y:144 | Z:194
+X:-5 | Y:144 | Z:193
+X:-7 | Y:145 | Z:192
+X:-4 | Y:143 | Z:194
+X:-4 | Y:145 | Z:190
+X:-5 | Y:145 | Z:190
+X:-6 | Y:143 | Z:197
+X:-5 | Y:145 | Z:193
+H:02 | M:20 | S:30
+X:-5 | Y:143 | Z:189
+X:-4 | Y:142 | Z:193
+... [Simulation continues] ...
+^C
+{{< /terminal >}}
+
+###  Telemetry Data Audit
+
+* **Deterministic 10Hz Scheduling:** Between the RTC outputs of `S:29` and `S:30`, there are exactly ten `X/Y/Z` coordinate lines. This proves the `vTaskDelayUntil()` logic successfully avoids drift and maintains a strict 100ms task frequency.
+* **Thread-Safe IPC (Mutex):** Notice that the output lines never mangle or overlap (e.g., you never see `X:-4 | H:02 Y:144...`). This confirms the FreeRTOS Mutex is successfully locking the `printf` and I2C file descriptors during context switches.
+* **Graceful Termination:** The `^C` (SIGINT) is caught by the system, allowing the process to release the I2C bus and terminate gracefully without hanging the hardware state.
+
+---
+
 ### Key Learning Outcomes
 * **Concurrency Control:** Mastered the use of Mutexes and Semaphores to handle shared resource contention in a real-time environment.
 * **RTOS Scheduling:** Understood the difference between "soft" delays and deterministic "fixed-frequency" scheduling for sensor data integrity.
@@ -40,4 +72,6 @@ The objective was to design a robust, thread-safe sensor acquisition system on a
 ### Hardware Target
 This project is designed for **Linux-based Embedded Systems** (specifically tested on Raspberry Pi). It interfaces with an **ADXL345** for motion data and a **DS3231** Real-Time Clock for timestamping via the I2C protocol.
 
-<a href="https://github.com/VamsiKiran277/FreeRTOS_project.git" target="_blank" rel="noopener noreferrer">View Source on GitHub</a>
+<br>
+
+<a href="https://github.com/VamsiKiran277/FreeRTOS_project.git" target="_blank" rel="noopener noreferrer" style="padding: 10px 20px; background-color: #24292e; color: #00d2ff; text-decoration: none; border-radius: 5px; border: 1px solid #00d2ff; font-weight: 600;">View Source on GitHub</a>

@@ -60,7 +60,7 @@ To test the firmware without physical silicon, the ZX-8080 environment was built
 * **Hardware Injection (`gpio.py` & `timer.py`):** Custom Python peripherals act as the virtual silicon. They intercept the CPU's memory reads/writes to inject mock ADC thermal values and assert Timer Interrupt flags in real-time.
 * **Execution Script (`zx8080.resc`):** Initializes the machine, loads the `.elf` file, sets the Stack Pointer (`SP`) and Program Counter (`PC`), and logs GPIO outputs.
 
-### 🚀 How to Run the Simulation
+###  How to Run the Simulation
 
 **1. Compile the Firmware:**
 {{< terminal command="riscv64-unknown-elf-gcc -march=rv32i -mabi=ilp32 -nostdlib -T link.ld main.c -o zx8080_project.elf" >}}
